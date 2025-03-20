@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Custom Styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f3f4f6;
-            color: #334155;
+            background-color: #f9fafb;
+            color: #374151;
+            line-height: 1.6;
         }
 
         .container {
@@ -28,19 +29,31 @@
             padding-right: 1rem;
         }
 
-        /* Hero Section Gradient */
+        /* Hero Section */
         #hero {
-            background: linear-gradient(135deg, #2563eb, #6d28d9);
-            color: white;
-            padding-top: 8rem;
-            padding-bottom: 8rem;
+            background: #e0f2fe;
+            color: #1e3a8a;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        #hero h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
         }
 
         /* Section Titles */
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             color: #111827;
         }
@@ -48,52 +61,68 @@
         /* Card Styles */
         .card {
             background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            padding: 2.5rem;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            transition: transform 0.2s ease-in-out;
+            border: 1px solid #e2e8f0;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
 
         /* Skills Grid */
         #skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        #skills-grid .card {
+            text-align: center;
+        }
+
+        #skills-grid h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         /* Project Grid */
         #project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        #project-grid h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         /* Footer */
         footer {
-            background-color: #d1d5db;
-            padding: 3rem 0;
+            background-color: #f3f4f6;
+            padding: 2rem 0;
             text-align: center;
-            color: #374151;
+            color: #6b7280;
         }
 
         /* Navigation */
         nav {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         }
 
         nav a {
-            color: #4a5568;
-            transition: color 0.3s;
+            color: #4b5563;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            color: #4f46e5;
+            color: #1e40af;
         }
 
         /* Mobile Menu */
@@ -117,82 +146,109 @@
 
         /* Experience Section Styles */
         #experience {
-            background-color: #eff6ff;
-            border-top: 5px solid #3b82f6;
+            background-color: white;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         #experience .card {
-            border-left: none;
-            border-top: 3px solid #60a5fa;
-            background: linear-gradient(to bottom, #f9fafb, white);
+            border-left: 3px solid #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+
+        #experience h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         /* Skills Section Styles */
         #skills {
-            background-color: #f0fff4;
-            border-bottom: 5px solid #22c55e;
-        }
-
-        #skills-grid .card {
-            border-top: none;
-            border-bottom: 3px solid #4ade80;
-            background: radial-gradient(circle, white, #f3f4f6);
+            background-color: #f0f9ff;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         /* Projects Section Styles */
         #projects {
-            background-color: #fffbeb;
-            border-left: 5px solid #f59e0b;
+            background-color: white;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
-        #project-grid .card {
-            border: 2px dashed #fcd34d;
-            background: repeating-linear-gradient(45deg, #fffbeb, #fffbeb 10px, #fff8e1 10px, #fff8e1 20px);
+        #projects .card {
+            border: 1px solid #cbd5e1;
+            margin-bottom: 1.5rem;
         }
 
         /* Education Section Styles */
         #education {
-            background-color: #f5f3ff;
-            border-right: 5px solid #8b5cf6;
+            background-color: #edf2ff;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         #education .card {
-            border: 2px dotted #a78bfa;
-            background: conic-gradient(from 90deg, #f5f3ff, white, #f5f3ff);
+            margin-bottom: 1.5rem;
+        }
+
+        #education h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         /* Contact Section Styles */
         #contact {
-            background-color: #fcecfc;
-            border-bottom: 5px solid #ec4899;
+            background-color: white;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         #contact .card {
-            background: linear-gradient(to right, #f472b6, #ec4899);
-            color: white;
-            border: none;
+            text-align: center;
         }
 
         #contact a {
-            color: white;
-            text-decoration: underline;
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 500;
         }
 
         #contact a:hover {
-            color: #fbcfe8;
+            text-decoration: underline;
+        }
+
+        /* Hero LinkedIn Icon */
+        #hero a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            background-color: #0077B5;
+            color: white;
+            font-size: 3em;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #hero a:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 
 <body>
-    <nav class="py-4">
+    <nav class="py-3">
         <div class="container flex justify-between items-center">
             <a class="text-xl font-bold" href="#" aria-label="Go to top of page">Shivraj Randive</a>
             <button class="block lg:hidden text-gray-500 focus:outline-none" id="menu-toggle"
                 aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="hidden lg:flex space-x-6">
+<div class="hidden lg:flex space-x-6">
                 <a href="#experience" aria-label="Go to experience section">Experience</a>
                 <a href="#skills" aria-label="Go to skills section">Skills</a>
                 <a href="#projects" aria-label="Go to projects section">Projects</a>
@@ -215,11 +271,8 @@
     </nav>
 
     <header id="hero">
-        <div class="container text-center">
+        <div class="container">
             <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"
-                class="rounded-full mx-auto mb-4"
-                style="display: block; width: 150px; height: 150px; background-color: #0077B5; /* LinkedIn blue */
-                    color: white; font-size: 4em; line-height: 150px; text-align: center; text-decoration: none;"
                 aria-label="LinkedIn Profile">
                 <i class="fab fa-linkedin-in"></i>
             </a>
@@ -229,11 +282,11 @@
         </div>
     </header>
 
-    <section id="experience" class="py-16">
+    <section id="experience" class="py-12">
         <div class="container">
             <h2 class="section-title">Experience</h2>
             <div class="card">
-                <h3 class="text-2xl font-semibold mb-2">Software Developer | Three Star Infotech, Kolhapur</h3>
+                <h3 class="text-xl font-semibold mb-2">Software Developer | Three Star Infotech, Kolhapur</h3>
                 <p class="text-gray-600"><strong>August 2023 – June 2024</strong></p>
                 <ul class="list-disc list-inside mt-4 space-y-2">
                     <li>Developed and optimized the backend using .NET, MVC, and SQL Server, reducing query execution
@@ -250,7 +303,7 @@
         </div>
     </section>
 
-    <section id="skills" class="py-16">
+    <section id="skills" class="py-12">
         <div class="container">
             <h2 class="section-title">Skills</h2>
             <div id="skills-grid">
@@ -275,7 +328,7 @@
         </div>
     </section>
 
-    <section id="projects" class="py-16">
+    <section id="projects" class="py-12">
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <div id="project-grid">
@@ -307,30 +360,29 @@
         </div>
     </section>
 
-    <section id="education" class="py-16">
+    <section id="education" class="py-12">
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="card">
-                <h3 class="text-2xl font-semibold mb-2">KIT'S Institute of Management Education and Research,
+                <h3 class="text-xl font-semibold mb-2">KIT'S Institute of Management Education and Research,
                     Kolhapur</h3>
                 <p class="text-gray-600"><strong>August 2022 – June 2024</strong></p>
                 <p class="text-gray-600">Master of Computer Applications (MCA)</p>
             </div>
             <div class="card mt-4">
-                <h3 class="text-2xl font-semibold mb-2">Mahavir Mahavidyalaya, Kolhapur</h3>
+                <h3 class="text-xl font-semibold mb-2">Mahavir Mahavidyalaya, Kolhapur</h3>
                 <p class="text-gray-600"><strong>June 2019 – June 2022</strong></p>
                 <p class="text-gray-600">Bachelor of Science (BSc - Computer Science)</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-16">
+    <section id="contact" class="py-12">
         <div class="container">
             <h2 class="section-title">Contact</h2>
             <div class="card text-center">
                 <p class="text-gray-600">For inquiries please use the following:</p>
-
-                                <p class="mt-4">You can also reach out via:</p>
+                <p class="mt-4">You can also reach out via:</p>
                 <p class="mt-2"><a href="tel:9518302700" class="text-blue-500">Phone: 9518302700</a></p>
                 <p class="mt-2"><a href="mailto:shivrajrandive9281@gmail.com" class="text-blue-500">Email:
                         shivrajrandive9281@gmail.com</a></p>
@@ -338,11 +390,10 @@
         </div>
     </section>
 
-   
     <footer class="py-8">
         <div class="container">
-            <p>GitHub: <a href="https://github.com/Shivrajjjjj" target="_blank"
-                    class="text-blue-500">github.com/Shivrajjjjj</a></p>
+            <p>GitHub: <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-blue-500"
+                    aria-label="Shivraj's GitHub profile">github.com/Shivrajjjjj</a></p>
         </div>
     </footer>
 
