@@ -1,6 +1,6 @@
 # 🚀 Shivraj Randive - Software Developer  
 
-[![Portfolio Website](https://yourusername.github.io/portfolio-website/)](https://yourusername.github.io/portfolio-website/)
+[![Portfolio Website](https://Shivrajjjjj.github.io/portfolio-website/)](https://Shivrajjjjj.github.io/portfolio-website/)
 
 Shivraj Randive is a **Software Developer** and **Full-Stack Developer** based in Kolhapur.  
 This portfolio showcases my **experience, skills, projects, and education**.
