@@ -26,7 +26,5 @@ This portfolio showcases my **experience, skills, projects, and education**.
 
 ---
 
-## 🔧 How to Run Locally:
-1. Clone the repository:  
-   ```sh
+
    git clone https://github.com/Shivrajjjjj/portfolio-website.git
