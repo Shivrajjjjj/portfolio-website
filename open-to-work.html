@@ -1,4 +1,3 @@
-<!-- open-to-work.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open to Work – Shivraj Randive</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e0ecff, #f4faff);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800">
 
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-indigo-600">Shivraj Randive</a>
+      <div class="space-x-6 hidden md:flex">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+        <a href="resume.html" class="text-gray-700 hover:text-indigo-600 font-medium">Resume</a>
+        <a href="open-to-work.html" class="text-indigo-700 font-semibold">Open to Work</a>
+             </div>
+    </div>
+  </nav>
+  <div class="h-20"></div> <!-- Spacing after navbar -->
+
+  <!-- Open to Work Section -->
   <section class="py-20">
     <div class="container mx-auto px-4 max-w-3xl">
-      <h1 class="text-3xl font-bold text-center mb-10">📌 Open to Work – My Journey, Skills & Aspirations</h1>
+      <h1 class="text-3xl font-bold text-center mb-10 animate-pulse">📌 Open to Work – My Journey, Skills & Aspirations</h1>
 
       <div class="bg-white p-8 rounded-2xl shadow-lg space-y-6 leading-relaxed">
 
         <p>Hello HR Professionals & Hiring Managers,</p>
         <p>I’m currently seeking an opportunity where I can contribute meaningfully, grow professionally, and keep learning every day. Instead of just another resume, I wanted to share my journey—a glimpse into who I am, what I bring to the table, and why I’d be a valuable addition to your team.</p>
 
-        <h2 class="text-xl font-semibold mt-6">👨‍💻 About Me</h2>
+        <h2 class="text-xl font-semibold mt-6" id="experience">👨‍💻 About Me</h2>
         <ul class="list-disc list-inside space-y-1">
           <li><strong>Technologies</strong>: Python, SQL, ASP.NET, MVC, JavaScript</li>
           <li><strong>Tools & Concepts</strong>: Data Analytics, Flask, AI/ML tools</li>
@@ -26,7 +49,7 @@
           <li><strong>Approach</strong>: Clean, maintainable code & performance optimization</li>
         </ul>
 
-        <h2 class="text-xl font-semibold mt-6">🔍 What I’m Looking For</h2>
+        <h2 class="text-xl font-semibold mt-6" id="skills">🔍 What I’m Looking For</h2>
         <ul class="list-disc list-inside space-y-1">
           <li>Software Developer – ASP.NET (MVC/Web Forms), SQL Server, Python (Flask)</li>
           <li>Python Developer – Backend/API development, automation, and data handling</li>
@@ -34,7 +57,7 @@
           <li>AI/ML Roles – Entry-level roles applying foundational ML & AI tools</li>
         </ul>
 
-        <h2 class="text-xl font-semibold mt-6">🧰 What I Bring to the Table</h2>
+        <h2 class="text-xl font-semibold mt-6" id="projects">🧰 What I Bring to the Table</h2>
         <ul class="list-disc list-inside space-y-1">
           <li>Strong Technical Foundation: Python, SQL, .NET, MVC, ML tools</li>
           <li>Project Experience: Academic + freelance projects</li>
@@ -42,7 +65,7 @@
           <li>Growth Mindset: Constant learner via courses, docs, and real-world practice</li>
         </ul>
 
-        <h2 class="text-xl font-semibold mt-6">💡 Why Hire Me?</h2>
+        <h2 class="text-xl font-semibold mt-6" id="education">💡 Why Hire Me?</h2>
         <ul class="list-disc list-inside space-y-1">
           <li>I focus on <strong>adding value</strong>, not just completing tasks</li>
           <li>Fast learner, dependable, and dedicated to doing things right</li>
@@ -50,7 +73,7 @@
           <li>I welcome challenges and adapt quickly</li>
         </ul>
 
-        <h2 class="text-xl font-semibold mt-6">🤝 Let’s Connect</h2>
+        <h2 class="text-xl font-semibold mt-6" id="contact">🤝 Let’s Connect</h2>
         <ul class="list-inside space-y-2">
           <li>📧 <strong>Email</strong>: <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 underline">shivrajrandive9281@gmail.com</a></li>
           <li>🔗 <strong>LinkedIn</strong>: <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-600 underline" target="_blank">linkedin.com/in/shivraj-randive</a></li>
@@ -59,7 +82,7 @@
         </ul>
 
         <div class="text-center mt-10">
-          <a href="index.html" class="text-indigo-700 underline hover:text-indigo-500">← Back to Portfolio</a>
+          <a href="resume.html" class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-2 rounded-full shadow-md transition">📄 View My Resume</a>
         </div>
 
       </div>
