@@ -52,11 +52,20 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+       .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;  /* px-5 */
+    padding-right: 1.25rem;
+    max-width: 1200px;
+}
+
     </style>
 
 </head>
 
 <body>
+    <div class="container mx-auto px-4">
     <nav class="py-3">
         <!-- Navbar -->
 <nav class="bg-white shadow-sm sticky top-0 z-50">
@@ -131,8 +140,9 @@
     <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Experience</h2>
 
     <!-- Full-time Job Experience -->
-    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 md:p-8 mb-10">
-      <div class="flex items-center mb-2">
+   <section id="experience" class="py-20 bg-gray-50 text-center">
+  <div class="container mx-auto px-4 max-w-4xl">
+
         <svg class="w-6 h-6 text-indigo-600 mr-2" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -167,11 +177,12 @@
       <p class="text-gray-800 font-medium">Freelance – Shwet Shiva Printing Services</p>
       <p class="text-sm text-gray-500 mb-4">October 2024 – March 2025 · Kolhapur, Maharashtra, India · Remote</p>
 
-      <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm">
-        <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Led development of a scalable webform system using <strong>ASP.NET</strong> and <strong>MVC</strong> architecture.</li>
-        <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Created responsive layouts using <strong>Bootstrap</strong> and <strong>CSS</strong> for enhanced mobile experience.</li>
-        <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Built interactive user interfaces with <strong>JavaScript</strong>, improving navigation and engagement.</li>
-        <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Integrated advanced validation and error handling for smoother user workflows.</li>
+     <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm">
+
+        <li><span class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:top-0.5 before:text-green-500"></span>Led development of a scalable webform system using <strong>ASP.NET</strong> and <strong>MVC</strong> architecture.</li>
+        <li><span class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:top-0.5 before:text-green-500"></span>Created responsive layouts using <strong>Bootstrap</strong> and <strong>CSS</strong> for enhanced mobile experience.</li>
+        <li><span class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:top-0.5 before:text-green-500"></span>Built interactive user interfaces with <strong>JavaScript</strong>, improving navigation and engagement.</li>
+        <li><span class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:top-0.5 before:text-green-500"></span>Integrated advanced validation and error handling for smoother user workflows.</li>
         <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Improved backend logic and data handling, boosting system efficiency.</li>
         <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Collaborated with stakeholders to align technical implementation with business needs.</li>
         <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 align-middle"></span>Ensured robust testing, debugging, and delivery of high-quality code.</li>
@@ -359,6 +370,7 @@
             mobileMenu.classList.toggle('hidden');
         });
     </script>
+</div>
 </body>
 
 </html>
