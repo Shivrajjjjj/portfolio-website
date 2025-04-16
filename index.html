@@ -46,9 +46,15 @@
         }
 
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
         .container {
             margin-left: auto;
@@ -62,6 +68,14 @@
             color: #4f46e5;
             font-weight: 600;
         }
+         .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
     </style>
 </head>
 
@@ -96,11 +110,11 @@
             </div>
         </nav>
 
-        <header id="hero" class="bg-gradient-to-r from-indigo-100 to-white py-20 text-center">
+   <header id="hero" class="bg-gradient-to-r from-indigo-100 to-white py-20 text-center overflow-hidden">
   <div class="container mx-auto px-4">
-    
-    <!-- Social Links -->
-    <div class="flex justify-center mb-6">
+
+    <!-- LinkedIn Icon -->
+    <div class="flex justify-center mb-6 animate-fade-in-up">
       <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"
          class="text-indigo-600 hover:text-indigo-800 transition-all duration-300">
         <svg class="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
@@ -110,17 +124,17 @@
       </a>
     </div>
 
-    <!-- Main Heading -->
-    <h1 class="text-5xl md:text-6xl font-extrabold text-indigo-800 animate-fade-in-up">
+    <!-- Headings -->
+    <h1 class="text-5xl md:text-6xl font-extrabold text-indigo-800 animate-fade-in-up delay-100">
       Mr. Shivraj Randive
     </h1>
-    <h2 class="text-2xl md:text-3xl text-gray-600 mt-3 font-medium animate-fade-in-up delay-100">
+    <h2 class="text-2xl md:text-3xl text-gray-600 mt-3 font-medium animate-fade-in-up delay-200">
       Software Developer | Full-Stack Developer
     </h2>
-    <p class="mt-2 text-gray-500 text-base animate-fade-in-up delay-200">📍 Kolhapur</p>
+    <p class="mt-2 text-gray-500 text-base animate-fade-in-up delay-300">📍 Kolhapur</p>
 
-    <!-- Bio -->
-    <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-700 leading-relaxed animate-fade-in-up delay-300">
+    <!-- Description -->
+    <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-700 leading-relaxed animate-fade-in-up delay-400">
       I’m <span class="text-indigo-600 font-semibold">Mr. Shivraj Randive</span>, a passionate
       <span class="text-indigo-600 font-semibold">Software Developer</span> from Kolhapur with expertise in
       <span class="text-indigo-600 font-semibold">Full-Stack Development</span>, crafting robust applications using
@@ -139,9 +153,9 @@
         ✉️ Contact Me
       </a>
     </div>
+
   </div>
 </header>
-
 
    <section id="experience" class="py-20 bg-gray-50 text-center">
   <div class="container mx-auto px-4">
