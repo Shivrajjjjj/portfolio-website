@@ -19,16 +19,47 @@
 <body class="text-gray-800">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-md fixed w-full z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-indigo-600">Shivraj Randive</a>
-      <div class="space-x-6 hidden md:flex">
-        <a href="index.html" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
-        <a href="resume.html" class="text-gray-700 hover:text-indigo-600 font-medium">Resume</a>
-        <a href="open-to-work.html" class="text-indigo-700 font-semibold">Open to Work</a>
-      </div>
+<nav class="bg-white shadow-md fixed w-full z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    
+    <!-- Brand -->
+    <a href="index.html" class="text-xl font-bold text-indigo-600">Shivraj Randive</a>
+
+    <!-- Hamburger Menu Button (Mobile) -->
+    <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Navigation Links (Desktop) -->
+    <div class="space-x-6 hidden md:flex">
+      <a href="index.html" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+      <a href="resume.html" class="text-gray-700 hover:text-indigo-600 font-medium">Resume</a>
+      <a href="open-to-work.html" class="text-indigo-700 font-semibold">Open to Work</a>
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobile-menu" class="md:hidden px-4 pb-4 hidden">
+    <a href="index.html" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+    <a href="resume.html" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium">Resume</a>
+    <a href="open-to-work.html" class="block py-2 text-indigo-700 font-semibold">Open to Work</a>
+  </div>
+</nav>
+
+<!-- Script to Toggle Mobile Menu -->
+<script>
+  const toggleBtn = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  toggleBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
   <div class="h-20"></div>
 
   <!-- Open to Work Section -->
