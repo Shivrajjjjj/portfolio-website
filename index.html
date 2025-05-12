@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <style>
     * {
       margin: 0;
       padding: 0;
@@ -350,41 +349,8 @@
       color: #555;
     }
 
-    /* --- Contact --- */
-    .contact-info {
-      text-align: center;
-    }
-
-    .contact-info p {
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .contact-links a {
-      display: inline-block;
-      margin: 0 15px;
-      font-size: 1.5rem;
-      color: #5e5ce6;
-    }
-
-    .contact-links a:hover {
-      opacity: 0.8;
-    }
-
-    /* --- Footer --- */
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background-color: #f0f0f0;
-      color: #777;
-      font-size: 0.9rem;
-    }
-    .contact-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
+   .contact-card {
+    text-align: center;
   }
  
     /* --- Media Queries --- */
@@ -782,41 +748,58 @@
     </div>
   </div>
 </section>
-  <section id="contact" class="py-20 bg-gray-100">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-4xl font-extrabold text-indigo-800 mb-8 tracking-tight">Connect With Me</h2>
-    <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
-      I'm always open to new opportunities and collaborations. Feel free to reach out through any of the channels below!
+ <section id="contact" class="py-24 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-xl shadow-lg overflow-hidden">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-5xl font-extrabold text-indigo-900 mb-12 tracking-wider animate-pulse">Let's Create Something Amazing Together!</h2>
+    <p class="text-lg text-gray-700 mb-16 max-w-3xl mx-auto leading-relaxed">
+      I'm eager to explore new opportunities and collaborations. Connect with me through the channels below, and let's discuss how we can bring your vision to life.
     </p>
-    <div class="flex flex-col md:flex-row justify-center items-center gap-8">
-      <a href="mailto:shivrajrandive9281@gmail.com" class="contact-link text-indigo-600 hover:text-indigo-800 transition duration-300">
-        <i class="fas fa-envelope fa-3x mb-2 md:mb-0 md:mr-4"></i>
-        <span class="font-semibold">Email</span>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <a href="mailto:shivrajrandive9281@gmail.com" class="contact-card bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-indigo-200 text-indigo-700 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-envelope fa-2x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-indigo-800 mb-2">Email Me</h3>
+        <p class="text-gray-600">shivrajrandive9281@gmail.com</p>
       </a>
-      <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" rel="noopener noreferrer" class="contact-link text-blue-600 hover:text-blue-800 transition duration-300">
-        <i class="fab fa-linkedin fa-3x mb-2 md:mb-0 md:mr-4"></i>
-        <span class="font-semibold">LinkedIn</span>
+      <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" rel="noopener noreferrer" class="contact-card bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-blue-800 mb-2">Connect on LinkedIn</h3>
+        <p class="text-gray-600">linkedin.com/in/shivraj-randive</p>
       </a>
-      <a href="https://github.com/Shivrajjjjj" target="_blank" rel="noopener noreferrer" class="contact-link text-gray-800 hover:text-gray-900 transition duration-300">
-        <i class="fab fa-github fa-3x mb-2 md:mb-0 md:mr-4"></i>
-        <span class="font-semibold">GitHub</span>
+      <a href="https://github.com/Shivrajjjjj" target="_blank" rel="noopener noreferrer" class="contact-card bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-gray-200 text-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fab fa-github fa-2x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-gray-900 mb-2">Explore on GitHub</h3>
+        <p class="text-gray-600">github.com/Shivrajjjjj</p>
       </a>
-      <a href="tel:+919518302700" class="contact-link text-green-600 hover:text-green-800 transition duration-300">
-        <i class="fas fa-phone-alt fa-3x mb-2 md:mb-0 md:mr-4"></i>
-        <span class="font-semibold">Call Me</span>
+      <a href="tel:+919518302700" class="contact-card bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-green-200 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-phone-alt fa-2x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-green-800 mb-2">Give Me a Call</h3>
+        <p class="text-gray-600">+91 9518302700</p>
       </a>
-      <a href="https://wa.me/919518302700" target="_blank" rel="noopener noreferrer" class="contact-link text-green-500 hover:text-green-700 transition duration-300">
-        <i class="fab fa-whatsapp fa-3x mb-2 md:mb-0 md:mr-4"></i>
-        <span class="font-semibold">WhatsApp</span>
+      <a href="https://wa.me/919518302700" target="_blank" rel="noopener noreferrer" class="contact-card bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-green-300 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fab fa-whatsapp fa-2x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-green-800 mb-2">Chat on WhatsApp</h3>
+        <p class="text-gray-600">+91 9518302700</p>
       </a>
-      <a href="https://www.instagram.com/shivraj_137o" target="_blank" rel="noopener noreferrer" class="contact-link text-purple-500 hover:text-purple-700 transition duration-300">
-        <i class="fab fa-instagram fa-3x mb-2 md:mb-0 md:mr-4"></i>
-        <span class="font-semibold">Instagram</span>
+      <a href="https://www.instagram.com/shivraj_137o" target="_blank" rel="noopener noreferrer" class="contact-card bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-purple-200 text-purple-700 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fab fa-instagram fa-2x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-purple-800 mb-2">Follow on Instagram</h3>
+        <p class="text-gray-600">@shivraj_137o</p>
       </a>
     </div>
   </div>
 </section>
-
   
  <script>
         // Toggle mobile menu
