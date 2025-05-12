@@ -818,43 +818,16 @@
       <p>&copy; 2025 Shivraj Randive | All rights reserved</p>
     </div>
   </footer>
-<script>
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const slideInMobileMenu = document.getElementById('slide-in-mobile-menu');
-  const closeMenuMobile = document.getElementById('close-menu-mobile');
-  const contentDiv = document.querySelector('.pt-16'); // Target the main content area
+ <script>
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-  if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-      slideInMobileMenu.classList.remove('-translate-x-full');
-      document.body.classList.add('overflow-hidden');
-    });
-  }
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 
-  if (closeMenuMobile) {
-    closeMenuMobile.addEventListener('click', () => {
-      slideInMobileMenu.classList.add('-translate-x-full');
-      document.body.classList.remove('overflow-hidden');
-    });
-  }
-
-  slideInMobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      slideInMobileMenu.classList.add('-translate-x-full');
-      document.body.classList.remove('overflow-hidden');
-    });
-  });
-
-  function adjustContentPadding() {
-    if (contentDiv) {
-      contentDiv.style.paddingTop = window.innerWidth >= 1024 ? '0' : '4rem'; // Adjust top padding for mobile
-      contentDiv.style.paddingLeft = window.innerWidth >= 1024 ? '0' : '0'; // No left padding in this setup
-    }
-  }
-
-  window.addEventListener('resize', adjustContentPadding);
-  adjustContentPadding();
-</script>
 </body>
 
 </html>
