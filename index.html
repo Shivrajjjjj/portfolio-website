@@ -20,9 +20,9 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #f0f4f8, #e0f7ff);
-      color: #1f2937;
-      line-height: 1.7;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
@@ -30,459 +30,722 @@
     a {
       text-decoration: none;
       color: inherit;
+      transition: color 0.3s ease;
     }
 
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: #111827;
-      position: relative;
-      animation: fadeInUp 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.98);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    a:hover {
+      color: #5e5ce6;
     }
 
     .container {
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-      max-width: 1200px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    .highlight {
-      color: #4f46e5;
-      font-weight: 600;
+    /* --- Header --- */
+    header {
+      background-color: #fff;
+      padding: 30px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .animate-fade-in-up {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    .delay-100 {
-      animation-delay: 0.1s;
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
 
-    .delay-200 {
-      animation-delay: 0.2s;
+    .mobile-nav {
+      display: none;
+      list-style: none;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      margin-top: 10px;
     }
 
-    .delay-300 {
-      animation-delay: 0.3s;
+    .mobile-nav li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
     }
 
-    .delay-500 {
-      animation-delay: 0.5s;
+    .mobile-nav li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav li a {
+      display: block;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #ddd; /* Placeholder */
+      margin: 0 auto 20px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions a {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+
+    .hero-actions a.primary {
+      background-color: #5e5ce6;
+      color: #fff;
+    }
+
+    .hero-actions a.secondary {
+      border: 1px solid #5e5ce6;
+      color: #5e5ce6;
+    }
+
+    /* --- Sections --- */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: #5e5ce6;
+    }
+
+    /* --- Experience --- */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .experience-card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .experience-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .experience-card p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .experience-card strong {
+      font-weight: 500;
+      color: #555;
+    }
+
+    /* --- Skills --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .skill-item {
+      text-align: center;
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: #5e5ce6;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* --- Projects --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .project-image {
+      height: 200px;
+      background-color: #ddd; /* Placeholder */
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      padding: 20px;
+    }
+
+    .project-info h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .project-info p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      margin-right: 15px;
+      color: #5e5ce6;
+      font-size: 1rem;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Education --- */
+    .education-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .education-item {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .education-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .education-item p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .education-item strong {
+      font-weight: 500;
+      color: #555;
+    }
+
+    /* --- Contact --- */
+    .contact-info {
+      text-align: center;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 0 15px;
+      font-size: 1.5rem;
+      color: #5e5ce6;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #f0f0f0;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* --- Media Queries --- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-actions a {
+        padding: 10px 20px;
+        margin: 5px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+      }
+
+      .experience-grid,
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-item {
+        margin-bottom: 15px;
+      }
+
+      .project-card {
+        margin-bottom: 20px;
+      }
+
+      .education-item {
+        margin-bottom: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="font-sans antialiased">
-    <nav class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 rounded-b-lg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
-        <a href="#" class="text-2xl md:text-3xl font-extrabold text-indigo-700 hover:text-indigo-900 transition-all tracking-wide">
-          SHIVRAJ RANDIVE
-        </a>
-        <button class="lg:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" id="menu-toggle" aria-label="Toggle navigation">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-        <div class="hidden lg:flex space-x-6 text-gray-800 font-medium text-sm md:text-base">
-          <a href="#experience" class="hover:text-indigo-600 transition duration-200">Experience</a>
-          <a href="/blog" class="hover:text-indigo-600 transition duration-200">Blog</a>
-          <a href="/resume" class="hover:text-indigo-600 transition duration-200">Resume</a>
-          <a href="#skills" class="hover:text-indigo-600 transition duration-200">Skills</a>
-          <a href="#projects" class="hover:text-indigo-600 transition duration-200">Projects</a>
-          <a href="#education" class="hover:text-indigo-600 transition duration-200">Education</a>
-          <a href="#contact" class="hover:text-indigo-600 transition duration-200">Contact</a>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">SHIVRAJ RANDIVE</a>
+        <ul class="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <ul class="mobile-nav">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-image">
+        <img src="placeholder-profile.jpg" alt="Shivraj Randive">
+      </div>
+      <h1>Shivraj Randive</h1>
+      <p>Software Developer • Full-Stack Engineer based in Kolhapur</p>
+      <div class="hero-actions">
+        <a href="/resume" class="primary">View Resume</a>
+        <a href="#contact" class="secondary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <h3>.NET Developer</h3>
+          <p><strong>Novadule Technologies</strong> · Full-time</p>
+          <p>Dec 2024 – Present · Remote · India</p>
+          <p>Onboarded to the development team and began working with <strong>.NET Core</strong>, <strong>Entity Framework</strong>, and <strong>REST APIs</strong>.</p>
+          <p>Started contributing to backend modules and collaborating with UI teams for seamless integration.</p>
+          <p>Assisted in query optimization efforts and began exploring performance tuning opportunities.</p>
+          <p>Engaged in Agile rituals including standups, sprint planning, and knowledge sharing sessions.</p>
+        </div>
+        <div class="experience-card">
+          <h3>Software Developer</h3>
+          <p><strong>Three Star Infotech, Kolhapur</strong></p>
+          <p>Aug 2023 – Jun 2024</p>
+          <p>Optimized backend using <strong>.NET, MVC, SQL Server</strong> (30% faster queries).</p>
+          <p>Reduced manual errors by <strong>40%</strong> via inventory automation.</p>
+          <p>Secured data via <strong>RBAC</strong>, decreasing unauthorized access.</p>
+          <p>Improved UX by <strong>15%</strong> through responsive UI/UX revamps.</p>
+          <p>Cut downtime by <strong>20%</strong> via digital workflows.</p>
+        </div>
+        <div class="experience-card">
+          <h3>Webform Project (Role: Developer)</h3>
+          <p><strong>Freelance – Shwet Shiva Printing Services</strong></p>
+          <p>Jul 2024 – Nov 2024 · Remote</p>
+          <p>Developed full-stack webform system using <strong>ASP.NET MVC</strong>.</p>
+          <p>Responsive UI built with <strong>Bootstrap</strong> and modern <strong>CSS</strong>.</p>
+          <p>Added interactivity using <strong>JavaScript</strong> for a dynamic UX.</p>
+          <p>Validation system reduced errors and improved UX continuity.</p>
+          <p>Optimized backend logic with modular architecture.</p>
+          <p>Maintained frequent client communication to align with business goals.</p>
+          <p>Delivered robust, high-quality modules under tight deadlines.</p>
         </div>
       </div>
-      <div class="hidden lg:hidden bg-white px-4 pb-4" id="mobile-menu">
-        <a href="/blog" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Blog</a>
-        <a href="/resume" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Resume</a>
-        <a href="#experience" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Experience</a>
-        <a href="#skills" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Skills</a>
-        <a href="#projects" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Projects</a>
-        <a href="#education" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Education</a>
-        <a href="#contact" class="block py-2 text-gray-700 hover:text-indigo-600 transition duration-200">Contact</a>
-      </div>
-    </nav>
+    </div>
+  </section>
 
-    <header id="hero" class="bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-16 md:py-24 text-center">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="flex justify-center mb-6 animate-fade-in-up">
-          <div class="bg-indigo-700 text-white text-2xl md:text-3xl font-bold w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full shadow-lg ring-2 ring-white">
-            SR
+  <section id="skills" class="section bg-gray-100">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <i class="fab fa-microsoft"></i>
+          <p class="skill-name">.NET</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-code"></i>
+          <p class="skill-name">ASP.NET MVC</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-python"></i>
+          <p class="skill-name">Python (Flask)</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-java"></i>
+          <p class="skill-name">Java</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-html5"></i>
+          <p class="skill-name">HTML5</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-css3-alt"></i>
+          <p class="skill-name">CSS3</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-js"></i>
+          <p class="skill-name">JavaScript</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-bootstrap"></i>
+          <p class="skill-name">Bootstrap</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-tailwind-css"></i>
+          <p class="skill-name">Tailwind CSS</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-database"></i>
+          <p class="skill-name">SQL Server</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-database"></i>
+          <p class="skill-name">MySQL</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-github"></i>
+          <p class="skill-name">Git & GitHub</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-pencil-ruler"></i>
+          <p class="skill-name">UI/UX Design (Figma)</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-exchange-alt"></i>
+          <p class="skill-name">REST APIs</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-project-diagram"></i>
+          <p class="skill-name">Agile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="placeholder-project1.jpg" alt="Project 1">
           </div>
-        </div>
-
-        <div class="flex justify-center mb-4 animate-fade-in-up delay-100">
-          <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-indigo-600 hover:text-indigo-800">
-            <svg class="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.77 0 5-2.24 5-5v-14c0-2.76-2.23-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.31c.89-1.18 2.19-1.81 3.5-1.81 2.5 0 4.5 2 4.5 4.5v6z" />
-            </svg>
-          </a>
-        </div>
-
-        <h1 class="text-3xl md:text-5xl font-black text-indigo-800 animate-fade-in-up delay-200">
-          Shivraj Randive
-        </h1>
-        <h2 class="text-lg md:text-2xl text-gray-600 mt-2 md:mt-3 font-medium animate-fade-in-up delay-300">
-          Software Developer • Full-Stack Engineer
-        </h2>
-        <p class="mt-1 md:mt-2 text-gray-500 animate-fade-in-up delay-350">📍 Kolhapur, Maharashtra</p>
-
-        <p class="mt-4 md:mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-700 animate-fade-in-up delay-400 leading-relaxed">
-          Passionate about crafting efficient and scalable applications using
-          <span class="text-indigo-600 font-semibold">.NET Core</span>,
-          <span class="text-indigo-600 font-semibold">ASP.NET MVC</span>,
-          <span class="text-indigo-600 font-semibold">Flask</span>, and
-          <span class="text-indigo-600 font-semibold">JavaScript</span>. Dedicated to backend optimization and seamless API integrations.
-        </p>
-
-        <div class="mt-6 md:mt-8 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-500">
-          <a href="/resume" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-indigo-700 hover:to-purple-700 shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
-            <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6m3 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            View Resume
-          </a>
-          <a href="mailto:shivrajrandive9281@gmail.com" class="bg-white border border-indigo-300 text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-indigo-50 transition duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
-            <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            Contact Me
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <section id="experience" class="py-24 bg-gradient-to-b from-gray-50 to-white text-center">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-gray-800 mb-16 tracking-tight animate-fade-in-up">
-          Experience & Vision
-        </h2>
-
-        <div class="space-y-14">
-
-          <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 max-w-4xl mx-auto animate-fade-in-up">
-            <div class="flex items-center justify-center gap-2 mb-3">
-              <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h4l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
-              </svg>
-              <h3 class="text-2xl font-semibold text-indigo-700">.NET Developer</h3>
+          <div class="project-info">
+            <h3>Forts Tourism Website</h3>
+            <p>End-to-end tourism platform using Flask and MySQL. Delivered responsive UI, real-time bookings, and backend optimization—cutting load times and boosting user satisfaction.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
             </div>
-            <p class="text-gray-700 font-medium text-lg">Novadule Technologies · Full-time</p>
-            <p class="text-sm text-gray-500 mb-6">Dec 2024 – Present · Remote · India</p>
-
-            <ul class="text-left space-y-3 text-base text-gray-700 max-w-xl mx-auto">
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Onboarded to the development team and began working with <strong>.NET Core</strong>, <strong>Entity Framework</strong>, and <strong>REST APIs</strong>.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Started contributing to backend modules and collaborating with UI teams for seamless integration.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Assisted in query optimization efforts and began exploring performance tuning opportunities.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Engaged in Agile rituals including standups, sprint planning, and knowledge sharing sessions.</li>
-            </ul>
-
-            <p class="mt-6 text-indigo-600 text-sm italic">Next Vision: Innovating modern .NET solutions that drive scalable growth and performance.</p>
           </div>
-
-          <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 max-w-4xl mx-auto animate-fade-in-up">
-            <div class="flex items-center justify-center gap-2 mb-3">
-              <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V7a2 0 012-2h3l2-2h4l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
-              </svg>
-              <h3 class="text-2xl font-semibold text-indigo-700">Software Developer</h3>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="placeholder-project2.jpg" alt="Project 2">
+          </div>
+          <div class="project-info">
+            <h3>Computer Institute System</h3>
+            <p>Built a robust academic automation platform with ASP.NET & SQL Server. Enabled smart admissions, auto-invoicing, and scheduling. Reduced manual work by 60%.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
             </div>
-            <p class="text-gray-700 font-medium text-lg">Three Star Infotech, Kolhapur</p>
-            <p class="text-sm text-gray-500 mb-6">Aug 2023 – Jun 2024</p>
-
-            <ul class="text-left space-y-3 text-base text-gray-700 max-w-xl mx-auto">
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Optimized backend using <strong>.NET, MVC, SQL Server</strong> (30% faster queries).</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Reduced manual errors by <strong>40%</strong> via inventory automation.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Secured data via <strong>RBAC</strong>, decreasing unauthorized access.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Improved UX by <strong>15%</strong> through responsive UI/UX revamps.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Cut downtime by <strong>20%</strong> via digital workflows.</li>
-            </ul>
-
-            <div class="mt-6">
-              <a href="internship certificate.pdf" target="_blank"
-                class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:brightness-110 text-white px-5 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-xl transition-transform transform hover:scale-105">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0H5a2 2 0 01-2-2V9m9 11h6a2 2 0 002-2V9" />
-                </svg>
-                Internship Certificate
-              </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="placeholder-project3.jpg" alt="Project 3">
+          </div>
+          <div class="project-info">
+            <h3>Webform Project</h3>
+            <p>Transformed printing services through dynamic ASP.NET forms and MVC design. Streamlined custom orders and client communication.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
             </div>
-
-            <p class="mt-6 text-indigo-600 text-sm italic">Next Vision: Leading scalable enterprise solutions in fintech and banking innovation.</p>
           </div>
-
-          <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 max-w-4xl mx-auto animate-fade-in-up">
-            <div class="flex items-center justify-center gap-2 mb-3">
-              <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M9 12h6m-3 -3v6m8 4H5a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h4l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
-              </svg>
-              <h3 class="text-2xl font-semibold text-indigo-700">Webform Project (Role: Developer)</h3>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="placeholder-project4.jpg" alt="Project 4">
+          </div>
+          <div class="project-info">
+            <h3>Digital Banking Solution</h3>
+            <p>Flask-powered secure banking app with real-time transactions, loan modules, and user-friendly dashboards.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
             </div>
-            <p class="text-gray-700 font-medium text-lg">Freelance – Shwet Shiva Printing Services</p>
-            <p class="text-sm text-gray-500 mb-6">Jul 2024 – Nov 2024 · Remote</p>
-
-            <ul class="text-left space-y-3 text-base text-gray-700 max-w-xl mx-auto">
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Developed full-stack webform system using <strong>ASP.NET MVC</strong>.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Responsive UI built with <strong>Bootstrap</strong> and modern <strong>CSS</strong>.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Added interactivity using <strong>JavaScript</strong> for a dynamic UX.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Validation system reduced errors and improved UX continuity.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Optimized backend logic with modular architecture.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Maintained frequent client communication to align with business goals.</li>
-              <li><span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>Delivered robust, high-quality modules under tight deadlines.</li>
-            </ul>
-            <p class="mt-6 text-indigo-600 text-sm italic">Next Vision: Delivering client-first web solutions that balance automation, UX, and performance.</p>
           </div>
-
         </div>
-      </div>
-    </section>
-
-    <section id="skills" class="py-20 bg-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-extrabold text-gray-900 mb-8 tracking-tight">My Technical Arsenal</h2>
-        <p class="text-gray-600 mb-10 max-w-2xl mx-auto text-base sm:text-lg">
-          A showcase of tools and technologies I work with across the full stack.
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-10">
-          <a href="https://dotnet.microsoft.com/" target="_blank" title="ASP.NET">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://dotnet.microsoft.com/en-us/platform/dotnet-core" target="_blank" title=".NET Core">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://www.python.org/" target="_blank" title="Python (Flask)">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://www.java.com/" target="_blank" title="Java">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-
-          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" title="HTML5">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" title="CSS3">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" title="JavaScript">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://getbootstrap.com/" target="_blank" title="Bootstrap">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://tailwindcss.com/" target="_blank" title="Tailwind CSS">
-            <img src="https://www.svgrepo.com/show/374118/tailwind.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://www.figma.com/" target="_blank" title="UI/UX Design">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-
-          <a href="https://www.mysql.com/" target="_blank" title="MySQL">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" title="Microsoft SQL Server">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-
-          <a href="https://git-scm.com/" target="_blank" title="Git">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://github.com/" target="_blank" title="GitHub">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://visualstudio.microsoft.com/" target="_blank" title="Visual Studio">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
-          <a href="https://www.postman.com/" target="_blank" title="Postman">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" class="w-20 h-20 transition-transform duration-300 hover:scale-110">
-          </a>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="placeholder-project5.jpg" alt="Project 5">
+          </div>
+          <div class="project-info">
+            <h3>Blazor Dashboard App</h3>
+            <p>A real-time Blazor Server dashboard app using .NET, Bootstrap, and JavaScript with dynamic tables, weather updates, and an interactive counter.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-    <section id="projects" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="section-title text-4xl font-extrabold text-center text-gray-800 mb-16 animate-fade-in-up">Projects</h2>
-
-        <div class="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Forts Tourism Website</h3>
-            <p class="text-gray-600 text-base">End-to-end tourism platform using Flask and MySQL. Delivered responsive UI, real-time bookings, and backend optimization—cutting load times and boosting user satisfaction. Vision: Extend to mobile platforms and multi-language support.</p>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="placeholder-project6.jpg" alt="Project 6">
           </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Computer Institute System</h3>
-            <p class="text-gray-600 text-base">Built a robust academic automation platform with ASP.NET & SQL Server. Enabled smart admissions, auto-invoicing, and scheduling. Reduced manual work by 60%. Vision: Add AI-based student progress analytics.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Webform Project</h3>
-            <p class="text-gray-600 text-base">Transformed printing services through dynamic ASP.NET forms and MVC design. Streamlined custom orders and client communication. Vision: Integrate e-commerce payments and digital invoices.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Digital Banking Solution</h3>
-            <p class="text-gray-600 text-base">Flask-powered secure banking app with real-time transactions, loan modules, and user-friendly dashboards. Vision: Implement blockchain-based ledger and AI-driven fraud detection.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Blazor Dashboard App</h3>
-            <p class="text-gray-600 text-base">A real-time Blazor Server dashboard app using .NET, Bootstrap, and JavaScript with dynamic tables, weather updates, and an interactive counter. Features modern UI/UX, responsive design, and status-based visuals.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">E-Commerce Chatbot App</h3>
-            <p class="text-gray-600 text-base">Interactive shopping chatbot built in ASP.NET Core with SignalR. Supports real-time queries and product recommendations. Vision: Expand to voice assistants and personalized product feeds.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">TaskManagerApi</h3>
-            <p class="text-gray-600 text-base">Built a RESTful task management API using ASP.NET Core and EF. Integrated Bootstrap UI, GitHub repo, and video demo. Vision: Add user analytics and multi-user collaboration tools.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Goal Tracker</h3>
-            <p class="text-gray-600 text-base">Mobile-friendly Flutter app to track and manage personal goals. Offers reminders, motivational quotes, and analytics. Vision: Integrate gamification and community-driven tracking.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Portfolio Website</h3>
-            <p class="text-gray-600 text-base">Crafted a sleek, responsive portfolio using HTML/CSS/JS. Highlights projects, skills, and includes downloadable resume. Vision: Add blog, dark mode toggle, and multilingual support.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">AI Image Analysis Web App</h3>
-            <p class="text-gray-600 text-base">Modern image analysis tool built with React, Vite, and TypeScript. Supports async uploads and real-time AI insights. Vision: Enable bulk processing and enterprise-level dashboards.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Chatbot</h3>
-            <p class="text-gray-600 text-base">Python chatbot using NLP for intelligent user support and automation. Vision: Integrate GPT-based learning and multilingual response capabilities.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">PaymentApp</h3>
-            <p class="text-gray-600 text-base">Digital wallet prototype with ASP.NET backend. Enabled QR/image scan pay, transaction history, and user chat. Vision: Launch UPI & bank integrations for real-time payments.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Flask Backend</h3>
-            <p class="text-gray-600 text-base">Backend framework for modular Flask apps with structured routes, middleware, and API endpoints. Vision: Create a boilerplate for scalable microservices.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Account Form Design</h3>
-            <p class="text-gray-600 text-base">Designed responsive, user-centric forms for data collection. Included validation, visual clarity, and accessibility. Vision: Integrate AI autofill and PDF export features.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4">Simple Blog</h3>
-            <p class="text-gray-600 text-base">Minimal blog engine built with HTML/CSS/JS. Features post creation, tagging, and basic layout. Vision: Add Markdown editor and CMS capabilities.</p>
+          <div class="project-info">
+            <h3>E-Commerce Chatbot App</h3>
+            <p>Interactive shopping chatbot built in ASP.NET Core with SignalR. Supports real-time queries and product recommendations.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="education" class="py-16 bg-gradient-to-tr from-white to-blue-50">
-      <div class="container">
-        <h2 class="section-title text-3xl font-bold text-center text-gray-800 mb-10 animate-fade-in-up">Education</h2>
+  <section id="education" class="section bg-gray-100">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <ul class="education-list">
+        <li class="education-item">
+          <h3>KIT’s Institute of Management Education and Research, Kolhapur</h3>
+          <p><strong>Master of Computer Applications (MCA)</strong></p>
+          <p>August 2022 – June 2024</p>
+        </li>
+        <li class="education-item">
+          <h3>Mahavir Mahavidyalaya, Kolhapur</h3>
+          <p><strong>Bachelor of Science (B.Sc. in Computer Science)</strong></p>
+          <p>June 2019 – June 2022</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-        <div class="space-y-8 max-w-3xl mx-auto">
-          <div class="card bg-white rounded-2xl shadow-md p-6 transition-transform transform hover:scale-105 animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-700">KIT’s Institute of Management Education and Research, Kolhapur</h3>
-            <p class="text-sm text-gray-500 mt-1"><strong>August 2022 – June 2024</strong></p>
-            <p class="text-gray-700 mt-2">Master of Computer Applications (MCA)</p>
-          </div>
-
-          <div class="card bg-white rounded-2xl shadow-md p-6 transition-transform transform hover:scale-105 animate-fade-in-up">
-            <h3 class="text-2xl font-semibold text-blue-700">Mahavir Mahavidyalaya, Kolhapur</h3>
-            <p class="text-sm text-gray-500 mt-1"><strong>June 2019 – June 2022</strong></p>
-            <p class="text-gray-700 mt-2">Bachelor of Science (B.Sc. in Computer Science)</p>
-          </div>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-info">
+        <p>Let's connect! Feel free to reach out.</p>
+        <div class="contact-links">
+          <a href="mailto:shivrajrandive9281@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Shivrajjjjj" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="tel:+919518302700"><i class="fas fa-phone"></i></a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Shivraj Randive | All rights reserved</p>
+    </div>
+  </footer>
 
-    <section id="contact" class="py-16 bg-gradient-to-br from-blue-50 to-white">
-      <div class="container text-center">
-        <h2 class="section-title text-3xl font-bold mb-6 text-gray-800">Let's Connect</h2>
-        <div class="card max-w-xl mx-auto bg-white shadow-xl rounded-2xl p-8 transition-all hover:shadow-2xl animate-fade-in-up">
-          <p class="text-gray-600 text-lg">Have a question, idea, or opportunity? I'm always open to chat!</p>
-          <div class="mt-6 space-y-4">
-            <p>
-              <a href="tel:9518302700" class="flex justify-center items-center gap-2 text-blue-600 hover:text-blue-800 transition-all">
-                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.93.76a1 1 0 011 1v3.61a1 1 0 01-1 1C10.29 22 2 13.71 2 3a1 1 0 011-1h3.6a1 1 0 011 1c0 1.4.26 2.72.76 3.93a1 1 0 01-.21 1.11l-2.2 2.2z"/></svg>
-                Phone: 9518302700
-              </a>
-            </p>
-            <p>
-              <a href="mailto:shivrajrandive9281@gmail.com" class="flex justify-center items-center gap-2 text-blue-600 hover:text-blue-800 transition-all">
-                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                Email: shivrajrandive9281@gmail.com
-              </a>
-            </p>
-            <p>
-              <a href="https://github.com/Shivrajjjjj" target="_blank" class="flex justify-center items-center gap-2 text-blue-600 hover:text-blue-800 transition-all">
-                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12A11.5 11.5 0 008.15 22.3c.6.1.82-.25.82-.56v-2c-3.34.73-4.04-1.4-4.04-1.4-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.74.08-.74 1.21.09 1.85 1.24 1.85 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.4 1.24-3.24-.13-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.3 11.3 0 016 0C17.45 4.9 18.46 5.23 18.46 5.23c.66 1.66.25 2.89.12 3.19.77.84 1.24 1.92 1.24 3.24 0 4.64-2.8 5.66-5.47 5.97.43.38.81 1.1.81 2.22v3.29c0 .31.22.67.82.56A11.5 11.5 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
-                GitHub: Shivrajjjjj
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const mobileNav = document.querySelector('.mobile-nav');
 
-    <footer class="bg-blue-50 py-6 mt-8 text-center">
-      <p class="text-gray-500">&copy; 2025 Shivraj Randive | All rights reserved</p>
-    </footer>
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      mobileNav.classList.toggle('hidden');
+    });
 
-
-    <script>
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navToggle.classList.remove('open');
+          mobileNav.classList.add('hidden');
+        }
       });
-    </script>
-  </div>
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        mobileNav.classList.add('hidden');
+      });
+    });
+  </script>
 </body>
 
 </html>
