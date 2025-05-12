@@ -493,63 +493,20 @@
   </button>
 </header>
 
-<div class="lg:pl-0">
-  </div>
-
-<script>
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const slideInMobileMenu = document.getElementById('slide-in-mobile-menu');
-  const closeMenuMobile = document.getElementById('close-menu-mobile');
-  const contentDiv = document.querySelector('.lg\\:pl-0'); // Select your main content area
-
-  if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-      slideInMobileMenu.classList.remove('-translate-x-full');
-      // Optionally add a class to the body to prevent scrolling when the menu is open
-      document.body.classList.add('overflow-hidden');
-    });
-  }
-
-  if (closeMenuMobile) {
-    closeMenuMobile.addEventListener('click', () => {
-      slideInMobileMenu.classList.add('-translate-x-full');
-      // Remove the overflow-hidden class when the menu is closed
-      document.body.classList.remove('overflow-hidden');
-    });
-  }
-
-  // Close menu when a link is clicked
-  slideInMobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      slideInMobileMenu.classList.add('-translate-x-full');
-      document.body.classList.remove('overflow-hidden');
-    });
-  });
-
-  // Adjust main content padding on resize for the sidebar effect (if you want to shift content)
-  function adjustContentPadding() {
-    if (contentDiv) {
-      contentDiv.style.paddingLeft = window.innerWidth >= 1024 ? '0' : '0'; // No left padding on desktop in this version
-    }
-  }
-
-  window.addEventListener('resize', adjustContentPadding);
-  adjustContentPadding();
-</script>
-<section class="hero py-20 bg-indigo-100">
-  <div class="container text-center">
-    <div class="inline-flex items-center justify-center bg-indigo-600 text-white text-3xl font-bold rounded-full shadow-lg w-24 h-24 mx-auto mb-6">
-      SR
+<div class="pt-16 lg:pl-0">
+  <section class="hero py-20 bg-indigo-100">
+    <div class="container text-center">
+      <div class="inline-flex items-center justify-center bg-indigo-600 text-white text-3xl font-bold rounded-full shadow-lg w-24 h-24 mx-auto mb-6">
+        SR
+      </div>
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Shivraj Randive</h1>
+      <p class="text-lg text-gray-600 mb-8">Software Developer • Full-Stack Engineer based in Kolhapur</p>
+      <div class="hero-actions space-x-4">
+        <a href="/resume" class="inline-block py-3 px-6 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 transition duration-300">View Resume</a>
+        <a href="#contact" class="inline-block py-3 px-6 bg-transparent border border-blue-500 text-blue-500 font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">Contact Me</a>
+      </div>
     </div>
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Shivraj Randive</h1>
-    <p class="text-lg text-gray-600 mb-8">Software Developer • Full-Stack Engineer based in Kolhapur</p>
-    <div class="hero-actions space-x-4">
-      <a href="/resume" class="inline-block py-3 px-6 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 transition duration-300">View Resume</a>
-      <a href="#contact" class="inline-block py-3 px-6 bg-transparent border border-blue-500 text-blue-500 font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">Contact Me</a>
-    </div>
-  </div>
-</section>
-
+  </section>
   <section id="experience" class="section">
     <div class="container">
       <h2 class="section-title">Experience</h2>
@@ -862,33 +819,41 @@
     </div>
   </footer>
 <script>
- const navToggle = document.querySelector('.nav-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
-  const navLinksMobile = document.querySelectorAll('.mobile-nav a'); // Select links within the mobile nav
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const slideInMobileMenu = document.getElementById('slide-in-mobile-menu');
+  const closeMenuMobile = document.getElementById('close-menu-mobile');
+  const contentDiv = document.querySelector('.pt-16'); // Target the main content area
 
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open'); // For hamburger menu animation (requires CSS)
-    mobileNav.classList.toggle('hidden'); // Toggle visibility of the mobile menu
-  });
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+      slideInMobileMenu.classList.remove('-translate-x-full');
+      document.body.classList.add('overflow-hidden');
+    });
+  }
 
-  // Close mobile menu when a link in the mobile menu is clicked
-  navLinksMobile.forEach(link => {
+  if (closeMenuMobile) {
+    closeMenuMobile.addEventListener('click', () => {
+      slideInMobileMenu.classList.add('-translate-x-full');
+      document.body.classList.remove('overflow-hidden');
+    });
+  }
+
+  slideInMobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navToggle.classList.remove('open'); // Optionally remove 'open' class from hamburger
-      mobileNav.classList.add('hidden'); // Hide the mobile menu
+      slideInMobileMenu.classList.add('-translate-x-full');
+      document.body.classList.remove('overflow-hidden');
     });
   });
 
-  // Optional: Close mobile menu when a link in the desktop nav is clicked (on mobile)
-  const navLinksDesktop = document.querySelectorAll('.nav-links a');
-  navLinksDesktop.forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        navToggle.classList.remove('open');
-        mobileNav.classList.add('hidden');
-      }
-    });
-  });
+  function adjustContentPadding() {
+    if (contentDiv) {
+      contentDiv.style.paddingTop = window.innerWidth >= 1024 ? '0' : '4rem'; // Adjust top padding for mobile
+      contentDiv.style.paddingLeft = window.innerWidth >= 1024 ? '0' : '0'; // No left padding in this setup
+    }
+  }
+
+  window.addEventListener('resize', adjustContentPadding);
+  adjustContentPadding();
 </script>
 </body>
 
