@@ -16,6 +16,25 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Scroll to Top */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 50;
+      background-color: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    #scrollTopBtn:hover {
+      transform: scale(1.1);
+      background-color: #4f46e5;
+    }
   </style>
 </head>
 
@@ -25,71 +44,95 @@
   <div class="container mx-auto px-4 max-w-4xl">
     <!-- Heading -->
     <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 text-center mb-6 tracking-tight">
-      🚀 Open to Work – Globally
+      🌍 Open to Global Opportunities
     </h1>
 
-    <!-- Global Badge Selector -->
-    <div class="flex flex-wrap justify-center gap-3 mt-4 mb-10">
-      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">🌏 Open to Asia</span>
-      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold">🇺🇸 Remote US</span>
-      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">🇪🇺 EU Opportunities</span>
-      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 text-sm font-semibold">💬 Language: English</span>
+    <!-- Region & Language -->
+    <div class="flex flex-wrap justify-center gap-3 mt-4 mb-8">
+      <span class="bg-blue-100 text-blue-800 text-sm px-4 py-1.5 rounded-full font-semibold">🌏 Open to Asia</span>
+      <span class="bg-green-100 text-green-700 text-sm px-4 py-1.5 rounded-full font-semibold">🇺🇸 Remote US</span>
+      <span class="bg-yellow-100 text-yellow-700 text-sm px-4 py-1.5 rounded-full font-semibold">🇪🇺 EU Opportunities</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-4 py-1.5 rounded-full font-semibold">💬 English Only</span>
     </div>
 
-    <!-- Message Content Box -->
+    <!-- Resumes by Region -->
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+      <a href="resume-asia.pdf" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow transition">📄 Resume – Asia</a>
+      <a href="resume-us.pdf" class="bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow transition">📄 Resume – US</a>
+      <a href="resume-eu.pdf" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow transition">📄 Resume – EU</a>
+    </div>
+
+    <!-- Main Content Box -->
     <div class="bg-white rounded-3xl shadow-xl p-10 leading-relaxed text-lg space-y-6 border border-gray-100">
 
-      <p class="text-gray-800 font-semibold">Dear Global Recruiters & Visionary Leaders,</p>
-      <p>
-        I'm <strong>Shivraj Randive</strong>, a results-driven full-stack developer eager to contribute my skills on a global stage. With a foundation in .NET, Python, and SQL, I’m passionate about building performance-oriented applications and thriving in collaborative, multicultural teams.
-      </p>
+      <p class="text-gray-800 font-semibold">Dear Recruiters & Visionary Teams,</p>
+      <p>I'm <strong>Shivraj Randive</strong>, a passionate full-stack developer ready to contribute globally. I specialize in backend (.NET, Python), front-end UI/UX, and data-driven logic. I’m eager to join organizations creating meaningful products and real-world impact.</p>
 
-      <!-- Developer Profile -->
-      <h2 class="text-2xl font-semibold text-indigo-700 mt-8"><i class="fas fa-code mr-2"></i> My Tech Stack</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li><strong>Languages & Tools:</strong> C#, ASP.NET MVC/WebForms, Python, JavaScript, SQL</li>
-        <li><strong>Frameworks:</strong> .NET Core, Flask, Bootstrap, Tailwind CSS</li>
-        <li><strong>Skills:</strong> Full-Stack Development, Backend APIs, Database Design, UI/UX</li>
-        <li><strong>Approach:</strong> Clean code, modular design, constant learning</li>
+      <h2 class="text-2xl font-semibold text-indigo-700 mt-6"><i class="fas fa-code mr-2"></i> My Tech Toolbox</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Languages & Tools: C#, Python, JavaScript, SQL, .NET, Flask</li>
+        <li>Frameworks: .NET Core, MVC, Tailwind, Bootstrap</li>
+        <li>Approach: Clean code, teamwork, performance optimization</li>
       </ul>
 
-      <!-- Career Goals -->
-      <h2 class="text-2xl font-semibold text-blue-700 mt-8"><i class="fas fa-briefcase mr-2"></i> Roles I'm Open To</h2>
-      <ul class="list-decimal list-inside space-y-2 text-gray-700">
-        <li>ASP.NET / .NET Core Developer (Remote or On-site)</li>
-        <li>Python Backend Developer with Flask/Django</li>
-        <li>Data-Oriented Developer (SQL, Power BI, Excel)</li>
-        <li>Junior AI/ML Contributor – learning-driven roles</li>
+      <h2 class="text-2xl font-semibold text-blue-700 mt-6"><i class="fas fa-briefcase mr-2"></i> Roles I'm Seeking</h2>
+      <ul class="list-decimal list-inside text-gray-700 space-y-1">
+        <li>Full-Stack or .NET Developer (Remote)</li>
+        <li>Python Backend Engineer (REST APIs, Flask)</li>
+        <li>Data Developer (SQL + Analysis)</li>
+        <li>Junior AI/ML Roles (with guidance)</li>
       </ul>
 
-      <!-- Strengths -->
-      <h2 class="text-2xl font-semibold text-green-700 mt-8"><i class="fas fa-certificate mr-2"></i> What Sets Me Apart</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>✅ Versatile across back-end and front-end technologies</li>
-        <li>✅ Strong communication and teamwork in agile environments</li>
-        <li>✅ Always learning – embracing growth & tech shifts</li>
-        <li>✅ Committed to quality, testing, and maintainable code</li>
+      <h2 class="text-2xl font-semibold text-green-700 mt-6"><i class="fas fa-certificate mr-2"></i> Why Choose Me?</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>✅ Full-stack flexibility</li>
+        <li>✅ Agile, adaptable & remote-friendly</li>
+        <li>✅ Open to new challenges globally</li>
+        <li>✅ Enthusiastic, proactive learner</li>
       </ul>
 
-      <!-- Contact Info -->
-      <h2 class="text-2xl font-semibold text-purple-700 mt-8"><i class="fas fa-handshake mr-2"></i> Let’s Talk</h2>
-      <ul class="space-y-2 text-gray-700">
+      <h2 class="text-2xl font-semibold text-purple-700 mt-6"><i class="fas fa-handshake mr-2"></i> Connect with Me</h2>
+      <ul class="space-y-1 text-gray-700">
         <li>📧 <strong>Email:</strong> <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 underline">shivrajrandive9281@gmail.com</a></li>
-        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-indigo-600 underline">linkedin.com/in/shivraj-randive</a></li>
-        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-indigo-600 underline">github.com/Shivrajjjjj</a></li>
-        <li>📄 <strong>Resume:</strong> <a href="resume.html" class="text-indigo-600 underline">View PDF</a></li>
+        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-600 underline" target="_blank">linkedin.com/in/shivraj-randive</a></li>
+        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" class="text-indigo-600 underline" target="_blank">github.com/Shivrajjjjj</a></li>
       </ul>
 
-      <!-- CTA -->
-      <div class="text-center mt-10">
-        <a href="index.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">
-          👨‍💻 Back to Portfolio
+      <div class="text-center mt-8">
+        <a href="index.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full shadow-md font-semibold transition transform hover:scale-105">
+          🔙 Back to Portfolio
         </a>
       </div>
-
     </div>
   </div>
 </section>
+
+<!-- Floating Globe Icon -->
+<div class="fixed bottom-6 right-6 z-40">
+  <div class="bg-indigo-600 hover:bg-indigo-700 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg animate-pulse">
+    <i class="fas fa-globe text-xl"></i>
+  </div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Scroll to Top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Scroll Button Show/Hide
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.onscroll = function () {
+    if (document.documentElement.scrollTop > 200) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
 </body>
 </html>
