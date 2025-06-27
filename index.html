@@ -1126,108 +1126,95 @@
   </div>
 </section>
 
-<section id="contact" class="relative py-28 bg-[#1e293b] text-white overflow-hidden">
-  <!-- Floating Background Effects -->
-  <div class="absolute top-10 right-10 w-72 h-72 bg-purple-600 opacity-10 rounded-full blur-3xl z-0 animate-pulse"></div>
-  <div class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500 opacity-10 rounded-full blur-3xl z-0 animate-pulse-slow"></div>
+<section id="contact" class="relative py-24 bg-[#1e293b] text-white">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <!-- Heading -->
+    <h2 class="text-4xl font-bold">Let’s Work Together</h2>
+    <p class="text-gray-300 mt-3 text-lg">
+      Ready to bring your ideas to life — whether it's development, consulting, or collaboration.
+    </p>
 
-  <div class="relative z-10 max-w-6xl mx-auto px-6">
-    <!-- Section Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-5xl font-extrabold text-white tracking-tight">Let’s Work Together</h2>
-      <p class="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">
-        Ready to bring your ideas to life — whether it's development, consulting, or collaboration.
-      </p>
-      <!-- Viewer Count -->
-      <div class="mt-4 inline-flex items-center justify-center text-sm px-4 py-2 rounded-full bg-white/10 border border-white/20 text-gray-300">
-        👀 <span id="viewerCount" class="ml-2 font-semibold">... online</span>
+    <!-- Viewer Count -->
+    <div class="mt-4 inline-block px-4 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300">
+      👁️ <span id="viewerCount">10 online</span>
+    </div>
+
+    <!-- Contact Links (No cards) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 text-left">
+      <div>
+        <h4 class="text-sm uppercase font-semibold text-gray-400 mb-1">Email</h4>
+        <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-400 hover:underline">
+          shivrajrandive9281@gmail.com
+        </a>
+      </div>
+      <div>
+        <h4 class="text-sm uppercase font-semibold text-gray-400 mb-1">LinkedIn</h4>
+        <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" class="text-blue-400 hover:underline" target="_blank">
+          shivraj-randive
+        </a>
+      </div>
+      <div>
+        <h4 class="text-sm uppercase font-semibold text-gray-400 mb-1">GitHub</h4>
+        <a href="https://github.com/Shivrajjjjj" class="text-gray-300 hover:underline" target="_blank">
+          Shivrajjjjj
+        </a>
+      </div>
+      <div>
+        <h4 class="text-sm uppercase font-semibold text-gray-400 mb-1">Phone</h4>
+        <a href="tel:+919518302700" class="text-green-400 hover:underline">
+          +91 9518302700
+        </a>
+      </div>
+      <div>
+        <h4 class="text-sm uppercase font-semibold text-gray-400 mb-1">WhatsApp</h4>
+        <a href="https://wa.me/919518302700" class="text-green-300 hover:underline" target="_blank">
+          +91 9518302700
+        </a>
+      </div>
+      <div>
+        <h4 class="text-sm uppercase font-semibold text-gray-400 mb-1">Instagram</h4>
+        <a href="https://www.instagram.com/shivraj_137o" class="text-pink-400 hover:underline" target="_blank">
+          @shivraj_137o
+        </a>
       </div>
     </div>
 
-    <!-- Contact Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
-      <!-- Example Contact Card (Reusable) -->
-      <a href="mailto:shivrajrandive9281@gmail.com" class="contact-card">
-        <div class="contact-icon bg-indigo-600/30 text-indigo-300"><i class="fas fa-envelope"></i></div>
-        <h3>Email</h3>
-        <p>shivrajrandive9281@gmail.com</p>
-      </a>
-      <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="contact-card">
-        <div class="contact-icon bg-blue-600/30 text-blue-300"><i class="fab fa-linkedin"></i></div>
-        <h3>LinkedIn</h3>
-        <p>shivraj-randive</p>
-      </a>
-      <a href="https://github.com/Shivrajjjjj" target="_blank" class="contact-card">
-        <div class="contact-icon bg-gray-600/30 text-gray-300"><i class="fab fa-github"></i></div>
-        <h3>GitHub</h3>
-        <p>Shivrajjjjj</p>
-      </a>
-      <a href="tel:+919518302700" class="contact-card">
-        <div class="contact-icon bg-green-600/30 text-green-300"><i class="fas fa-phone"></i></div>
-        <h3>Phone</h3>
-        <p>+91 9518302700</p>
-      </a>
-      <a href="https://wa.me/919518302700" target="_blank" class="contact-card">
-        <div class="contact-icon bg-green-400/30 text-green-200"><i class="fab fa-whatsapp"></i></div>
-        <h3>WhatsApp</h3>
-        <p>+91 9518302700</p>
-      </a>
-      <a href="https://www.instagram.com/shivraj_137o" target="_blank" class="contact-card">
-        <div class="contact-icon bg-pink-500/30 text-pink-300"><i class="fab fa-instagram"></i></div>
-        <h3>Instagram</h3>
-        <p>@shivraj_137o</p>
-      </a>
-    </div>
-
-    <!-- Contact Form -->
-    <div class="max-w-2xl mx-auto bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 shadow-lg">
-      <form id="contactForm">
-        <div class="mb-6">
-          <label for="name" class="block mb-1 text-sm font-medium text-gray-200">Name</label>
-          <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 placeholder:text-gray-300" placeholder="Your Name">
-        </div>
-        <div class="mb-6">
-          <label for="email" class="block mb-1 text-sm font-medium text-gray-200">Email</label>
-          <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 placeholder:text-gray-300" placeholder="you@example.com">
-        </div>
-        <div class="mb-6">
-          <label for="message" class="block mb-1 text-sm font-medium text-gray-200">Message</label>
-          <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 placeholder:text-gray-300" placeholder="How can I help you?"></textarea>
-        </div>
-        <button type="submit" class="w-full py-3 px-6 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition duration-300">
-          Send Message
-        </button>
-      </form>
-    </div>
+    <!-- Contact Form (Formspree) -->
+    <form action="https://formspree.io/f/mnqelpvq" method="POST" class="mt-16 max-w-xl mx-auto bg-white/5 backdrop-blur p-8 rounded-lg border border-white/10">
+      <div class="mb-4">
+        <label class="block text-sm text-white mb-1">Name</label>
+        <input type="text" name="name" required placeholder="Your Name"
+          class="w-full bg-transparent border border-white/20 text-white px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm text-white mb-1">Email</label>
+        <input type="email" name="email" required placeholder="you@example.com"
+          class="w-full bg-transparent border border-white/20 text-white px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      </div>
+      <div class="mb-6">
+        <label class="block text-sm text-white mb-1">Message</label>
+        <textarea name="message" rows="4" required placeholder="How can I help you?"
+          class="w-full bg-transparent border border-white/20 text-white px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+      </div>
+      <button type="submit"
+        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded transition">
+        Send Message
+      </button>
+    </form>
   </div>
 </section>
 
-<!-- Optional Firebase or API for Viewer Count -->
+<!-- Viewer Count Simulation (replace with Firebase/Socket if needed) -->
 <script>
-  // Mock viewer count (replace with Firebase or Realtime API logic)
   function updateViewerCount() {
-    const count = Math.floor(Math.random() * 10) + 1; // Example only
-    document.getElementById("viewerCount").innerText = `${count} online`;
+    const viewers = Math.floor(Math.random() * 10) + 5;
+    document.getElementById("viewerCount").innerText = `${viewers} online`;
   }
   updateViewerCount();
-  setInterval(updateViewerCount, 15000); // refresh every 15 sec
+  setInterval(updateViewerCount, 15000);
 </script>
-
 <!-- Tailwind Component Styles -->
-<style>
-  .contact-card {
-    @apply group bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 flex flex-col items-center text-center;
-  }
-  .contact-icon {
-    @apply w-16 h-16 rounded-full flex items-center justify-center mb-4 text-xl group-hover:scale-110 transition-transform;
-  }
-  .contact-card h3 {
-    @apply text-xl font-semibold text-white;
-  }
-  .contact-card p {
-    @apply text-gray-400 mt-1;
-  }
-</style>
+
 
 <!-- Footer -->
 <footer class="bg-indigo-600 text-white py-10 relative overflow-hidden mt-20">
