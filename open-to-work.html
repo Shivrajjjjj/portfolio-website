@@ -2,98 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Open to Work – Shivraj Randive</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
   <style>
     body {
-      background: linear-gradient(135deg, #e0ecff, #f4faff); /* Angled gradient */
-      animation: fadeIn 1.5s ease-in-out;
+      background: linear-gradient(135deg, #e0ecff, #f4faff);
+      animation: fadeIn 1.2s ease-in-out;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Custom animation for mobile menu */
-    @keyframes slide-down {
-      0% { transform: translateY(-10px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-    .animate-slide-down {
-      animation: slide-down 0.3s ease-out;
-    }
   </style>
 </head>
 <body class="text-gray-800">
 
-
-
-<section class="py-24 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow-xl overflow-hidden">
+<section class="py-24 rounded-lg overflow-hidden">
   <div class="container mx-auto px-4 max-w-3xl">
-    <h1 class="text-4xl font-extrabold text-indigo-700 text-center mb-12 animate-pulse tracking-wider">📣 Ready for My Next Impactful Role</h1>
+    <h1 class="text-4xl font-extrabold text-indigo-700 text-center mb-6 tracking-wider">📣 Ready for My Next Impactful Role</h1>
 
-    <div class="bg-white p-10 rounded-3xl shadow-2xl space-y-8 leading-relaxed text-lg">
+    <!-- 🌐 Language + 🌍 Region Badges -->
+    <div class="flex flex-col md:flex-row items-center justify-between mt-4 mb-12 space-y-4 md:space-y-0 md:space-x-6">
+      <!-- Language Selector -->
+      <div class="flex items-center space-x-2">
+        <label for="language" class="text-gray-600 font-medium">🌐 Language:</label>
+        <select id="language" name="language"
+          class="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <option value="en">English</option>
+          <option value="hi">हिंदी (Hindi)</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+
+      <!-- Region Availability -->
+      <div class="flex flex-wrap gap-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">🌏 Open to Asia</span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">🇺🇸 Remote US</span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">🇪🇺 EU Opportunities</span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-pink-100 text-pink-600 text-sm font-semibold">🇮🇳 India-based</span>
+      </div>
+    </div>
+
+    <div class="bg-white p-10 rounded-3xl shadow-2xl space-y-8 text-lg leading-relaxed">
 
       <p class="text-gray-800 font-semibold">Dear Recruiters and Visionary Leaders,</p>
 
-      <p>I'm Shivraj Randive, a developer fueled by a passion for crafting elegant and efficient solutions. This isn't just a job hunt; it's an active pursuit of an environment where my skills can truly shine and contribute to meaningful innovation. Let me share a bit about what drives me and what I bring to the table.</p>
+      <p>I’m Shivraj Randive, a developer passionate about crafting elegant and scalable solutions. This isn’t just a job search — it’s my journey to contribute meaningfully to innovation. Here's a snapshot of what I bring.</p>
 
-      <h2 class="text-2xl font-semibold text-indigo-700 mt-8"><i class="fas fa-user-astronaut mr-2"></i> My Developer Universe</h2>
+      <h2 class="text-2xl font-semibold text-indigo-700 mt-6"><i class="fas fa-user-astronaut mr-2"></i> My Developer Universe</h2>
       <ul class="list-disc list-inside space-y-3 text-gray-700">
         <li><strong>Core Technologies:</strong> Python, SQL, ASP.NET (MVC & Web Forms), JavaScript</li>
-        <li><strong>Framework Focus:</strong> Flask, .NET Core, Tailwind CSS, Bootstrap</li>
-        <li><strong>Development Philosophy:</strong> Full-stack agility, writing clean and maintainable code, a constant eye on performance optimization.</li>
-        <li><strong>My Code Ethos:</strong> Reliability, a deep-seated desire for growth, and a belief in the power of collaborative teamwork.</li>
+        <li><strong>Frameworks:</strong> .NET Core, Flask, Tailwind CSS, Bootstrap</li>
+        <li><strong>Philosophy:</strong> Full-stack agility, clean code, performance-first approach</li>
+        <li><strong>Mindset:</strong> Teamwork, growth, and reliability</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-blue-700 mt-8"><i class="fas fa-binoculars mr-2"></i> Exploring My Next Horizon</h2>
+      <h2 class="text-2xl font-semibold text-blue-700 mt-6"><i class="fas fa-binoculars mr-2"></i> Exploring New Horizons</h2>
       <ul class="list-decimal list-inside space-y-3 text-gray-700">
-        <li><strong>ASP.NET / .NET Core Developer:</strong> Building scalable web applications and APIs with SQL Server expertise.</li>
-        <li><strong>Python Backend Engineer:</strong> Crafting robust backend systems, RESTful APIs, and leveraging frameworks like Flask and potentially Django.</li>
-        <li><strong>Data Analyst with Development Acumen:</strong> Utilizing SQL, Excel, and Power BI to extract insights, with a developer's understanding of data structures.</li>
-        <li><strong>Aspiring ML Contributor:</strong> Eager to apply my foundational knowledge in AI/ML to real-world projects and continue learning in this exciting domain.</li>
+        <li><strong>.NET Developer:</strong> Scalable web apps & SQL-driven APIs</li>
+        <li><strong>Python Backend Engineer:</strong> REST APIs with Flask / Django</li>
+        <li><strong>Developer Analyst:</strong> Insights with SQL, Excel, Power BI</li>
+        <li><strong>ML Aspirant:</strong> Exploring AI & ML for future-ready solutions</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-green-700 mt-8"><i class="fas fa-rocket mr-2"></i> My Launchpad of Strengths</h2>
+      <h2 class="text-2xl font-semibold text-green-700 mt-6"><i class="fas fa-rocket mr-2"></i> Strengths I Bring</h2>
       <ul class="list-check list-inside space-y-3 text-gray-700">
-        <li>✅ Proven ability to navigate diverse tech stacks and deliver on project requirements.</li>
-        <li>✅ Excellent communication skills, fostering seamless collaboration within development teams.</li>
-        <li>✅ A proactive learner, dedicated to staying current with industry best practices and emerging technologies.</li>
-        <li>✅ A methodical problem-solver with a strong commitment to writing high-quality, well-documented code.</li>
+        <li>✅ Hands-on with diverse tech stacks</li>
+        <li>✅ Strong communication & collaboration skills</li>
+        <li>✅ Lifelong learner & adaptive</li>
+        <li>✅ Efficient, readable, and maintainable code</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-yellow-700 mt-8"><i class="fas fa-lightbulb mr-2"></i> Why Partner with Me?</h2>
+      <h2 class="text-2xl font-semibold text-yellow-700 mt-6"><i class="fas fa-lightbulb mr-2"></i> Why Partner with Me?</h2>
       <ul class="list-plus list-inside space-y-3 text-gray-700">
-        <li>➕ I'm driven by a desire to solve real-world challenges and contribute tangible value.</li>
-        <li>➕ I adapt quickly to new technologies and integrate smoothly into existing team dynamics.</li>
-        <li>➕ I'm a firm believer in writing clean, efficient code that contributes to a positive user experience.</li>
-        <li>➕ I embrace feedback as an opportunity for growth and continuous improvement.</li>
+        <li>➕ Real-world problem solver</li>
+        <li>➕ Fast learner & tech integrator</li>
+        <li>➕ Code that delivers performance & clarity</li>
+        <li>➕ Growth mindset & feedback-driven</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-purple-700 mt-8"><i class="fas fa-handshake mr-2"></i> Let's Forge a Connection</h2>
-      <ul class="list-none space-y-3 text-gray-700">
+      <h2 class="text-2xl font-semibold text-purple-700 mt-6"><i class="fas fa-handshake mr-2"></i> Let’s Connect</h2>
+      <ul class="space-y-3 text-gray-700">
         <li>📧 <strong>Email:</strong> <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-700 underline hover:text-indigo-500 transition">shivrajrandive9281@gmail.com</a></li>
-        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-700 underline hover:text-indigo-500 transition" target="_blank">linkedin.com/in/shivraj-randive</a></li>
-        <li>🌐 <strong>Portfolio:</strong> <a href="https://shivrajjjjj.github.io/portfolio-website" class="text-indigo-700 underline hover:text-indigo-500 transition" target="_blank">shivrajjjjj.github.io</a></li>
-        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" class="text-indigo-700 underline hover:text-indigo-500 transition" target="_blank">github.com/Shivrajjjjj</a></li>
+        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-indigo-700 underline hover:text-indigo-500 transition">linkedin.com/in/shivraj-randive</a></li>
+        <li>🌐 <strong>Portfolio:</strong> <a href="https://shivrajjjjj.github.io/portfolio-website" target="_blank" class="text-indigo-700 underline hover:text-indigo-500 transition">shivrajjjjj.github.io</a></li>
+        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-indigo-700 underline hover:text-indigo-500 transition">github.com/Shivrajjjjj</a></li>
       </ul>
 
-      <div class="text-center mt-12">
-        <a href="resume.html" class="inline-block bg-indigo-700 hover:bg-indigo-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition duration-300 transform hover:scale-105">📄 Explore My Resume</a>
+      <div class="text-center mt-10">
+        <a href="resume.html" class="inline-block bg-indigo-700 hover:bg-indigo-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">📄 View My Resume</a>
       </div>
 
-      <div class="mt-12 text-center text-indigo-900 font-semibold italic">
-        <p>✨ My Vision: To contribute to innovative projects, collaborate with inspiring teams, and continuously elevate my skills in a dynamic tech landscape.</p>
+      <div class="mt-10 text-center text-indigo-900 font-semibold italic">
+        <p>✨ My goal: Collaborate on purposeful tech projects & grow with dynamic teams.</p>
       </div>
 
       <div class="mt-10 text-center">
-        <a href="index.html" class="text-indigo-700 underline hover:text-indigo-500 transition"><i class="fas fa-arrow-left mr-2"></i> Back to My Portfolio</a>
+        <a href="index.html" class="text-indigo-700 underline hover:text-indigo-500 transition"><i class="fas fa-arrow-left mr-2"></i> Back to Portfolio</a>
       </div>
     </div>
   </div>
 </section>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </body>
 </html>
