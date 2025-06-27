@@ -5,105 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Open to Work – Shivraj Randive</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
   <style>
     body {
-      background: linear-gradient(135deg, #e0ecff, #f4faff);
-      animation: fadeIn 1.2s ease-in-out;
+      background: linear-gradient(135deg, #eaf4ff, #f9fcff);
+      animation: fadeIn 1.5s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+
 <body class="text-gray-800">
 
-<section class="py-24 rounded-lg overflow-hidden">
-  <div class="container mx-auto px-4 max-w-3xl">
-    <h1 class="text-4xl font-extrabold text-indigo-700 text-center mb-6 tracking-wider">📣 Ready for My Next Impactful Role</h1>
+<section class="py-24">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <!-- Heading -->
+    <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 text-center mb-6 tracking-tight">
+      🚀 Open to Work – Globally
+    </h1>
 
-    <!-- 🌐 Language + 🌍 Remote Region Badges -->
-    <div class="flex flex-col md:flex-row items-center justify-between mt-4 mb-12 space-y-4 md:space-y-0 md:space-x-6">
-      <!-- Language Selector (non-functional for now) -->
-      <div class="flex items-center space-x-2">
-        <label for="language" class="text-gray-600 font-medium">🌐 Preferred Language:</label>
-        <select id="language" name="language"
-          class="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-          <option value="en">English</option>
-          <option value="hi">Hindi</option>
-          <option value="fr">Français</option>
-          <option value="es">Español</option>
-        </select>
-      </div>
-
-      <!-- Remote Regions -->
-      <div class="flex flex-wrap gap-3">
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">🌏 Asia – Remote</span>
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">🇺🇸 USA – Remote</span>
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">🇪🇺 EU – Remote</span>
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-pink-100 text-pink-600 text-sm font-semibold">🇮🇳 India – Remote</span>
-      </div>
+    <!-- Global Badge Selector -->
+    <div class="flex flex-wrap justify-center gap-3 mt-4 mb-10">
+      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">🌏 Open to Asia</span>
+      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold">🇺🇸 Remote US</span>
+      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">🇪🇺 EU Opportunities</span>
+      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 text-sm font-semibold">💬 Language: English</span>
     </div>
 
-    <!-- Content Block -->
-    <div class="bg-white p-10 rounded-3xl shadow-2xl space-y-8 text-lg leading-relaxed">
+    <!-- Message Content Box -->
+    <div class="bg-white rounded-3xl shadow-xl p-10 leading-relaxed text-lg space-y-6 border border-gray-100">
 
-      <p class="text-gray-800 font-semibold">Dear Recruiters and Visionary Leaders,</p>
+      <p class="text-gray-800 font-semibold">Dear Global Recruiters & Visionary Leaders,</p>
+      <p>
+        I'm <strong>Shivraj Randive</strong>, a results-driven full-stack developer eager to contribute my skills on a global stage. With a foundation in .NET, Python, and SQL, I’m passionate about building performance-oriented applications and thriving in collaborative, multicultural teams.
+      </p>
 
-      <p>I’m Shivraj Randive, a developer passionate about crafting elegant and scalable solutions. This isn’t just a job search — it’s my journey to contribute meaningfully to innovation. Here's a snapshot of what I bring.</p>
-
-      <h2 class="text-2xl font-semibold text-indigo-700 mt-6"><i class="fas fa-user-astronaut mr-2"></i> My Developer Universe</h2>
-      <ul class="list-disc list-inside space-y-3 text-gray-700">
-        <li><strong>Core Technologies:</strong> Python, SQL, ASP.NET (MVC & Web Forms), JavaScript</li>
-        <li><strong>Frameworks:</strong> .NET Core, Flask, Tailwind CSS, Bootstrap</li>
-        <li><strong>Philosophy:</strong> Full-stack agility, clean code, performance-first approach</li>
-        <li><strong>Mindset:</strong> Teamwork, growth, and reliability</li>
+      <!-- Developer Profile -->
+      <h2 class="text-2xl font-semibold text-indigo-700 mt-8"><i class="fas fa-code mr-2"></i> My Tech Stack</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li><strong>Languages & Tools:</strong> C#, ASP.NET MVC/WebForms, Python, JavaScript, SQL</li>
+        <li><strong>Frameworks:</strong> .NET Core, Flask, Bootstrap, Tailwind CSS</li>
+        <li><strong>Skills:</strong> Full-Stack Development, Backend APIs, Database Design, UI/UX</li>
+        <li><strong>Approach:</strong> Clean code, modular design, constant learning</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-blue-700 mt-6"><i class="fas fa-binoculars mr-2"></i> Exploring New Horizons</h2>
-      <ul class="list-decimal list-inside space-y-3 text-gray-700">
-        <li><strong>.NET Developer:</strong> Scalable web apps & SQL-driven APIs</li>
-        <li><strong>Python Backend Engineer:</strong> REST APIs with Flask / Django</li>
-        <li><strong>Developer Analyst:</strong> Insights with SQL, Excel, Power BI</li>
-        <li><strong>ML Aspirant:</strong> Exploring AI & ML for future-ready solutions</li>
+      <!-- Career Goals -->
+      <h2 class="text-2xl font-semibold text-blue-700 mt-8"><i class="fas fa-briefcase mr-2"></i> Roles I'm Open To</h2>
+      <ul class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>ASP.NET / .NET Core Developer (Remote or On-site)</li>
+        <li>Python Backend Developer with Flask/Django</li>
+        <li>Data-Oriented Developer (SQL, Power BI, Excel)</li>
+        <li>Junior AI/ML Contributor – learning-driven roles</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-green-700 mt-6"><i class="fas fa-rocket mr-2"></i> Strengths I Bring</h2>
-      <ul class="list-check list-inside space-y-3 text-gray-700">
-        <li>✅ Hands-on with diverse tech stacks</li>
-        <li>✅ Strong communication & collaboration skills</li>
-        <li>✅ Lifelong learner & adaptive</li>
-        <li>✅ Efficient, readable, and maintainable code</li>
+      <!-- Strengths -->
+      <h2 class="text-2xl font-semibold text-green-700 mt-8"><i class="fas fa-certificate mr-2"></i> What Sets Me Apart</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>✅ Versatile across back-end and front-end technologies</li>
+        <li>✅ Strong communication and teamwork in agile environments</li>
+        <li>✅ Always learning – embracing growth & tech shifts</li>
+        <li>✅ Committed to quality, testing, and maintainable code</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-yellow-700 mt-6"><i class="fas fa-lightbulb mr-2"></i> Why Partner with Me?</h2>
-      <ul class="list-plus list-inside space-y-3 text-gray-700">
-        <li>➕ Real-world problem solver</li>
-        <li>➕ Fast learner & tech integrator</li>
-        <li>➕ Code that delivers performance & clarity</li>
-        <li>➕ Growth mindset & feedback-driven</li>
+      <!-- Contact Info -->
+      <h2 class="text-2xl font-semibold text-purple-700 mt-8"><i class="fas fa-handshake mr-2"></i> Let’s Talk</h2>
+      <ul class="space-y-2 text-gray-700">
+        <li>📧 <strong>Email:</strong> <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 underline">shivrajrandive9281@gmail.com</a></li>
+        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-indigo-600 underline">linkedin.com/in/shivraj-randive</a></li>
+        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-indigo-600 underline">github.com/Shivrajjjjj</a></li>
+        <li>📄 <strong>Resume:</strong> <a href="resume.html" class="text-indigo-600 underline">View PDF</a></li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-purple-700 mt-6"><i class="fas fa-handshake mr-2"></i> Let’s Connect</h2>
-      <ul class="space-y-3 text-gray-700">
-        <li>📧 <strong>Email:</strong> <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-700 underline hover:text-indigo-500 transition">shivrajrandive9281@gmail.com</a></li>
-        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-indigo-700 underline hover:text-indigo-500 transition">linkedin.com/in/shivraj-randive</a></li>
-        <li>🌐 <strong>Portfolio:</strong> <a href="https://shivrajjjjj.github.io/portfolio-website" target="_blank" class="text-indigo-700 underline hover:text-indigo-500 transition">shivrajjjjj.github.io</a></li>
-        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-indigo-700 underline hover:text-indigo-500 transition">github.com/Shivrajjjjj</a></li>
-      </ul>
-
+      <!-- CTA -->
       <div class="text-center mt-10">
-        <a href="resume.html" class="inline-block bg-indigo-700 hover:bg-indigo-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">📄 View My Resume</a>
+        <a href="index.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">
+          👨‍💻 Back to Portfolio
+        </a>
       </div>
 
-      <div class="mt-10 text-center text-indigo-900 font-semibold italic">
-        <p>✨ My goal: Collaborate on purposeful tech projects & grow with dynamic teams.</p>
-      </div>
-
-      <div class="mt-10 text-center">
-        <a href="index.html" class="text-indigo-700 underline hover:text-indigo-500 transition"><i class="fas fa-arrow-left mr-2"></i> Back to Portfolio</a>
-      </div>
     </div>
   </div>
 </section>
