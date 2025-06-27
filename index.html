@@ -516,71 +516,86 @@
 <body>
 
   <!-- Hero Section -->
-<section class="hero py-20 bg-indigo-100">
-  <div class="container mx-auto text-center px-4">
+<section class="hero relative py-24 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 overflow-hidden">
+  <div class="container mx-auto text-center px-6 relative z-10">
     
-    <!-- Profile Picture (Clickable) -->
+    <!-- Floating Gradient Blur Effect -->
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
+
+    <!-- Profile Picture (Opens Modal) -->
     <div class="flex justify-center mb-6">
       <img src="IMG_5640.JPG" alt="Shivraj Randive"
            onclick="toggleModal(true)"
-           class="w-24 h-24 rounded-full border-4 border-indigo-400 shadow-md cursor-pointer transition hover:scale-105" />
+           class="w-28 h-28 rounded-full border-4 border-indigo-500 shadow-lg cursor-pointer transition hover:scale-110 duration-300" />
     </div>
 
     <!-- LinkedIn Icon -->
     <div class="flex justify-center mb-4">
       <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"
-        aria-label="LinkedIn Profile" class="text-indigo-600 hover:text-indigo-800 transition-colors">
+         aria-label="LinkedIn Profile"
+         class="text-indigo-600 hover:text-indigo-800 transition-colors">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.77 0 5-2.24 5-5v-14c0-2.76-2.23-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.31c.89-1.18 2.19-1.81 3.5-1.81 2.5 0 4.5 2 4.5 4.5v6z" />
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.77 0 5-2.24 5-5v-14c0-2.76-2.23-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.31c.89-1.18 2.19-1.81 3.5-1.81 2.5 0 4.5 2 4.5 4.5v6z"/>
         </svg>
       </a>
     </div>
 
-    <!-- Hero Info -->
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Shivraj Randive</h1>
-    <p class="text-lg text-gray-600 mb-8">Software Developer • Full-Stack Engineer based in Kolhapur</p>
+    <!-- Hero Text -->
+    <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-3">
+      Shivraj Randive
+    </h1>
+    <p class="text-xl text-gray-700 mb-8">
+      Software Developer · Full-Stack Engineer · Kolhapur 🇮🇳
+    </p>
 
-    <!-- Action Buttons -->
-    <div class="hero-actions space-x-4">
-      <a href="resume.html" class="inline-block py-3 px-6 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 transition duration-300">View Resume</a>
-      <a href="#contact" class="inline-block py-3 px-6 bg-transparent border border-blue-500 text-blue-500 font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">Contact Me</a>
-      <a href="open-to-work.html" class="inline-block py-3 px-6 bg-indigo-500 text-white font-semibold rounded-md shadow-md hover:bg-indigo-600 transition duration-300">Read Blog</a>
+    <!-- CTA Buttons -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="resume.html"
+         class="px-6 py-3 rounded-full bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700 transition">
+        View Resume
+      </a>
+      <a href="#contact"
+         class="px-6 py-3 rounded-full border border-indigo-600 text-indigo-600 font-semibold hover:bg-indigo-600 hover:text-white transition">
+        Contact Me
+      </a>
+      <a href="open-to-work.html"
+         class="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold shadow hover:opacity-90 transition">
+        Read Blog
+      </a>
     </div>
   </div>
 </section>
 
-<!-- Modal -->
-<div id="profileModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center">
-  <div class="bg-white rounded-xl shadow-2xl p-6 w-11/12 max-w-md relative animate-fade-in">
+<!-- Modal Popup -->
+<div id="profileModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm flex items-center justify-center">
+  <div class="relative bg-white rounded-2xl shadow-2xl p-8 w-11/12 max-w-md animate-fade-in">
     
     <!-- Close Button -->
-    <button onclick="toggleModal(false)" class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-xl font-bold">&times;</button>
+    <button onclick="toggleModal(false)"
+            class="absolute top-3 right-4 text-gray-500 hover:text-red-600 text-2xl font-bold">&times;</button>
     
     <!-- Modal Content -->
     <div class="flex flex-col items-center text-center">
       <img src="IMG_5640.JPG" alt="Shivraj Randive"
-           class="w-32 h-32 rounded-full border-4 border-indigo-500 shadow mb-4" />
+           class="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-lg mb-4" />
       <h2 class="text-2xl font-bold text-indigo-700">Shivraj Randive</h2>
-      <p class="text-sm text-gray-600 mt-2">Software Developer | .NET & Full-Stack Engineer based in Kolhapur</p>
-      <p class="text-sm text-gray-500 mt-3">"Driven to create impact through clean code, modular design, and real-world solutions."</p>
+      <p class="text-sm text-gray-600 mt-2">.NET & Full-Stack Engineer based in Kolhapur</p>
+      <p class="text-sm text-gray-500 mt-3 italic">“Driven to build clean, efficient code with impactful real-world outcomes.”</p>
     </div>
   </div>
 </div>
 
-<!-- Modal Script -->
+<!-- JS -->
 <script>
   function toggleModal(show) {
     const modal = document.getElementById('profileModal');
     modal.classList.toggle('hidden', !show);
   }
 
-  // Optional: Close modal on ESC
   document.addEventListener('keydown', function (e) {
     if (e.key === "Escape") toggleModal(false);
   });
 </script>
-
 
   <section id="experience" class="py-24 bg-gradient-to-b from-white via-slate-50 to-white">
   <div class="container mx-auto px-6">
