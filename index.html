@@ -18,7 +18,6 @@
         /* Apply Inter font and dark background */
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
             background-color: #0d0d0d; /* Very dark background */
         }
         /* Style for the fixed sidebar */
@@ -52,9 +51,14 @@
         .lime-text {
             color: var(--color-lime-accent);
         }
-        /* Custom scrollbar for the content area */
+        
+        /* Custom scrollbar for the content area (Desktop & Mobile) */
+        .content-scroll {
+            scroll-behavior: smooth; /* Smooth scroll when clicking nav links */
+        }
         .content-scroll::-webkit-scrollbar {
             width: 8px;
+            height: 8px; /* Needed for horizontal scroll */
         }
         .content-scroll::-webkit-scrollbar-thumb {
             background-color: var(--color-lime-accent);
@@ -81,7 +85,32 @@
                 position: relative;
                 width: 100%;
                 height: auto;
-                padding: 1rem 0;
+                padding: 1.5rem 0 0; /* Adjusted padding */
+                border-right: none;
+                border-bottom: 1px solid #1f2937;
+            }
+            /* Ensure mobile content scrolls */
+            .content-scroll {
+                overflow-y: auto;
+                height: auto;
+            }
+            /* Remove left border on nav items for mobile horizontal layout */
+            .nav-link {
+                border-left: none;
+                padding: 8px 16px;
+                border-radius: 9999px; /* Pill shape */
+                background-color: #1f2937;
+            }
+            .nav-link:hover {
+                color: #000;
+                background-color: var(--color-lime-accent);
+                border-left-color: transparent;
+                transform: none;
+            }
+            .nav-link.active {
+                background-color: var(--color-lime-accent);
+                color: #000;
+                font-weight: 600;
             }
         }
     </style>
@@ -170,11 +199,42 @@
             });
         }
 
+        function updateActiveLink() {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150; // Offset for header/padding
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.classList.remove('lime-text'); 
+                link.classList.add('text-gray-400'); // Default text color
+                if (link.href.includes(current)) {
+                    // Mobile and Desktop active state styling
+                    link.classList.add('active');
+                    link.classList.add('lime-text');
+                    link.classList.remove('text-gray-400');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('resize', updateActiveLink);
+        document.addEventListener('DOMContentLoaded', updateActiveLink);
+
+
         window.onload = async () => {
             if (firebaseConfig) {
                 await authenticateUser();
                 setupRealtimeViewerCount();
             }
+            updateActiveLink(); // Initial call
         };
 
         window.sendContact = async (event) => {
@@ -273,30 +333,30 @@
         <header class="fixed-sidebar md:fixed md:top-0 md:left-0 md:h-full w-full md:w-[30%] p-8 flex flex-col justify-between">
             <div>
                 <!-- 1. Identity -->
-                <div class="mb-10 pt-4">
+                <div class="mb-6 md:mb-10 pt-4">
                     <img src="https://placehold.co/80x80/0d0d0d/39ff14?text=SR" alt="Shivraj Randive"
                         onerror="this.onerror=null;this.src='https://placehold.co/80x80/0d0d0d/39ff14?text=SR'"
                         class="w-20 h-20 rounded-full border-2 border-[var(--color-lime-accent)] mb-4">
                     <h1 class="text-4xl font-extrabold text-white tracking-tight">Shivraj Randive</h1>
                     <p class="lime-text text-xl font-medium mt-1">Full-Stack Engineer</p>
-                    <p class="text-gray-400 text-sm mt-3 max-w-xs">
-                        Building efficient, scalable systems with expertise in **.NET, Python, and modern web technologies.**
-                    </p>
                 </div>
 
-                <!-- 2. Navigation -->
-                <nav class="space-y-3 font-semibold text-lg">
-                    <a href="#summary" class="nav-link block py-2 pl-3">Profile Summary</a>
-                    <a href="#experience" class="nav-link block py-2 pl-3">Experience</a>
-                    <a href="#skills" class="nav-link block py-2 pl-3">Skills & Stack</a>
-                    <a href="#projects" class="nav-link block py-2 pl-3">Projects</a>
-                    <a href="#certifications" class="nav-link block py-2 pl-3">Credentials</a>
-                    <a href="#contact" class="nav-link block py-2 pl-3">Contact</a>
-                </nav>
+                <!-- 2. Navigation (Responsive: Vertical Desktop / Horizontal Scroll Mobile) -->
+                <div class="text-lg md:block md:space-y-3 font-semibold mb-6 md:mb-0">
+                    <div class="overflow-x-auto whitespace-nowrap md:overflow-x-hidden md:whitespace-normal py-2 flex md:block space-x-3 md:space-x-0">
+                        <!-- Navigation Links -->
+                        <a href="#summary" class="nav-link text-gray-400 inline-block md:block py-2 md:pl-3">Summary</a>
+                        <a href="#experience" class="nav-link text-gray-400 inline-block md:block py-2 md:pl-3">Experience</a>
+                        <a href="#skills" class="nav-link text-gray-400 inline-block md:block py-2 md:pl-3">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-400 inline-block md:block py-2 md:pl-3">Projects</a>
+                        <a href="#certifications" class="nav-link text-gray-400 inline-block md:block py-2 md:pl-3">Credentials</a>
+                        <a href="#contact" class="nav-link text-gray-400 inline-block md:block py-2 md:pl-3">Contact</a>
+                    </div>
+                </div>
             </div>
 
             <!-- 3. Footer/Status -->
-            <div class="mt-10 md:mt-0 pt-6 border-t border-gray-800">
+            <div class="mt-10 md:mt-0 pt-6 border-t border-gray-800 hidden md:block">
                 <div class="flex items-center gap-3 mb-4">
                     <span class="relative flex h-3 w-3">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-lime-accent)] opacity-75"></span>
@@ -321,11 +381,8 @@
         <!-- RIGHT CONTENT AREA (Scrollable) -->
         <main class="md:col-span-1 md:overflow-y-auto content-scroll p-8 md:p-12">
             
-            <!-- Adjust padding for mobile to account for the header/sidebar -->
-            <div class="md:hidden pt-8"></div>
-
             <!-- 0. PROFILE SUMMARY SECTION -->
-            <section id="summary" class="min-h-min py-10 md:py-10">
+            <section id="summary" class="py-10 md:pt-10 md:pb-20">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">00. Profile Summary</h2>
                 <div class="bg-[#161616] p-8 rounded-lg border border-gray-800 shadow-xl">
                     <p class="text-xl text-gray-300 leading-relaxed">
@@ -335,7 +392,7 @@
             </section>
 
             <!-- 1. EXPERIENCE SECTION -->
-            <section id="experience" class="min-h-screen py-10 md:py-20 border-t border-gray-800">
+            <section id="experience" class="py-10 md:py-20 border-t border-gray-800">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">01. Experience History</h2>
                 <div class="space-y-8">
                     <!-- Experience Item 1 -->
@@ -369,7 +426,7 @@
             </section>
 
             <!-- 2. SKILLS SECTION -->
-            <section id="skills" class="min-h-screen py-10 md:py-20 border-t border-gray-800">
+            <section id="skills" class="py-10 md:py-20 border-t border-gray-800">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">02. Technical Stack</h2>
                 
                 <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">BACKEND & FRAMEWORKS</h3>
@@ -446,7 +503,7 @@
             </section>
 
             <!-- 3. PROJECTS SECTION -->
-            <section id="projects" class="min-h-screen py-10 md:py-20 border-t border-gray-800">
+            <section id="projects" class="py-10 md:py-20 border-t border-gray-800">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">03. Project Portfolio</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -490,7 +547,7 @@
             </section>
 
             <!-- 4. CERTIFICATIONS & EDUCATION SECTION -->
-            <section id="certifications" class="min-h-screen py-10 md:py-20 border-t border-gray-800">
+            <section id="certifications" class="py-10 md:py-20 border-t border-gray-800">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">04. Credentials & Academia</h2>
 
                 <h3 class="text-xl font-bold text-gray-300 mb-6">CERTIFICATIONS</h3>
@@ -566,10 +623,31 @@
                 </div>
             </section>
 
-            <!-- FOOTER -->
+            <!-- FOOTER (Moved here for better mobile display) -->
             <footer class="text-center pt-10 pb-20 text-gray-600 text-xs border-t border-gray-800 mt-10">
                 <p>SHIVRAJ RANDIVE © 2025 | STATUS: OPERATIONAL</p>
                 <p class="mt-1">UI/UX HACKED WITH TAILWIND & LIME ACCENTS.</p>
+                <!-- Mobile Status / Socials -->
+                 <div class="md:hidden pt-4 border-t border-gray-800 mt-6">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-lime-accent)] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-[var(--color-lime-accent)]"></span>
+                        </span>
+                        <span id="mobileViewerCount" class="text-sm text-gray-400 font-mono">Loading live count...</span>
+                    </div>
+                    <div class="flex space-x-4 justify-center">
+                        <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" aria-label="LinkedIn" class="lime-text hover:text-white transition">
+                            <i class="fab fa-linkedin fa-xl"></i>
+                        </a>
+                        <a href="https://github.com/Shivrajjjjj" target="_blank" aria-label="GitHub" class="lime-text hover:text-white transition">
+                            <i class="fab fa-github fa-xl"></i>
+                        </a>
+                        <a href="#contact" aria-label="Contact" class="lime-text hover:text-white transition">
+                            <i class="fas fa-envelope fa-xl"></i>
+                        </a>
+                    </div>
+                </div>
             </footer>
 
         </main>
