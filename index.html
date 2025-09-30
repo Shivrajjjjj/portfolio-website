@@ -612,149 +612,276 @@
                 </div>
             </section>
 
-            <!-- 3. PROJECTS SECTION -->
-            <section id="projects" class="py-10 md:py-20 border-t border-gray-800">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">03. Project Portfolio</h2>
+          <!-- 3. PROJECTS SECTION (Refactored to use dynamic JS but dark-theme styling) -->
+    <section id="projects" class="py-10 md:py-20 border-t border-gray-800 max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">03. Project Portfolio</h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Project Card 1 -->
-                    <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                        <h3 class="text-2xl font-bold lime-text">Forts Tourism Website</h3>
-                        <p class="text-gray-400 text-sm mt-3">Developed a full-featured tourism platform using **Python Flask** and **MySQL** for scalable data handling. Implemented real-time booking, user authentication, and optimized the routing logic to handle high request volumes efficiently.</p>
-                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                            View Source <i class="fab fa-github ml-1 lime-text"></i>
-                        </a>
-                    </div>
+        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project cards will be injected here by JavaScript -->
+        </div>
+    </section>
 
-                    <!-- Project Card 2 -->
-                    <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                        <h3 class="text-2xl font-bold lime-text">Computer Institute System</h3>
-                        <p class="text-gray-400 text-sm mt-3">A robust academic management system built on **ASP.NET MVC** and **SQL Server** for backend data integrity. This solution automated the entire admissions workflow, student grading, and fee invoicing, reducing administrative staff manual effort by **over 60%**.</p>
-                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                            View Source <i class="fab fa-github ml-1 lime-text"></i>
-                        </a>
-                    </div>
+    <!-- 4. CERTIFICATIONS & EDUCATION SECTION (Integrated the provided dark-theme structure) -->
+    <section id="certifications" class="py-10 md:py-20 border-t border-gray-800 max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">04. Credentials & Academia</h2>
 
-                    <!-- Project Card 3 -->
-                    <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                        <h3 class="text-2xl font-bold lime-text">E-Commerce Chatbot App</h3>
-                        <p class="text-gray-400 text-sm mt-3">Engineered an interactive customer support system for e-commerce, using **ASP.NET Core** for the backend and **SignalR** for real-time, bi-directional communication. The bot provides instant product queries and personalized recommendations to users.</p>
-                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                            View Source <i class="fab fa-github ml-1 lime-text"></i>
-                        </a>
-                    </div>
-                    
-                    <!-- Project Card 4 -->
-                    <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                        <h3 class="text-2xl font-bold lime-text">AI Image Analysis Web App</h3>
-                        <p class="text-gray-400 text-sm mt-3">A modern front-end application developed using **React (Vite/TypeScript)** for a fast, responsive interface. It handles asynchronous calls to a backend service for real-time image processing and analysis using computer vision libraries.</p>
-                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                            View Source <i class="fab fa-github ml-1 lime-text"></i>
-                        </a>
-                    </div>
+        <h3 class="text-xl font-bold text-gray-300 mb-6">CERTIFICATIONS</h3>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Databricks -->
+            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-blue-500 transition duration-300">
+                <i class="fas fa-database text-xl text-blue-400 mb-2"></i>
+                <p class="text-sm font-semibold text-white">Databricks for ML</p>
+                <a href="https://simpli-web.app.link/e/cm2oJvNXnTb" target="_blank" class="text-xs text-blue-400 hover:text-white">View Link</a>
+            </div>
+            <!-- Microsoft Copilot -->
+            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-green-500 transition duration-300">
+                <i class="fab fa-microsoft text-xl text-green-400 mb-2"></i>
+                <p class="text-sm font-semibold text-white">Copilot for Startups</p>
+                <a href="https://simpli-web.app.link/e/GfVyxDtXnTb" target="_blank" class="text-xs text-green-400 hover:text-white">View Link</a>
+            </div>
+            <!-- HP LIFE: AI for Beginners -->
+            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-[var(--color-lime-accent)] transition duration-300">
+                <i class="fas fa-lightbulb text-xl lime-text mb-2"></i>
+                <p class="text-sm font-semibold text-white">AI for Beginners (HP)</p>
+                <a href="https://www.life-global.org/certificate/880a0cdb-8cfe-40e3-8fe5-5299943e516c" target="_blank" class="text-xs lime-text hover:text-white">View Link</a>
+            </div>
+            <!-- AWS: Application Migration -->
+            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-yellow-500 transition duration-300">
+                <i class="fab fa-aws text-xl text-yellow-400 mb-2"></i>
+                <p class="text-sm font-semibold text-white">AWS Application Migration</p>
+                <a href="https://simpli-web.app.link/e/6oDAWoKcoTb" target="_blank" class="text-xs text-yellow-400 hover:text-white">View Link</a>
+            </div>
+            <!-- Additional Certifications from the original code (Styled for dark theme) -->
+            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-red-500 transition duration-300">
+                <i class="fab fa-google text-xl text-red-400 mb-2"></i>
+                <p class="text-sm font-semibold text-white">Gmail Security (Google)</p>
+                <a href="https://simpli-web.app.link/e/ajzX4ycYnTb" target="_blank" class="text-xs text-red-400 hover:text-white">View Link</a>
+            </div>
+            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-indigo-500 transition duration-300">
+                <i class="fas fa-shield-alt text-xl text-indigo-400 mb-2"></i>
+                <p class="text-sm font-semibold text-white">Cybersecurity Awareness (HP)</p>
+                <a href="https://www.life-global.org/certificate/2170776d-4fb8-4e6b-b0d5-5ccbb8fe7ac4" target="_blank" class="text-xs text-indigo-400 hover:text-white">View Link</a>
+            </div>
+        </div>
 
-                </div>
-            </section>
+        <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">ACADEMIA</h3>
+        <div class="space-y-6">
+            <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 hover:border-gray-600 transition duration-300">
+                <h4 class="text-lg font-bold lime-text">Master of Computer Applications (MCA)</h4>
+                <p class="text-gray-300 mt-1">KIT’s Institute of Management Education and Research, Kolhapur</p>
+                <p class="text-sm text-gray-500">Aug 2022 – Jun 2024</p>
+            </div>
+            <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 hover:border-gray-600 transition duration-300">
+                <h4 class="text-lg font-bold lime-text">B.Sc. in Computer Science</h4>
+                <p class="text-gray-300 mt-1">Mahavir Mahavidyalaya, Kolhapur</p>
+                <p class="text-sm text-gray-500">Jun 2019 – Jun 2022</p>
+            </div>
+        </div>
+    </section>
 
-            <!-- 4. CERTIFICATIONS & EDUCATION SECTION -->
-            <section id="certifications" class="py-10 md:py-20 border-t border-gray-800">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">04. Credentials & Academia</h2>
+    <!-- 5. CONTACT SECTION (Integrated the provided dark-theme structure, kept formspree link) -->
+    <section id="contact" class="py-10 md:py-20 border-t border-gray-800 bg-[#121212] max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">05. Initiate Contact</h2>
 
-                <h3 class="text-xl font-bold text-gray-300 mb-6">CERTIFICATIONS</h3>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-blue-500 transition duration-300">
-                        <i class="fas fa-database text-xl text-blue-400 mb-2"></i>
-                        <p class="text-sm font-semibold text-white">Databricks for ML</p>
-                        <a href="https://simpli-web.app.link/e/cm2oJvNXnTb" target="_blank" class="text-xs text-blue-400 hover:text-white">View Link</a>
-                    </div>
-                    <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-green-500 transition duration-300">
-                        <i class="fab fa-microsoft text-xl text-green-400 mb-2"></i>
-                        <p class="text-sm font-semibold text-white">Copilot for Startups</p>
-                        <a href="https://simpli-web.app.link/e/GfVyxDtXnTb" target="_blank" class="text-xs text-green-400 hover:text-white">View Link</a>
-                    </div>
-                    <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-[var(--color-lime-accent)] transition duration-300">
-                        <i class="fas fa-lightbulb text-xl lime-text mb-2"></i>
-                        <p class="text-sm font-semibold text-white">AI for Beginners (HP)</p>
-                        <a href="https://www.life-global.org/certificate/880a0cdb-8cfe-40e3-8fe5-5299943e516c" target="_blank" class="text-xs lime-text hover:text-white">View Link</a>
-                    </div>
-                    <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-yellow-500 transition duration-300">
-                        <i class="fab fa-aws text-xl text-yellow-400 mb-2"></i>
-                        <p class="text-sm font-semibold text-white">AWS Application Migration</p>
-                        <a href="https://simpli-web.app.link/e/6oDAWoKcoTb" target="_blank" class="text-xs text-yellow-400 hover:text-white">View Link</a>
-                    </div>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">ACADEMIA</h3>
-                <div class="space-y-6">
-                    <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 hover:border-gray-600 transition duration-300">
-                        <h4 class="text-lg font-bold lime-text">Master of Computer Applications (MCA)</h4>
-                        <p class="text-gray-300 mt-1">KIT’s Institute of Management Education and Research, Kolhapur</p>
-                        <p class="text-sm text-gray-500">Aug 2022 – Jun 2024</p>
-                    </div>
-                    <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 hover:border-gray-600 transition duration-300">
-                        <h4 class="text-lg font-bold lime-text">B.Sc. in Computer Science</h4>
-                        <p class="text-gray-300 mt-1">Mahavir Mahavidyalaya, Kolhapur</p>
-                        <p class="text-sm text-gray-500">Jun 2019 – Jun 2022</p>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- 5. CONTACT SECTION -->
-            <section id="contact" class="py-10 md:py-20 border-t border-gray-800">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">05. Initiate Contact</h2>
-
-                <div class="bg-[#161616] p-8 rounded-lg shadow-2xl border border-gray-800">
-                    <p class="text-lg text-gray-300 mb-6 font-semibold">Ready for deployment? Send a secure message.</p>
-                    <form onsubmit="window.sendContact(event)" class="space-y-6">
+        <div class="contact-grid">
+            <!-- Contact Info (Added for a two-column effect in the dark theme) -->
+            <div class="bg-[#161616] p-8 rounded-lg shadow-2xl border border-gray-800 space-y-6 flex flex-col justify-start">
+                <p class="text-lg text-gray-300 font-semibold">I'm currently accepting new projects and collaboration opportunities.</p>
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-envelope text-2xl lime-text"></i>
                         <div>
-                            <label for="name" class="block text-sm font-medium lime-text mb-1">NAME</label>
-                            <input type="text" id="name" name="name" required
-                                   class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition">
+                            <p class="text-sm text-gray-500">Email Address</p>
+                            <a href="mailto:shivrajrandive9281@gmail.com" class="text-white hover:text-lime-300 transition">shivrajrandive9281@gmail.com</a>
                         </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-map-marker-alt text-2xl lime-text"></i>
                         <div>
-                            <label for="email" class="block text-sm font-medium lime-text mb-1">EMAIL</label>
-                            <input type="email" id="email" name="email" required
-                                   class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition">
+                            <p class="text-sm text-gray-500">Location</p>
+                            <p class="text-white">Kolhapur, Maharashtra, India</p>
                         </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium lime-text mb-1">MESSAGE / PROJECT BRIEF</label>
-                            <textarea id="message" name="message" rows="4" required
-                                      class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition"></textarea>
-                        </div>
-
-                        <button type="submit"
-                                class="w-full flex justify-center items-center py-3 px-4 border-2 border-transparent rounded-lg shadow-lg font-bold lime-button transition">
-                            DEPLOY MESSAGE
-                            <i class="fas fa-paper-plane ml-3"></i>
-                        </button>
-                        <p id="contactStatus" class="text-center text-sm font-medium pt-2 text-gray-500"></p>
-                    </form>
+                    </div>
                 </div>
-            </section>
+                <div class="mt-8">
+                    <p class="text-sm font-bold text-gray-500 mb-3">Connect on Social</p>
+                    <div class="flex gap-4 text-xl">
+                        <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-gray-400 hover:text-lime-300 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-gray-400 hover:text-lime-300 transition"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
 
-            <!-- FOOTER (General Footer) -->
-            <footer class="text-center pt-10 pb-20 text-gray-600 text-xs border-t border-gray-800 mt-10">
-                <p>SHIVRAJ RANDIVE © 2025 | STATUS: OPERATIONAL</p>
-                <p class="mt-1">UI/UX HACKED WITH TAILWIND & LIME ACCENTS.</p>
-            </footer>
+            <!-- Contact Form -->
+            <div class="bg-[#161616] p-8 rounded-lg shadow-2xl border border-gray-800">
+                <form id="contactForm" action="https://formspree.io/f/xzzgyzqo" method="POST"
+                    onsubmit="showSuccessModal(event)" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium lime-text mb-1">NAME</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe"
+                            class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium lime-text mb-1">EMAIL</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com"
+                            class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium lime-text mb-1">MESSAGE / PROJECT BRIEF</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tell me about your project..."
+                            class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition"></textarea>
+                    </div>
 
-        </main>
+                    <button type="submit"
+                        class="w-full flex justify-center items-center py-3 px-4 border-2 border-transparent rounded-lg shadow-lg font-bold lime-button transition">
+                        DEPLOY MESSAGE
+                        <i class="fas fa-paper-plane ml-3 text-gray-800"></i>
+                    </button>
+                    <p id="contactStatus" class="text-center text-sm font-medium pt-2 text-gray-500"></p>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    </div>
-
-    <!-- Experience Modal (Hidden by default) -->
-    <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4" onclick="closeModal()">
-        <div class="bg-gray-900 rounded-xl shadow-2xl w-full max-w-xl p-8 relative animate-fade-in border border-[var(--color-lime-accent)]/50" onclick="event.stopPropagation()">
-            <button class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-3xl transition" onclick="closeModal()">&times;</button>
-            <h3 id="modalTitle" class="text-3xl font-bold lime-text mb-2"></h3>
-            <p id="modalCompany" class="text-gray-300 font-semibold"></p>
-            <p id="modalPeriod" class="text-sm text-gray-500 mb-6"></p>
-            <h4 class="text-lg font-bold text-white mb-3 border-b border-gray-700 pb-1">ACHIEVEMENTS:</h4>
-            <ul id="modalDetails" class="list-disc list-inside text-gray-400 space-y-3 pl-4">
-            </ul>
+    <!-- Success Modal -->
+    <div id="successModal"
+        class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center px-4">
+        <div class="bg-[#161616] rounded-xl shadow-2xl p-8 max-w-md w-full text-center relative border border-gray-700 animate-fade-in">
+            <button onclick="closeSuccessModal()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl font-bold">&times;</button>
+            <div class="text-lime-300 text-4xl mb-4"><i class="fas fa-check-circle"></i></div>
+            <h3 class="text-2xl font-bold text-white mb-2">Message Deployed Successfully!</h3>
+            <p class="text-gray-400">Thanks for reaching out. I'll review your brief and get back to you shortly.</p>
         </div>
     </div>
 
+
+    <!-- FOOTER (Styled for dark theme consistency) -->
+    <footer class="bg-gray-900 text-white py-10 relative overflow-hidden mt-12 border-t border-gray-800">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <h4 class="text-xl font-semibold mb-2">Shivraj Randive</h4>
+            <p class="text-sm text-gray-400 mb-4">Full-Stack Developer • Building scalable, modern web solutions</p>
+            <div class="flex justify-center gap-6 text-lg">
+                <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-gray-300 hover:text-lime-300 transition"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-gray-300 hover:text-lime-300 transition"><i class="fab fa-github"></i></a>
+                <a href="mailto:shivrajrandive9281@gmail.com" target="_blank" class="text-gray-300 hover:text-lime-300 transition"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 mt-6">© 2025 Shivraj Randive. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic content and modals -->
+    <script>
+        // Project Data Array (from original input)
+        const projects = [
+            {
+                title: 'Forts Tourism Website',
+                description: 'End-to-end tourism platform using Flask and MySQL. Responsive UI, real-time bookings, and backend optimization.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'Computer Institute System',
+                description: 'ASP.NET + SQL Server academic automation. Smart admissions, auto-invoicing, 60% reduced manual work.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'E-Commerce Chatbot App',
+                description: 'ASP.NET Core chatbot with SignalR. Product queries, instant recommendations, and responsive UI.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'AI Image Analysis Web App',
+                description: 'React + Vite + TypeScript app with real-time insights and async image uploads.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'Webform Project',
+                description: 'Dynamic ASP.NET MVC forms for printing services. Streamlined custom orders and client workflows.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'Digital Banking Solution',
+                description: 'Secure Flask app with real-time banking, loan modules, and intuitive dashboards.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'Blazor Dashboard App',
+                description: 'Real-time Blazor dashboard using .NET + Bootstrap. Includes dynamic tables, weather, and counters.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'TaskManagerApi',
+                description: 'RESTful API built in ASP.NET Core. CRUD tasks with integrated Bootstrap UI and video demo.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+            {
+                title: 'Goal Tracker (Flutter)',
+                description: 'Flutter mobile app for goal tracking. Includes analytics, reminders, and motivational quotes.',
+                github: 'https://github.com/Shivrajjjjj'
+            },
+        ];
+
+        // Function to dynamically generate and inject project cards
+        function loadProjects() {
+            const projectsContainer = document.getElementById('projects-container');
+            const projectHTML = projects.map(p => `
+                <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                    <h3 class="text-xl md:text-2xl font-bold lime-text">${p.title}</h3>
+                    <p class="text-gray-400 text-sm mt-3">${p.description}</p>
+                    <a href="${p.github}" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                        View Source <i class="fab fa-github ml-1 lime-text"></i>
+                    </a>
+                </div>
+            `).join('');
+            projectsContainer.innerHTML = projectHTML;
+        }
+
+        // Contact Form Modal Logic
+        async function showSuccessModal(event) {
+            // Prevent default form submission initially
+            event.preventDefault();
+            const form = event.target;
+            const statusElement = document.getElementById('contactStatus');
+
+            statusElement.textContent = 'Sending...';
+            statusElement.classList.remove('text-red-400');
+            statusElement.classList.add('text-lime-300');
+
+            try {
+                // Submit the form data manually using fetch to handle the response
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    statusElement.textContent = 'Message sent successfully!';
+                    statusElement.classList.remove('text-lime-300');
+                    statusElement.classList.add('text-green-400');
+                    // Show the custom modal on success
+                    document.getElementById('successModal').classList.remove('hidden');
+                } else {
+                    statusElement.textContent = 'Error: Failed to send message.';
+                    statusElement.classList.remove('text-lime-300');
+                    statusElement.classList.add('text-red-400');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                statusElement.textContent = 'Error: Network issue or service unavailable.';
+                statusElement.classList.remove('text-lime-300');
+                statusElement.classList.add('text-red-400');
+            }
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        // Initialize projects on load
+        window.onload = loadProjects;
+    </script>
 </body>
 </html>
