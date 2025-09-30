@@ -4,143 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Open to Work – Shivraj Randive</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
+    /* Corporate Dark Mode Styling */
     body {
-      background: linear-gradient(135deg, #eaf4ff, #f9fcff);
+      background-color: #111827; /* Dark Slate Background (Corporate) */
+      color: #e5e7eb;
       animation: fadeIn 1.5s ease-in-out;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Scroll to Top */
-    #scrollTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 50;
-      background-color: #6366f1;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 12px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+
+    /* Subtle shadow for the main content card */
+    .card-shadow {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
-    #scrollTopBtn:hover {
-      transform: scale(1.1);
-      background-color: #4f46e5;
+
+    /* Button Hover Effect - More reserved */
+    .btn-animate:hover {
+        transform: translateY(-2px); /* Subtle lift instead of scale */
+        box-shadow: 0 8px 15px rgba(79, 70, 229, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    
+    /* Scroll to Top (Hidden in this version) */
+    #scrollTopBtn { display: none; }
   </style>
 </head>
 
-<body class="text-gray-800">
+<body class="text-gray-100">
 
-<section class="py-24">
+<section class="py-24 bg-gray-900 min-h-screen">
   <div class="container mx-auto px-4 max-w-4xl">
     <!-- Heading -->
-    <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 text-center mb-6 tracking-tight">
-      🌍 Open to Global Opportunities
+    <h1 class="text-5xl md:text-6xl font-extrabold text-indigo-500 text-center mb-6 tracking-tight">
+      <i class="fas fa-handshake mr-3"></i> Career Opportunities & Engagement
     </h1>
 
-    <!-- Region & Language -->
-    <div class="flex flex-wrap justify-center gap-3 mt-4 mb-8">
-      <span class="bg-blue-100 text-blue-800 text-sm px-4 py-1.5 rounded-full font-semibold">🌏 Open to Asia</span>
-      <span class="bg-green-100 text-green-700 text-sm px-4 py-1.5 rounded-full font-semibold">🇺🇸 Remote US</span>
-      <span class="bg-yellow-100 text-yellow-700 text-sm px-4 py-1.5 rounded-full font-semibold">🇪🇺 EU Opportunities</span>
-      <span class="bg-gray-200 text-gray-700 text-sm px-4 py-1.5 rounded-full font-semibold">💬 English Only</span>
+    <!-- Subheading - More formal -->
+    <p class="text-xl text-gray-300 text-center mb-12 font-light">I am actively seeking professional roles where my full-stack expertise can contribute to significant organizational goals and technical leadership.</p>
+
+    <!-- Region & Language - Simplified, corporate badges -->
+    <div class="flex flex-wrap justify-center gap-4 mt-4 mb-12">
+      <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">🌏 Open to Asia (Remote/Relocation)</span>
+      <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">🇺🇸 Remote US</span>
+      <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">🇪🇺 EU Opportunities</span>
+      <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">💬 English Communication</span>
     </div>
 
-    <!-- Resumes by Region -->
-    <!--<div class="flex flex-wrap justify-center gap-4 mb-10">
-      <a href="resume-asia.pdf" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow transition">📄 Resume – Asia</a>
-      <a href="resume-us.pdf" class="bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow transition">📄 Resume – US</a>
-      <a href="resume-eu.pdf" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow transition">📄 Resume – EU</a>
-    </div>-->
+    <!-- Main Content Box - Switched to light background for professional document feel -->
+    <div class="bg-white text-gray-800 rounded-xl card-shadow p-12 leading-relaxed space-y-8 border border-gray-200">
 
-    <!-- Main Content Box -->
-    <div class="bg-white rounded-3xl shadow-xl p-10 leading-relaxed text-lg space-y-6 border border-gray-100">
+      <p class="text-indigo-700 text-2xl font-bold border-b border-gray-200 pb-4">Dear Recruiters & Visionary Teams,</p>
+      
+      <p class="text-gray-700">I'm <strong>Shivraj Randive</strong>, a dedicated **Senior Full-Stack Software Engineer** poised to drive global digital excellence. My core competencies lie in architecting highly **scalable, cloud-native backend solutions** (specializing in **.NET Core** and **Python**), paired with delivering exceptional, **performance-driven UI/UX**. I am eager to collaborate with organizations focused on achieving significant technical milestones, enhancing operational efficiency, and maximizing measurable real-world impact.</p>
 
-      <p class="text-gray-800 font-semibold">Dear Recruiters & Visionary Teams,</p>
-      <p>I'm <strong>Shivraj Randive</strong>, a passionate full-stack developer ready to contribute globally. I specialize in backend (.NET, Python), front-end UI/UX, and data-driven logic. I’m eager to join organizations creating meaningful products and real-world impact.</p>
-
-      <h2 class="text-2xl font-semibold text-indigo-700 mt-6"><i class="fas fa-code mr-2"></i> My Tech Toolbox</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-1">
-        <li>Languages & Tools: C#, Python, JavaScript, SQL, .NET, Flask</li>
-        <li>Frameworks: .NET Core, MVC, Tailwind, Bootstrap</li>
-        <li>Approach: Clean code, teamwork, performance optimization</li>
+      <!-- Tech Toolbox -->
+      <h2 class="text-2xl font-bold text-indigo-700 pt-6 border-t border-gray-200"><i class="fas fa-code mr-3"></i> Core Technology Expertise</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-3 ml-4">
+        <li>**Backend & Cloud:** C#, **.NET 8 (Core)**, Python, SQL Server, PostgreSQL, **Azure/AWS (Basic)**, Microservices.</li>
+        <li>**Frameworks & ORMs:** **Entity Framework Core**, ASP.NET Web API/MVC, Flask, Django (Basic).</li>
+        <li>**Frontend & UI:** React (Basic), HTML5, CSS3, **Tailwind CSS**, ensuring responsive and accessible design.</li>
+        <li>**DevOps & Methodology:** Expert in **Clean Architecture**, Test-Driven Development (TDD), performance tuning, and optimizing CI/CD pipelines (e.g., Azure DevOps).</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-blue-700 mt-6"><i class="fas fa-briefcase mr-2"></i> Roles I'm Seeking</h2>
-      <ul class="list-decimal list-inside text-gray-700 space-y-1">
-        <li>Full-Stack or .NET Developer (Remote)</li>
-        <li>Python Backend Engineer (REST APIs, Flask)</li>
-        <li>Data Developer (SQL + Analysis)</li>
-        <li>Junior AI/ML Roles (with guidance)</li>
+      <!-- Roles I'm Seeking -->
+      <h2 class="text-2xl font-bold text-blue-700 pt-6 border-t border-gray-200"><i class="fas fa-briefcase mr-3"></i> Target Roles & Focus Areas</h2>
+      <ul class="list-decimal list-inside text-gray-700 space-y-3 ml-4">
+        <li>**Senior Full-Stack Developer** or **Lead Backend .NET Engineer**: Focus on high-impact projects and technical leadership (Remote/Hybrid preferred).</li>
+        <li>**Python Backend Architect**: Specializing in building and optimizing resilient REST API services.</li>
+        <li>**Data Solutions Developer/Engineer**: Leveraging advanced SQL, data modeling, analysis, and ETL processes for enterprise data systems.</li>
+        <li>**Growth Opportunities**: Actively seeking roles that merge core engineering with emerging domains like Generative AI and ML applications.</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-green-700 mt-6"><i class="fas fa-certificate mr-2"></i> Why Choose Me?</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-1">
-        <li>✅ Full-stack flexibility</li>
-        <li>✅ Agile, adaptable & remote-friendly</li>
-        <li>✅ Open to new challenges globally</li>
-        <li>✅ Enthusiastic, proactive learner</li>
+      <!-- Why Choose Me? -->
+      <h2 class="text-2xl font-bold text-green-700 pt-6 border-t border-gray-200"><i class="fas fa-star mr-3"></i> Value Proposition: Driving Business Outcomes</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-3 ml-4">
+        <li>✅ **Architectural Excellence:** Delivering scalable, maintainable systems that reduce technical debt and costs.</li>
+        <li>✅ **Business Impact:** Translating complex technical requirements into high-value, measurable business solutions.</li>
+        <li>✅ **Adaptability:** Agile mindset, remote-ready, and a commitment to continuous knowledge acquisition.</li>
+        <li>✅ **Global Focus:** Seeking international teams and global projects where diverse perspective is valued.</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold text-purple-700 mt-6"><i class="fas fa-handshake mr-2"></i> Connect with Me</h2>
-      <ul class="space-y-1 text-gray-700">
-        <li>📧 <strong>Email:</strong> <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 underline">shivrajrandive9281@gmail.com</a></li>
-        <li>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-600 underline" target="_blank">linkedin.com/in/shivraj-randive</a></li>
-        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/Shivrajjjjj" class="text-indigo-600 underline" target="_blank">github.com/Shivrajjjjj</a></li>
+      <!-- Connect with Me -->
+      <h2 class="text-2xl font-bold text-purple-700 pt-6 border-t border-gray-200"><i class="fas fa-handshake mr-3"></i> Professional Contact</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li>📧 **Email:** <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium">shivrajrandive9281@gmail.com</a></li>
+        <li>🔗 **LinkedIn:** <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium" target="_blank">linkedin.com/in/shivraj-randive-6918b2232</a></li>
+        <li>💻 **GitHub:** <a href="https://github.com/Shivrajjjjj" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium" target="_blank">github.com/Shivrajjjjj</a></li>
       </ul>
 
-      <div class="text-center mt-8">
-        <a href="index.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full shadow-md font-semibold transition transform hover:scale-105">
-          🔙 Back to Portfolio
+      <div class="text-center pt-10">
+        <a href="index.html" class="inline-block bg-indigo-700 hover:bg-indigo-800 text-white px-12 py-4 rounded-lg shadow-xl font-bold transition btn-animate">
+          <i class="fas fa-arrow-left mr-3"></i> Return to Main Portfolio
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Floating Globe Icon -->
-
-<footer class="bg-indigo-600 text-white py-10 relative overflow-hidden mt-20">
-  <!-- Floating Shapes -->
-  <div class="absolute -top-10 left-0 w-64 h-64 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-  <div class="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl animate-pulse-slow"></div>
+<footer class="bg-gray-800 text-white py-10 relative overflow-hidden">
+  <!-- Floating Shapes - More subdued -->
+  <div class="absolute -top-10 left-0 w-64 h-64 bg-gray-600/10 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+  <div class="absolute bottom-0 right-0 w-64 h-64 bg-gray-600/10 rounded-full blur-3xl opacity-30 animate-pulse-slow"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-    <h4 class="text-xl font-semibold mb-2">Shivraj Randive</h4>
-    <p class="text-sm text-indigo-100 mb-4">Full-Stack Developer • Building scalable, modern web solutions</p>
-    <div class="flex justify-center gap-6 text-lg">
-      <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/Shivrajjjjj" class="hover:text-white"><i class="fab fa-github"></i></a>
-      <a href="mailto:shivrajrandive9281@gmail.com" class="hover:text-white"><i class="fas fa-envelope"></i></a>
+    <h4 class="text-2xl font-semibold mb-2 text-indigo-400">Shivraj Randive</h4>
+    <p class="text-sm text-gray-400 mb-4">Full-Stack Developer • Building scalable, modern web solutions</p>
+    <div class="flex justify-center gap-6 text-xl">
+      <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" class="hover:text-indigo-400 transition"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Shivrajjjjj" class="hover:text-indigo-400 transition"><i class="fab fa-github"></i></a>
+      <a href="mailto:shivrajrandive9281@gmail.com" class="hover:text-indigo-400 transition"><i class="fas fa-envelope"></i></a>
     </div>
-    <p class="text-xs text-indigo-200 mt-6">© 2025 Shivraj Randive. All rights reserved.</p>
+    <p class="text-xs text-gray-500 mt-6">© 2025 Shivraj Randive. All rights reserved.</p>
   </div>
 </footer>
-<!-- Scroll to Top Button -->
-
-<script>
-  // Scroll Button Show/Hide
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
-  window.onscroll = function () {
-    if (document.documentElement.scrollTop > 200) {
-      scrollTopBtn.style.display = "block";
-    } else {
-      scrollTopBtn.style.display = "none";
-    }
-  };
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
 
 </body>
 </html>
