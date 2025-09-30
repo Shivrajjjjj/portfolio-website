@@ -613,11 +613,85 @@
             </section>
 
           <!-- 3. PROJECTS SECTION (Refactored to use dynamic JS but dark-theme styling) -->
-    <section id="projects" class="py-10 md:py-20 border-t border-gray-800 max-w-7xl mx-auto px-6">
+    <!-- 3. PROJECTS SECTION (STATICALLY RENDERED - NO JS) -->
+    <section id="projects" class="py-10 md:py-20 border-t border-gray-800 max-w-7xl mx-auto px-6 min-h-screen">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">03. Project Portfolio</h2>
 
         <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project cards will be injected here by JavaScript -->
+            <!-- Project cards rendered statically -->
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">Forts Tourism Website</h3>
+                <p class="text-gray-400 text-sm mt-3">End-to-end tourism platform using Flask and MySQL. Responsive UI, real-time bookings, and backend optimization.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">Computer Institute System</h3>
+                <p class="text-gray-400 text-sm mt-3">ASP.NET + SQL Server academic automation. Smart admissions, auto-invoicing, 60% reduced manual work.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">E-Commerce Chatbot App</h3>
+                <p class="text-gray-400 text-sm mt-3">ASP.NET Core chatbot with SignalR. Product queries, instant recommendations, and responsive UI.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">AI Image Analysis Web App</h3>
+                <p class="text-gray-400 text-sm mt-3">React + Vite + TypeScript app with real-time insights and async image uploads.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">Webform Project</h3>
+                <p class="text-gray-400 text-sm mt-3">Dynamic ASP.NET MVC forms for printing services. Streamlined custom orders and client workflows.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">Digital Banking Solution</h3>
+                <p class="text-gray-400 text-sm mt-3">Secure Flask app with real-time banking, loan modules, and intuitive dashboards.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">Blazor Dashboard App</h3>
+                <p class="text-gray-400 text-sm mt-3">Real-time Blazor dashboard using .NET + Bootstrap. Includes dynamic tables, weather, and counters.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">TaskManagerApi</h3>
+                <p class="text-gray-400 text-sm mt-3">RESTful API built in ASP.NET Core. CRUD tasks with integrated Bootstrap UI and video demo.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
+            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold lime-text">Goal Tracker (Flutter)</h3>
+                <p class="text-gray-400 text-sm mt-3">Flutter mobile app for goal tracking. Includes analytics, reminders, and motivational quotes.</p>
+                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
+                    View Source <i class="fab fa-github ml-1 lime-text"></i>
+                </a>
+            </div>
+            
         </div>
     </section>
 
@@ -768,120 +842,5 @@
             <p class="text-xs text-gray-600 mt-6">© 2025 Shivraj Randive. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- JavaScript for dynamic content and modals -->
-    <script>
-        // Project Data Array (from original input)
-        const projects = [
-            {
-                title: 'Forts Tourism Website',
-                description: 'End-to-end tourism platform using Flask and MySQL. Responsive UI, real-time bookings, and backend optimization.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'Computer Institute System',
-                description: 'ASP.NET + SQL Server academic automation. Smart admissions, auto-invoicing, 60% reduced manual work.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'E-Commerce Chatbot App',
-                description: 'ASP.NET Core chatbot with SignalR. Product queries, instant recommendations, and responsive UI.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'AI Image Analysis Web App',
-                description: 'React + Vite + TypeScript app with real-time insights and async image uploads.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'Webform Project',
-                description: 'Dynamic ASP.NET MVC forms for printing services. Streamlined custom orders and client workflows.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'Digital Banking Solution',
-                description: 'Secure Flask app with real-time banking, loan modules, and intuitive dashboards.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'Blazor Dashboard App',
-                description: 'Real-time Blazor dashboard using .NET + Bootstrap. Includes dynamic tables, weather, and counters.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'TaskManagerApi',
-                description: 'RESTful API built in ASP.NET Core. CRUD tasks with integrated Bootstrap UI and video demo.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-            {
-                title: 'Goal Tracker (Flutter)',
-                description: 'Flutter mobile app for goal tracking. Includes analytics, reminders, and motivational quotes.',
-                github: 'https://github.com/Shivrajjjjj'
-            },
-        ];
-
-        // Function to dynamically generate and inject project cards
-        function loadProjects() {
-            const projectsContainer = document.getElementById('projects-container');
-            const projectHTML = projects.map(p => `
-                <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                    <h3 class="text-xl md:text-2xl font-bold lime-text">${p.title}</h3>
-                    <p class="text-gray-400 text-sm mt-3">${p.description}</p>
-                    <a href="${p.github}" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                        View Source <i class="fab fa-github ml-1 lime-text"></i>
-                    </a>
-                </div>
-            `).join('');
-            projectsContainer.innerHTML = projectHTML;
-        }
-
-        // Contact Form Modal Logic
-        async function showSuccessModal(event) {
-            // Prevent default form submission initially
-            event.preventDefault();
-            const form = event.target;
-            const statusElement = document.getElementById('contactStatus');
-
-            statusElement.textContent = 'Sending...';
-            statusElement.classList.remove('text-red-400');
-            statusElement.classList.add('text-lime-300');
-
-            try {
-                // Submit the form data manually using fetch to handle the response
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    form.reset();
-                    statusElement.textContent = 'Message sent successfully!';
-                    statusElement.classList.remove('text-lime-300');
-                    statusElement.classList.add('text-green-400');
-                    // Show the custom modal on success
-                    document.getElementById('successModal').classList.remove('hidden');
-                } else {
-                    statusElement.textContent = 'Error: Failed to send message.';
-                    statusElement.classList.remove('text-lime-300');
-                    statusElement.classList.add('text-red-400');
-                }
-            } catch (error) {
-                console.error('Submission error:', error);
-                statusElement.textContent = 'Error: Network issue or service unavailable.';
-                statusElement.classList.remove('text-lime-300');
-                statusElement.classList.add('text-red-400');
-            }
-        }
-
-        function closeSuccessModal() {
-            document.getElementById('successModal').classList.add('hidden');
-        }
-
-        // Initialize projects on load
-        window.onload = loadProjects;
-    </script>
 </body>
 </html>
