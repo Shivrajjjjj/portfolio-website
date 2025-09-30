@@ -2,431 +2,714 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivraj Randive - .NET & Full-Stack Engineer | Professional Portfolio</title>
-    <meta name="description"
-        content="Shivraj Randive is an experienced Software Developer and Full-Stack Engineer specializing in .NET, Python, and robust enterprise solutions.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivraj Randive - Software Developer</title>
+  <meta name="description" content="Shivraj Randive is a Software Developer and Full-Stack Developer based in Kolhapur. View his experience, skills, projects, and education.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Single Font Awesome import for all icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <style>
-        /* Corporate-focused base styling */
-        :root {
-            --color-primary: #1e3a8a;
-            /* Corporate Blue/Navy */
-            --color-secondary: #3b82f6;
-            /* Lighter Blue for accents */
-            --color-text: #1f2937;
-            /* Dark Grey for readability */
-            --color-background: #ffffff;
-            /* Clean White */
-            --color-subtle-bg: #f9fafb;
-            /* Very light grey for separation */
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    a:hover {
+      color: #5e5ce6;
+    }
 
-        a {
-            text-decoration: none;
-            color: var(--color-primary);
-            transition: color 0.2s ease;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        a:hover {
-            color: var(--color-secondary);
-        }
+    /* --- Header --- */
+    header {
+      background-color: #fff;
+      padding: 15px 0; /* Reduced padding for cleaner look */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-        /* --- Header/Nav (Refined Sticky Bar) --- */
-        header {
-            background-color: var(--color-background);
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .nav-links li a {
-            position: relative;
-            padding: 0 0 4px 0;
-            font-weight: 500;
-            color: var(--color-text);
-            transition: color 0.2s;
-        }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #333;
+    }
 
-        .nav-links li a:hover {
-            color: var(--color-primary);
-        }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
 
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-secondary);
-            transition: width 0.3s ease;
-        }
+    .nav-links li a {
+      font-size: 1rem;
+      color: #555;
+    }
 
-        .nav-links li a:hover::after {
-            width: 100%;
-        }
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      padding: 5px; /* Added padding for better touch target */
+    }
 
-        /* --- Custom Card Style (Corporate Look) --- */
-        .professional-card {
-            background-color: var(--color-background);
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .nav-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-        .professional-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
 
-        /* Responsive Mobile Menu Toggles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
 
-            .nav-toggle {
-                display: block;
-            }
-        }
-    </style>
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      list-style: none;
+      padding: 0 20px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: absolute;
+      width: 100%;
+      top: 100%; /* Position below header */
+      left: 0;
+    }
+
+    .mobile-nav.open {
+      display: block;
+    }
+
+    .mobile-nav li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-nav li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav li a {
+      display: block;
+      font-size: 1rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* --- General Styling kept for context/consistency, Tailwind takes over for modern sections --- */
+    .animate-pulse-slow {
+      animation: pulseSlow 10s ease-in-out infinite;
+    }
+    @keyframes pulseSlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.3s ease-out;
+    }
+    /* --- Media Queries --- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gray-50">
+  <!-- Header (Navigation) -->
+  <header>
+    <div class="container">
+      <nav class="relative">
+        <a href="#hero" class="logo text-indigo-600 hover:text-indigo-800 transition-colors">Shivraj R.</a>
+        <!-- Desktop Links -->
+        <ul class="nav-links hidden md:flex">
+          <li><a href="#hero" class="hover:text-indigo-600 font-medium">Home</a></li>
+          <li><a href="#experience" class="hover:text-indigo-600 font-medium">Experience</a></li>
+          <li><a href="#skills" class="hover:text-indigo-600 font-medium">Skills</a></li>
+          <li><a href="#projects" class="hover:text-indigo-600 font-medium">Projects</a></li>
+          <li><a href="#education" class="hover:text-indigo-600 font-medium">Education</a></li>
+          <li><a href="#contact" class="hover:text-indigo-600 font-medium">Contact</a></li>
+        </ul>
+        <!-- Mobile Toggle Button -->
+        <div class="nav-toggle md:hidden" id="navToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+    <!-- Mobile Menu -->
+    <ul class="mobile-nav hidden md:hidden" id="mobileNav">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
 
-    <header>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <nav class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-extrabold text-gray-800 tracking-tight">S.<span
-                        class="text-blue-700">Randive</span></a>
-                <ul class="nav-links hidden md:flex space-x-8">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="md:hidden nav-toggle cursor-pointer" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-xl text-gray-800"></i>
-                </div>
-            </nav>
-            <ul id="mobile-menu" class="hidden md:hidden list-none pt-4 space-y-2 border-t mt-4">
-                <li><a href="#about" class="block py-2 text-gray-700 hover:text-blue-700 font-medium"
-                        onclick="toggleMobileMenu()">About</a></li>
-                <li><a href="#experience" class="block py-2 text-gray-700 hover:text-blue-700 font-medium"
-                        onclick="toggleMobileMenu()">Experience</a></li>
-                <li><a href="#skills" class="block py-2 text-gray-700 hover:text-blue-700 font-medium"
-                        onclick="toggleMobileMenu()">Skills</a></li>
-                <li><a href="#projects" class="block py-2 text-gray-700 hover:text-blue-700 font-medium"
-                        onclick="toggleMobileMenu()">Projects</a></li>
-                <li><a href="#contact" class="block py-2 text-gray-700 hover:text-blue-700 font-medium"
-                        onclick="toggleMobileMenu()">Contact</a></li>
-            </ul>
-        </div>
-    </header>
-    <script>
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-    </script>
+  <!-- Hero Section -->
+<section id="hero" class="hero relative py-24 bg-[#f3f4f6] overflow-hidden">
+  <div class="container mx-auto text-center px-6 relative z-10">
 
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex flex-col items-center">
-                <img src="IMG_5640.JPG" alt="Shivraj Randive"
-                    class="w-32 h-32 rounded-full border-4 border-blue-600 shadow-xl mb-6 object-cover" />
+    <!-- Optional Floating Element -->
+    <div class="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-96 h-96 bg-indigo-200 opacity-20 rounded-full blur-3xl animate-pulse-slow z-0"></div>
 
-                <span
-                    class="inline-block px-4 py-1 text-sm font-semibold tracking-wider text-blue-700 uppercase bg-blue-100 rounded-full mb-3">
-                    .NET & Full-Stack Engineer
-                </span>
+    <!-- Profile Image (Click for Modal) -->
+    <div class="flex justify-center mb-6">
+      <img src="https://placehold.co/150x150/5e5ce6/ffffff?text=SR" alt="Shivraj Randive"
+           onerror="this.onerror=null; this.src='https://placehold.co/150x150/5e5ce6/ffffff?text=SR';"
+           onclick="toggleModal(true)"
+           class="w-28 h-28 rounded-full border-4 border-indigo-500 shadow-lg cursor-pointer transition hover:scale-110 duration-300" />
+    </div>
 
-                <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-                    Shivraj Randive
-                </h1>
+    <!-- LinkedIn Icon -->
+    <div class="flex justify-center mb-4">
+      <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"
+         aria-label="LinkedIn Profile"
+         class="text-indigo-600 hover:text-indigo-800 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.77 0 5-2.24 5-5v-14c0-2.76-2.23-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.31c.89-1.18 2.19-1.81 3.5-1.81 2.5 0 4.5 2 4.5 4.5v6z"/>
+        </svg>
+      </a>
+    </div>
 
-                <p class="text-xl text-gray-600 max-w-3xl mb-8">
-                    Results-driven Software Developer based in Kolhapur, specializing in **robust enterprise solutions**
-                    with **.NET Core, Python, and SQL Server**. Focused on delivering scalable, high-performance
-                    applications.
-                </p>
+    <!-- Name and Subtitle -->
+    <h1 class="text-5xl font-extrabold text-gray-800 mb-3">Shivraj Randive</h1>
+    <p class="text-xl text-gray-600 mb-8">Software Developer · Full-Stack Engineer based in Kolhapur</p>
 
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"
-                        class="px-8 py-3 rounded-lg bg-blue-700 text-white font-semibold shadow-lg hover:bg-blue-800 transition transform hover:scale-105">
-                        <i class="fab fa-linkedin-in mr-2"></i> View LinkedIn
-                    </a>
-                    <a href="mailto:your.email@example.com"
-                        class="px-8 py-3 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition">
-                        <i class="fas fa-envelope mr-2"></i> Email Me
-                    </a>
-                    <a href="resume.pdf" download
-                        class="px-8 py-3 rounded-lg border border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">
-                        <i class="fas fa-download mr-2"></i> Download CV
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="resume.html"
+         class="px-6 py-3 rounded-full bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700 transition">
+        View Resume
+      </a>
+      <a href="#contact"
+         class="px-6 py-3 rounded-full border border-indigo-600 text-indigo-600 font-semibold hover:bg-indigo-600 hover:text-white transition">
+        Contact Me
+      </a>
+      <a href="open-to-work.html"
+         class="px-6 py-3 rounded-full bg-gray-800 text-white font-semibold shadow hover:bg-gray-900 transition">
+        Read Blog
+      </a>
+    </div>
+  </div>
+</section>
 
-    <hr class="border-t border-gray-200">
+<!-- Modal Popup -->
+<div id="profileModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm flex items-center justify-center">
+  <div class="relative bg-white rounded-2xl shadow-2xl p-8 w-11/12 max-w-md animate-fade-in">
+    
+    <!-- Close Button -->
+    <button onclick="toggleModal(false)"
+            class="absolute top-3 right-4 text-gray-500 hover:text-red-600 text-2xl font-bold">&times;</button>
+    
+    <!-- Modal Content -->
+    <div class="flex flex-col items-center text-center">
+      <img src="https://placehold.co/150x150/5e5ce6/ffffff?text=SR" alt="Shivraj Randive"
+           class="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-lg mb-4" />
+      <h2 class="text-2xl font-bold text-indigo-700">Shivraj Randive</h2>
+      <p class="text-sm text-gray-600 mt-2">.NET & Full-Stack Engineer based in Kolhapur</p>
+      <p class="text-sm text-gray-500 mt-3 italic">“Driven to build clean, efficient code with impactful real-world outcomes.”</p>
+    </div>
+  </div>
+</div>
 
-    <section id="experience" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12 border-b-2 border-blue-200 inline-block px-4 pb-1">
-                <i class="fas fa-briefcase mr-2 text-blue-600"></i> Professional Experience
-            </h2>
+  <section id="experience" class="py-24 bg-gradient-to-b from-white via-slate-50 to-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mb-16">💼 Experience</h2>
 
-            <div class="relative max-w-4xl mx-auto">
-                <div class="absolute h-full w-0.5 bg-gray-300 left-1.5 md:left-1/2 transform md:-translate-x-1/2"></div>
+    <div class="relative border-l border-gray-300 ml-6">
+      <!-- Timeline Dot + Modal Card -->
+      <div class="mb-10 ml-4 relative">
+        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2.5 top-1"></div>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-6 cursor-pointer hover:shadow-2xl transition group" onclick="openModal(0)">
+          <div class="flex items-center gap-4">
+            <i class="fas fa-laptop-code text-blue-600 text-2xl"></i>
+            <h3 class="text-xl font-semibold text-blue-700 group-hover:text-blue-900">.NET Developer</h3>
+          </div>
+          <p class="text-gray-700 mt-1"><strong>Novadule Technologies</strong> · Full-time · Remote · India</p>
+          <p class="text-sm text-gray-500">Dec 2024 – Present</p>
+        </div>
+      </div>
 
-                <div class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center w-full">
-                    <div class="md:w-1/2 md:pr-10 text-right">
-                        <p class="text-sm font-medium text-gray-500 mb-1 md:mb-0">Dec 2024 – Present</p>
-                    </div>
-                    <div class="absolute w-4 h-4 bg-blue-600 rounded-full -left-1.5 md:left-1/2 md:transform md:-translate-x-1/2 top-1"></div>
-                    <div class="md:w-1/2 md:pl-10 w-full">
-                        <div class="professional-card p-5">
-                            <h3 class="text-xl font-bold text-gray-900">.NET Developer</h3>
-                            <p class="text-blue-700 font-medium">Novadule Technologies</p>
-                            <p class="text-sm text-gray-500 mt-1">Full-time · Remote · India</p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mt-3 space-y-1">
-                                <li>Architecting and implementing RESTful APIs using **.NET Core** and **EF Core**.</li>
-                                <li>Optimizing data access and query performance for large-scale applications.</li>
-                                <li>Collaborating within **Agile/Scrum** teams for rapid deployment and iteration.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="mb-10 ml-4 relative">
+        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2.5 top-1"></div>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-6 cursor-pointer hover:shadow-2xl transition group" onclick="openModal(1)">
+          <div class="flex items-center gap-4">
+            <i class="fas fa-code text-indigo-600 text-2xl"></i>
+            <h3 class="text-xl font-semibold text-indigo-700 group-hover:text-indigo-900">Webform Project (Developer)</h3>
+          </div>
+          <p class="text-gray-700 mt-1"><strong>Freelance – Shwet Shiva Printing Services</strong></p>
+          <p class="text-sm text-gray-500">Jul 2024 – Nov 2024 · Remote</p>
+        </div>
+      </div>
 
-                <div class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center w-full">
-                    <div class="md:w-1/2 md:pl-10 order-2 md:order-1 w-full">
-                        <div class="professional-card p-5">
-                            <h3 class="text-xl font-bold text-gray-900">Webform Project Developer (Freelance)</h3>
-                            <p class="text-blue-700 font-medium">Shwet Shiva Printing Services</p>
-                            <p class="text-sm text-gray-500 mt-1">Jul 2024 – Nov 2024 · Remote</p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mt-3 space-y-1">
-                                <li>Developed end-to-end **ASP.NET MVC Webforms** for streamlined printing operations.</li>
-                                <li>Engineered responsive front-end interfaces using **Bootstrap** and modern JavaScript.</li>
-                                <li>Ensured seamless data flow and client-side validation for high-quality user experience.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="absolute w-4 h-4 bg-blue-400 rounded-full -left-1.5 md:left-1/2 md:transform md:-translate-x-1/2 top-1 order-1 md:order-2"></div>
-                    <div class="md:w-1/2 md:pr-10 order-3 md:order-3 text-left md:text-right w-full">
-                        <p class="text-sm font-medium text-gray-500 mb-1 md:mb-0">Jul 2024 – Nov 2024</p>
-                    </div>
-                </div>
+      <div class="ml-4 relative">
+        <div class="absolute w-4 h-4 bg-purple-500 rounded-full -left-2.5 top-1"></div>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-6 cursor-pointer hover:shadow-2xl transition group" onclick="openModal(2)">
+          <div class="flex items-center gap-4">
+            <i class="fas fa-database text-purple-600 text-2xl"></i>
+            <h3 class="text-xl font-semibold text-purple-700 group-hover:text-purple-900">Software Developer</h3>
+          </div>
+          <p class="text-gray-700 mt-1"><strong>Three Star Infotech, Kolhapur</strong></p>
+          <p class="text-sm text-gray-500">Aug 2023 – Jun 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                <div class="mb-0 flex flex-col md:flex-row justify-between items-start md:items-center w-full">
-                    <div class="md:w-1/2 md:pr-10 text-right">
-                        <p class="text-sm font-medium text-gray-500 mb-1 md:mb-0">Aug 2023 – Jun 2024</p>
-                    </div>
-                    <div class="absolute w-4 h-4 bg-blue-600 rounded-full -left-1.5 md:left-1/2 md:transform md:-translate-x-1/2 top-1"></div>
-                    <div class="md:w-1/2 md:pl-10 w-full">
-                        <div class="professional-card p-5">
-                            <h3 class="text-xl font-bold text-gray-900">Software Developer</h3>
-                            <p class="text-blue-700 font-medium">Three Star Infotech, Kolhapur</p>
-                            <p class="text-sm text-gray-500 mt-1">On-site</p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mt-3 space-y-1">
-                                <li>**Optimized backend** using .NET, MVC, and **SQL Server**, resulting in **30% improved query speed**.</li>
-                                <li>Led the automation of inventory tracking, reducing manual errors by **40%**.</li>
-                                <li>Implemented Role-Based Access Control (**RBAC**) to enhance system security.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+  <!-- Modal Container for Experience Details -->
+  <div id="experienceModals"></div>
+</section>
 
-            </div>
-        </div>
-    </section>
+  <section id="skills" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-extrabold text-indigo-800 mb-8 tracking-tight">My Technical Proficiency</h2>
+    <p class="text-gray-700 mb-10 max-w-3xl mx-auto text-base sm:text-lg">
+      A curated collection of technologies and tools I leverage to build robust and engaging applications across various layers of development.
+    </p>
 
-    <hr class="border-t border-gray-200">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-center">
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">.NET</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET Core" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">.NET Core</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Python</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Java</span>
+      </div>
 
-    <section id="skills" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12 border-b-2 border-blue-200 inline-block px-4 pb-1">
-                <i class="fas fa-microchip mr-2 text-blue-600"></i> Technical Proficiency
-            </h2>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">HTML5</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">CSS3</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">JavaScript</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Bootstrap</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Tailwind CSS</span>
+      </div>
+     
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Figma</span>
+      </div>
 
-            <div class="space-y-12">
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-6 border-b border-gray-200 inline-block pb-1">
-                        Backend & Languages
-                    </h3>
-                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-center">
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-dotnetcore-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">.NET Core</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-dotnet-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">ASP.NET</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-python-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Python</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-java-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Java</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-csharp-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">C#</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-flask-original text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Flask</span></div>
-                    </div>
-                </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">MySQL</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">SQL Server</span>
+      </div>
+     
 
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-6 border-b border-gray-200 inline-block pb-1">
-                        Frontend & UI/UX
-                    </h3>
-                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-center">
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-html5-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">HTML5</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-css3-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">CSS3</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-javascript-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">JavaScript</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-bootstrap-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Bootstrap</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" class="w-12 h-12"><span class="mt-2 text-gray-800 text-sm font-medium">Tailwind</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-figma-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Figma</span></div>
-                    </div>
-                </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Git</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">GitHub</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">VS Studio</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">VS Code</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Postman</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-16 h-16 transition-transform duration-300 hover:scale-110">
+        <span class="mt-2 text-gray-800 font-semibold text-sm">Docker</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-6 border-b border-gray-200 inline-block pb-1">
-                        Databases & Tools
-                    </h3>
-                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-center">
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-microsoftsqlserver-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">SQL Server</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-mysql-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">MySQL</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-git-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Git</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-github-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">GitHub</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-visualstudio-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">VS Studio</span></div>
-                        <div class="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition"><i class="devicon-docker-plain text-5xl"></i><span class="mt-2 text-gray-800 text-sm font-medium">Docker</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="projects" class="py-24 bg-gradient-to-b from-slate-50 to-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-12 animate-fade-in">✨ Featured Projects</h2>
+    <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Projects will be injected here by JS -->
+    </div>
+  </div>
 
-    <hr class="border-t border-gray-200">
+  <script>
+    const projects = [
+      {
+        title: 'Forts Tourism Website',
+        description: 'End-to-end tourism platform using Flask and MySQL. Responsive UI, real-time bookings, and backend optimization.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Computer Institute System',
+        description: 'ASP.NET + SQL Server academic automation. Smart admissions, auto-invoicing, 60% reduced manual work.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Webform Project',
+        description: 'Dynamic ASP.NET MVC forms for printing services. Streamlined custom orders and client workflows.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Digital Banking Solution',
+        description: 'Secure Flask app with real-time banking, loan modules, and intuitive dashboards.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Blazor Dashboard App',
+        description: 'Real-time Blazor dashboard using .NET + Bootstrap. Includes dynamic tables, weather, and counters.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'E-Commerce Chatbot App',
+        description: 'ASP.NET Core chatbot with SignalR. Product queries, instant recommendations, and responsive UI.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'TaskManagerApi',
+        description: 'RESTful API built in ASP.NET Core. CRUD tasks with integrated Bootstrap UI and video demo.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Goal Tracker',
+        description: 'Flutter app for goal tracking. Includes analytics, reminders, and motivational quotes.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Portfolio Website',
+        description: 'Responsive portfolio using HTML/CSS/JS. Highlights skills, resume, and project showcases.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'AI Image Analysis Web App',
+        description: 'React + Vite + TypeScript app with real-time insights and async image uploads.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Chatbot',
+        description: 'NLP-based Python chatbot for automated support and intelligent conversations.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'PaymentApp',
+        description: 'Digital wallet with QR/image scan, transaction history, and chat features. Built in ASP.NET.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Flask Backend',
+        description: 'Modular backend with Flask. Structured routes, middleware, and REST APIs.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Account Form Design',
+        description: 'Figma design for responsive account forms. Accessibility, clarity, and validation logic.',
+        github: 'https://github.com/Shivrajjjjj'
+      },
+      {
+        title: 'Simple Blog',
+        description: 'Lightweight blog built with HTML/CSS/JS. Supports posts, tags, and responsive layout.',
+        github: 'https://github.com/Shivrajjjjj'
+      }
+    ];
 
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12 border-b-2 border-blue-200 inline-block px-4 pb-1">
-                <i class="fas fa-lightbulb mr-2 text-blue-600"></i> Key Projects & Solutions
-            </h2>
+    const projectsGrid = document.getElementById('projectsGrid');
+    projectsGrid.innerHTML = projects.map(p => `
+      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition p-6 border border-gray-100 group">
+        <h3 class="text-xl font-semibold text-indigo-600 group-hover:text-indigo-800">${p.title}</h3>
+        <p class="text-gray-600 mt-2 text-sm leading-relaxed">${p.description}</p>
+        <div class="flex justify-start items-center mt-4">
+          <a href="${p.github}" target="_blank" class="text-indigo-500 hover:text-indigo-700 flex items-center gap-2">
+            <i class="fab fa-github fa-lg"></i>
+            <span>View Code</span>
+          </a>
+        </div>
+      </div>
+    `).join('');
+  </script>
+</section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
-                </div>
+<!-- Education Section (New) -->
+<section id="education" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-green-500 to-lime-500 mb-16">🎓 Education</h2>
 
-            <script>
-                const projects = [
-                    {
-                        title: 'Computer Institute Management System',
-                        description: 'A full-stack ASP.NET + SQL Server application for academic automation. Features include smart admissions, auto-invoicing, and secure data storage, leading to a 60% reduction in manual administrative effort.',
-                        github: 'https://github.com/Shivrajjjjj',
-                        tech: ['.NET', 'SQL Server', 'ASP.NET']
-                    },
-                    {
-                        title: 'Digital Banking Solution (Prototype)',
-                        description: 'Developed a secure financial application using Python/Flask. Implemented real-time transaction processing, loan modules, and an intuitive dashboard to simulate modern digital banking experiences.',
-                        github: 'https://github.com/Shivrajjjjj',
-                        tech: ['Flask', 'Python', 'MySQL']
-                    },
-                    {
-                        title: 'E-Commerce Chatbot Integration',
-                        description: 'Built an ASP.NET Core chatbot with SignalR for real-time customer engagement on an e-commerce platform. Provides instant product recommendations and handles common customer queries efficiently.',
-                        github: 'https://github.com/Shivrajjjjj',
-                        tech: ['ASP.NET Core', 'SignalR', 'C#']
-                    },
-                    {
-                        title: 'Webform Custom Order Processor',
-                        description: 'Designed and implemented dynamic ASP.NET MVC Webforms to streamline custom order workflows for a printing service. Improved client input accuracy and reduced order processing time by 25%.',
-                        github: 'https://github.com/Shivrajjjjj',
-                        tech: ['ASP.NET MVC', 'Bootstrap', 'JavaScript']
-                    }
-                ];
+        <div class="relative border-l border-gray-300 ml-6">
+            <!-- Education Item 1 -->
+            <div class="mb-10 ml-4 relative">
+                <div class="absolute w-4 h-4 bg-teal-500 rounded-full -left-2.5 top-1"></div>
+                <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-graduation-cap text-teal-600 text-2xl"></i>
+                        <h3 class="text-xl font-semibold text-teal-700">Bachelor of Computer Application (BCA)</h3>
+                    </div>
+                    <p class="text-gray-700 mt-1"><strong>Chhatrapati Shahu Institute of Business Education and Research (CSIBER)</strong></p>
+                    <p class="text-sm text-gray-500">2020 – 2023 | Kolhapur, Maharashtra</p>
+                    <p class="text-sm text-gray-600 mt-2">Achieved First Class distinction. Focus on Software Development, Data Structures, and Database Management.</p>
+                </div>
+            </div>
 
-                const projectsContainer = document.getElementById('projects-container');
-                projectsContainer.innerHTML = projects.map(p => `
-                    <div class="professional-card p-6 flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">${p.title}</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">${p.description}</p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                ${p.tech.map(t => `<span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">${t}</span>`).join('')}
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <a href="${p.github}" target="_blank" class="text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-2">
-                                <i class="fab fa-github fa-lg"></i>
-                                <span>View Repository</span>
-                            </a>
-                        </div>
-                    </div>
-                `).join('');
-            </script>
-        </div>
-    </section>
+            <!-- Education Item 2 -->
+            <div class="mb-10 ml-4 relative">
+                <div class="absolute w-4 h-4 bg-green-500 rounded-full -left-2.5 top-1"></div>
+                <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-school text-green-600 text-2xl"></i>
+                        <h3 class="text-xl font-semibold text-green-700">Higher Secondary School Certificate (HSC)</h3>
+                    </div>
+                    <p class="text-gray-700 mt-1"><strong>R.B.C.G Junior College, Kolhapur</strong></p>
+                    <p class="text-sm text-gray-500">2018 – 2020 | Kolhapur, Maharashtra</p>
+                    <p class="text-sm text-gray-600 mt-2">Specialized in Science.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <hr class="border-t border-gray-200">
+<!-- Contact Section (New) -->
+<section id="contact" class="py-24 bg-gray-900 text-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-yellow-400 mb-16">✉️ Get in Touch</h2>
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Contact Details -->
+            <div class="md:w-1/3 space-y-8">
+                <p class="text-gray-400 text-lg">
+                    I'm currently **Open to Work** for exciting new opportunities. Feel free to reach out via email, LinkedIn, or use the quick form.
+                </p>
 
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-6">
-                <i class="fas fa-handshake mr-2 text-blue-600"></i> Let's Connect
-            </h2>
-            <p class="text-lg text-gray-600 mb-8">
-                I am actively seeking opportunities and collaborations. Feel free to reach out via email or connect with me on professional networks.
-            </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-map-marker-alt text-pink-400 text-xl"></i>
+                        <span class="text-gray-300">Kolhapur, Maharashtra, India</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-pink-400 text-xl"></i>
+                        <a href="mailto:shivrajrandive7@gmail.com" class="text-gray-300 hover:text-pink-400 transition">shivrajrandive7@gmail.com</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fab fa-linkedin text-pink-400 text-xl"></i>
+                        <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-gray-300 hover:text-pink-400 transition">Shivraj Randive (LinkedIn)</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fab fa-github text-pink-400 text-xl"></i>
+                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-gray-300 hover:text-pink-400 transition">Shivrajjjjj (GitHub)</a>
+                    </div>
+                </div>
+            </div>
 
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="professional-card p-6 w-full sm:w-64">
-                    <i class="fas fa-envelope text-3xl text-blue-600 mb-3"></i>
-                    <h4 class="text-lg font-semibold text-gray-900">Email Address</h4>
-                    <p class="text-sm text-gray-700 mt-1 break-all">shivraj.randive@example.com</p>
-                    <a href="mailto:shivraj.randive@example.com" class="mt-3 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium">Send an Email</a>
-                </div>
+            <!-- Contact Form -->
+            <div class="md:w-2/3 bg-gray-800 p-8 rounded-xl shadow-xl">
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe"
+                             class="w-full p-3 rounded-lg border border-gray-700 bg-gray-700 text-white focus:ring-pink-500 focus:border-pink-500 transition" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com"
+                             class="w-full p-3 rounded-lg border border-gray-700 bg-gray-700 text-white focus:ring-pink-500 focus:border-pink-500 transition" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="I have a job offer for you..."
+                                  class="w-full p-3 rounded-lg border border-gray-700 bg-gray-700 text-white focus:ring-pink-500 focus:border-pink-500 transition" required></textarea>
+                    </div>
+                    <button type="submit"
+                            class="w-full py-3 px-6 bg-pink-500 rounded-lg text-white font-bold text-lg hover:bg-pink-600 transition duration-300 transform hover:scale-[1.01] shadow-lg">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+                <p class="text-xs text-gray-500 mt-4 text-center">*Note: This is a static form UI. Functionality (backend integration) is not included in this code snippet.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <div class="professional-card p-6 w-full sm:w-64">
-                    <i class="fas fa-phone-alt text-3xl text-blue-600 mb-3"></i>
-                    <h4 class="text-lg font-semibold text-gray-900">Phone/WhatsApp</h4>
-                    <p class="text-sm text-gray-700 mt-1">+91 XXXXX XXXXX</p>
-                    <a href="tel:+91XXXXXXXXXX" class="mt-3 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium">Call/Text</a>
-                </div>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-sm text-gray-400">&copy; 2025 Shivraj Randive. All rights reserved. | Built with ❤️ and Tailwind CSS.</p>
+    </div>
+</footer>
 
-                <div class="professional-card p-6 w-full sm:w-64">
-                    <i class="fas fa-map-marker-alt text-3xl text-blue-600 mb-3"></i>
-                    <h4 class="text-lg font-semibold text-gray-900">Base Location</h4>
-                    <p class="text-sm text-gray-700 mt-1">Kolhapur, Maharashtra, India</p>
-                    <p class="text-xs text-gray-500 mt-3">Available for Remote/Hybrid Roles</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
-            <p>&copy; ${new Date().getFullYear()} Shivraj Randive. All Rights Reserved.</p>
-            <div class="flex space-x-4">
-                <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank"
-                    class="hover:text-blue-400 transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="hover:text-blue-400 transition-colors"
-                    aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
-            </div>
-        </div>
-    </footer>
+<!-- Combined JavaScript -->
+<script>
+  // --------------------
+  // 1. Hero Modal Logic
+  // --------------------
+  function toggleModal(show) {
+    const modal = document.getElementById('profileModal');
+    modal.classList.toggle('hidden', !show);
+  }
 
+  document.addEventListener('keydown', function (e) {
+    if (e.key === "Escape") toggleModal(false);
+  });
+
+  // --------------------
+  // 2. Experience Modal Logic
+  // --------------------
+  const experienceData = [
+    {
+      title: ".NET Developer",
+      company: "Novadule Technologies",
+      location: "Remote · India",
+      period: "Dec 2024 – Present",
+      details: [
+        "Worked with .NET Core, EF Core, and REST APIs in Agile teams.",
+        "Collaborated with UI teams for smooth backend integration.",
+        "Contributed to query optimization and backend performance.",
+        "Participated in daily standups, sprint planning, and peer reviews."
+      ]
+    },
+    {
+      title: "Webform Project (Developer)",
+      company: "Freelance – Shwet Shiva Printing Services",
+      location: "Remote",
+      period: "Jul 2024 – Nov 2024",
+      details: [
+        "Developed full-stack ASP.NET MVC webforms for printing services.",
+        "Built responsive UI with Bootstrap and modern CSS.",
+        "Integrated client-side validation using JavaScript.",
+        "Delivered optimized modules and maintained client communication."
+      ]
+    },
+    {
+      title: "Software Developer",
+      company: "Three Star Infotech, Kolhapur",
+      location: "On-site",
+      period: "Aug 2023 – Jun 2024",
+      details: [
+        "Optimized backend with .NET, MVC, SQL Server — improved query speed by 30%.",
+        "Automated inventory tracking; reduced errors by 40%.",
+        "Implemented RBAC; enhanced system security and access control.",
+        "Revamped UI/UX, improving user satisfaction by 15%."
+      ]
+    }
+  ];
+
+  const modalContainer = document.getElementById('experienceModals');
+
+  function openModal(index) {
+    const exp = experienceData[index];
+    const modalHTML = `
+      <div class="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center" onclick="closeModal()">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl p-6 relative animate-fade-in" onclick="event.stopPropagation()">
+          <button class="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-xl" onclick="closeModal()" aria-label="Close modal">&times;</button>
+          <h3 class="text-2xl font-bold text-indigo-700 mb-2">${exp.title}</h3>
+          <p class="text-gray-700 font-semibold">${exp.company}</p>
+          <p class="text-sm text-gray-500 mb-4">${exp.period} · ${exp.location}</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+            ${exp.details.map(line => `<li>${line}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+    modalContainer.innerHTML = modalHTML;
+  }
+
+  function closeModal() {
+    modalContainer.innerHTML = '';
+  }
+
+  // --------------------
+  // 3. Mobile Nav Toggle Logic (New)
+  // --------------------
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      mobileNav.classList.toggle('hidden');
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('#mobileNav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        mobileNav.classList.remove('open');
+        mobileNav.classList.add('hidden');
+      });
+    });
+  });
+</script>
 </body>
-
 </html>
