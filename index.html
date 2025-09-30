@@ -19,19 +19,24 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0c0c0c; 
-        }
-        /* Style for the fixed sidebar */
-        .fixed-sidebar {
-            background-color: #111;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-            border-right: 1px solid #1f2937;
+            /* Prevent body scrolling, allow the main content area to handle scrolling */
+            overflow: hidden; 
         }
 
         /* --- Desktop Specific Styles (Matching Screenshot) --- */
         @media (min-width: 768px) {
-            .fixed-sidebar {
-                border-right: none; /* Cleaner look */
+            /* Style for the sidebar column (sits in the grid) */
+            .sidebar-column {
+                background-color: #111;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+                /* Ensure it takes full available height */
+                height: 100vh; 
             }
+            .sidebar-column .footer-status {
+                /* Ensures the footer sits at the bottom of the flex column */
+                margin-top: auto; 
+            }
+
             /* Navigation links should be simple text */
             .nav-link {
                 color: #ccc;
@@ -39,7 +44,6 @@
                 padding: 4px 0; /* Subtle vertical spacing */
                 border-left: none !important;
                 transition: color 0.1s;
-                /* Match the text size of the screenshot */
                 font-size: 1.125rem; /* Equivalent to text-xl */
             }
             .nav-link:hover {
@@ -50,17 +54,6 @@
             .nav-link.active {
                 color: #fff; /* Active link is pure white */
                 font-weight: 600; /* Slightly bolder for visibility */
-            }
-            
-            /* Footer/Status at the very bottom */
-            .fixed-sidebar .footer-status {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                padding: 2rem;
-                padding-top: 1rem;
-                border-top: 1px solid #1f2937;
             }
         }
         /* ------------------------------------------------ */
@@ -100,7 +93,8 @@
             .desktop-split-grid {
                 display: block;
             }
-            .fixed-sidebar {
+            /* Resetting desktop layout for mobile stack */
+            .sidebar-column {
                 position: relative;
                 width: 100%;
                 height: auto;
@@ -108,7 +102,7 @@
                 border-right: none;
                 border-bottom: 1px solid #1f2937;
             }
-            .content-scroll {
+            .content-column {
                 overflow-y: auto;
                 height: auto;
             }
@@ -225,36 +219,52 @@
         }
 
         function updateActiveLink() {
+            const contentContainer = document.querySelector('main.content-column');
+            if (!contentContainer) return;
+            
             const sections = document.querySelectorAll('main section');
             const navLinks = document.querySelectorAll('.nav-link');
             let current = '';
+            
+            // Get scroll position relative to the main content container's top
+            const scrollPos = contentContainer.scrollTop; 
 
             sections.forEach(section => {
-                // Determine the currently visible section based on scroll position
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 100 && rect.bottom >= 100) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                // Check if the current scroll position is within this section's bounds, 
+                // allowing for a 100px buffer to ensure smooth transition detection.
+                if (scrollPos >= sectionTop - 100 && scrollPos < sectionTop + sectionHeight - 100) {
                     current = section.getAttribute('id');
                 }
             });
 
-            // Fallback for when scroll is at the very top (Summary)
-            if (window.scrollY < 100) {
+            // Fallback for when scroll is at the very top (Summary) or not found
+            if (!current && scrollPos < 100) {
                  current = 'summary';
             }
-
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 
-                if (link.href.includes(current)) {
-                    // Apply active state
+                // Extract the href fragment (e.g., '#summary' -> 'summary')
+                const linkId = link.getAttribute('href').substring(1);
+                
+                if (linkId === current) {
                     link.classList.add('active');
                 }
             });
         }
         
-        window.addEventListener('scroll', updateActiveLink);
-        document.addEventListener('DOMContentLoaded', updateActiveLink);
+        // Listen to scroll events on the *content container* not the window
+        document.addEventListener('DOMContentLoaded', () => {
+             const contentContainer = document.querySelector('main.content-column');
+             if (contentContainer) {
+                 contentContainer.addEventListener('scroll', updateActiveLink);
+                 updateActiveLink(); // Initial call
+             }
+        });
         window.addEventListener('resize', updateActiveLink);
 
 
@@ -263,7 +273,7 @@
                 await authenticateUser();
                 setupRealtimeViewerCount();
             }
-            updateActiveLink(); // Initial call
+            // Initial call is handled in DOMContentLoaded listener
         };
 
         window.sendContact = async (event) => {
@@ -357,10 +367,12 @@
     </script>
 
     <!-- Main Application Container -->
-    <div class="desktop-split-grid md:grid md:grid-cols-[30%_70%] h-screen overflow-hidden">
+    <!-- h-screen ensures the parent container fills the viewport height -->
+    <div class="desktop-split-grid md:grid md:grid-cols-[30%_70%] h-screen">
 
-        <!-- LEFT SIDEBAR (Fixed Nav/Summary) -->
-        <header class="fixed-sidebar md:fixed md:top-0 md:left-0 md:h-full w-full md:w-[30%] p-8 flex flex-col justify-between">
+        <!-- LEFT SIDEBAR (Column 1 - Does NOT scroll on desktop) -->
+        <!-- flex-col justify-between ensures content pushes identity to top and footer to bottom -->
+        <header class="sidebar-column p-8 flex flex-col justify-between">
             <div class="md:pt-10">
                 <!-- 1. Identity -->
                 <div class="mb-8 md:mb-12">
@@ -371,7 +383,7 @@
                     <p class="lime-text text-lg md:text-xl font-medium mt-1">Full-Stack Engineer</p>
                 </div>
 
-                <!-- 2. Navigation (Responsive: Vertical Desktop / Horizontal Scroll Mobile) -->
+                <!-- 2. Navigation -->
                 <nav class="text-xl md:block font-medium">
                     <div class="overflow-x-auto whitespace-nowrap md:overflow-x-hidden md:whitespace-normal py-2 flex md:block space-x-4 md:space-y-2">
                         <!-- Navigation Links -->
@@ -385,7 +397,7 @@
                 </nav>
             </div>
 
-            <!-- 3. Footer/Status (Desktop Positioned Absolute) -->
+            <!-- 3. Footer/Status (Desktop Positioned by flex-col justify-between) -->
             <div class="footer-status mt-10 md:mt-0 pt-6 border-t border-gray-800 hidden md:block">
                 <div class="flex items-center gap-3 mb-4">
                     <span class="text-sm text-gray-500 font-mono" id="viewerCount">Live status unavailable (No Config)</span>
@@ -426,8 +438,8 @@
             </div>
         </header>
 
-        <!-- RIGHT CONTENT AREA (Scrollable) -->
-        <main class="md:col-span-1 md:overflow-y-auto content-scroll p-8 md:p-20">
+        <!-- RIGHT CONTENT AREA (Column 2 - This is the ONLY element that scrolls on desktop) -->
+        <main class="content-column overflow-y-auto content-scroll p-8 md:p-20">
             
             <!-- 0. PROFILE SUMMARY SECTION -->
             <section id="summary" class="py-10 md:pt-0 md:pb-20">
