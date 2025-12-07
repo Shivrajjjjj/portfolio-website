@@ -228,186 +228,178 @@
                     </div>
                 </div>
             </section>
-
-           <!-- ============================
-     03. Project Portfolio (ALL 38+ repos, ordered by Option 3)
-     Paste/replace your old <section id="projects"> with this block
+            <!-- ============================
+     03. Project Portfolio (Split Grid Layout, 38+ repos)
+     Replace old <section id="projects"> with this block
      ============================ -->
-<section id="projects" class="section">
-    <div style="text-align:center;margin-bottom:22px">
-        <div class="section-title">03. Project Portfolio</div>
-        <p class="small muted">All public repos from <strong>@Shivrajjjjj</strong> — ordered by priority: AI/ML, .NET, Cloud, APIs, Blazor, Flask, Full-stack, Utilities.</p>
-    </div>
+<section id="projects" class="section" style="padding:60px 20px">
+  <div style="text-align:center;margin-bottom:36px">
+    <div class="section-title">03. Project Portfolio</div>
+    <p class="small muted">All public repos from <strong>@Shivrajjjjj</strong> — ordered by priority: AI/ML, .NET, Cloud, APIs, Blazor, Flask, Full-stack, Utilities.</p>
+  </div>
 
-    <!-- Controls / loader -->
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap">
-        <div class="small muted">Showing all projects (38+)</div>
-        <div id="projects-loader" class="small" style="display:inline-flex;align-items:center;gap:8px">
-            <span class="loader" style="width:18px;height:18px;border:3px solid rgba(255,255,255,0.08);border-top-color:var(--accent);border-radius:50%;animation:spin .85s linear infinite"></span>
-            <span>Rendering projects...</span>
-        </div>
+  <!-- Controls / loader -->
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap">
+    <div class="small muted">Showing all projects (38+)</div>
+    <div id="projects-loader" class="small" style="display:inline-flex;align-items:center;gap:8px">
+      <span class="loader" style="width:18px;height:18px;border:3px solid rgba(255,255,255,0.08);border-top-color:var(--accent);border-radius:50%;animation:spin .85s linear infinite"></span>
+      <span>Rendering projects...</span>
     </div>
+  </div>
 
-    <div id="projects-container" class="grid reveal" aria-live="polite" style="min-height:120px">
-        <!-- Cards will be injected here by script below -->
-    </div>
+  <div id="projects-container" class="split-grid" aria-live="polite">
+    <!-- Cards injected by JS -->
+  </div>
 </section>
 
+<style>
+/* Split Grid */
+.split-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(360px,1fr));
+  gap: 24px;
+}
+
+/* Glass + neon card */
+.project-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card::before {
+  content:"";
+  position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;
+  border-radius:16px;
+  padding:2px;
+  background: linear-gradient(45deg, #00f0ff, #ff00ff, #ffdd00, #00ff77);
+  background-size: 300% 300%;
+  animation: neon 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes neon{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 28px rgba(0,255,255,0.5), 0 0 24px rgba(255,0,255,0.4);
+}
+
+.project-card h3 { color: var(--accent); margin:0 0 8px; font-size:1.2rem; }
+.project-card p { color: rgba(255,255,255,0.78); font-size:13px; margin:0 0 12px; }
+.project-card .small { font-size:11px; padding:4px 8px; border-radius:999px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); }
+
+/* Loader spin */
+@keyframes spin {to{transform:rotate(360deg);}}
+
+/* Scroll reveal */
+.reveal { opacity:0; transform: translateY(20px); transition: all 0.6s ease; }
+.reveal.show { opacity:1; transform:translateY(0); }
+
+/* Responsive tweaks */
+@media(max-width:500px){ .project-card{padding:14px} }
+</style>
+
 <script>
-/* Projects data (all repos you gave). Each item includes:
-   - name (display)
-   - url (github)
-   - category (used for ordering)
-   - short (one-line description generated)
-*/
+// Projects data
 const projects = [
-  { name: "AI-Powered-Email-Classifier-using-.NET-Core-Azure-OpenAI-Outlook-Integration-Extendable-", url: "https://github.com/Shivrajjjjj/AI-Powered-Email-Classifier-using-.NET-Core-Azure-OpenAI-Outlook-Integration-Extendable-", category: "AI/ML", short: "Email classification using .NET Core + Azure OpenAI + Outlook integration (extendable architecture)." },
-
-  { name: "ProductReviewSentiment", url: "https://github.com/Shivrajjjjj/ProductReviewSentiment", category: "AI/ML", short: "Sentiment analysis pipeline for product reviews — ML preprocessing & model inference." },
-
-  { name: "HousePricePrediction", url: "https://github.com/Shivrajjjjj/HousePricePrediction", category: "AI/ML", short: "Regression model for house price predictions with feature engineering and evaluation." },
-
-  { name: "Image-Upload-AI-Analysis-Web-App-with-Vite", url: "https://github.com/Shivrajjjjj/Image-Upload-AI-Analysis-Web-App-with-Vite", category: "AI/ML", short: "Frontend (Vite + React) for async image upload + server-side AI analysis." },
-
-  /* --- .NET Core projects --- */
-  { name: "Net8AwsEcsService", url: "https://github.com/Shivrajjjjj/Net8AwsEcsService", category: ".NET Core", short: ".NET 8 service optimized for AWS ECS deployment with containerization patterns." },
-  { name: "Net8Aws-", url: "https://github.com/Shivrajjjjj/Net8Aws-", category: ".NET Core", short: ".NET 8 POC for AWS-native CI/CD and deployment patterns." },
-  { name: "PollyDemoApi-", url: "https://github.com/Shivrajjjjj/PollyDemoApi-", category: ".NET Core", short: "Resiliency demo using Polly for transient fault handling in .NET APIs." },
-  { name: "Domain-Driven-Design-DDD-", url: "https://github.com/Shivrajjjjj/Domain-Driven-Design-DDD-", category: ".NET Core", short: "Domain-Driven Design sample code and patterns implemented in .NET." },
-  { name: "TaskManagerApi", url: "https://github.com/Shivrajjjjj/TaskManagerApi", category: ".NET Core", short: "Task Management REST API built in ASP.NET Core (CRUD + EF Core)." },
-  { name: "ProductManager", url: "https://github.com/Shivrajjjjj/ProductManager", category: ".NET Core", short: "Product management APIs and admin patterns using .NET Core." },
-  { name: "ProductApp", url: "https://github.com/Shivrajjjjj/ProductApp", category: ".NET Core", short: "Full-stack product app (backend in .NET, frontend integrated)." },
-  { name: "ProductCatalog", url: "https://github.com/Shivrajjjjj/ProductCatalog", category: ".NET Core", short: "Catalog microservice / dataset, product endpoints and examples." },
-  { name: "testCICD", url: "https://github.com/Shivrajjjjj/testCICD", category: ".NET Core", short: "CI/CD demo pipelines for .NET projects (automation examples)." },
-  { name: "PollyDemoApi-", url: "https://github.com/Shivrajjjjj/PollyDemoApi-", category: ".NET Core", short: "Polly resiliency patterns for resilient .NET HTTP calls." },
-
-  /* --- AWS / Cloud --- */
-  { name: "Net8AwsEcsService", url: "https://github.com/Shivrajjjjj/Net8AwsEcsService", category: "Cloud/AWS", short: "Containerized .NET service meant for AWS ECS with deployment manifests." },
-  { name: "monitoringdemo", url: "https://github.com/Shivrajjjjj/monitoringdemo", category: "Cloud/AWS", short: "Monitoring & observability demo with telemetry and dashboards." },
-
-  /* --- APIs / Backend --- */
-  { name: "Bankflask", url: "https://github.com/Shivrajjjjj/Bankflask", category: "APIs", short: "Flask-based banking system with secure endpoints and dashboard." },
-  { name: "flask-backend", url: "https://github.com/Shivrajjjjj/flask-backend", category: "APIs", short: "Generic Flask backend templates and API examples." },
-  { name: "ResumeUploadParser", url: "https://github.com/Shivrajjjjj/ResumeUploadParser", category: "APIs", short: "Resume parsing service — file upload, text extraction and parsing." },
-  { name: "IPRegionApp", url: "https://github.com/Shivrajjjjj/IPRegionApp", category: "APIs", short: "IP geolocation utility and region mapping service." },
-
-  /* --- Blazor --- */
-  { name: "Blazor-Dashboard-App", url: "https://github.com/Shivrajjjjj/Blazor-Dashboard-App", category: "Blazor", short: "Real-time Blazor dashboard with dynamic widgets, counters and charts." },
-
-  /* --- Flask / Python --- */
-  { name: "fortsflask", url: "https://github.com/Shivrajjjjj/fortsflask", category: "Flask/Python", short: "Tourism Forts booking site (Flask + MySQL) with booking workflows." },
-  { name: "Bankflask", url: "https://github.com/Shivrajjjjj/Bankflask", category: "Flask/Python", short: "Secure Flask banking app and loan modules." },
-
-  /* --- Full-stack / Web Apps --- */
-  { name: "PortfolioSite", url: "https://github.com/Shivrajjjjj/PortfolioSite", category: "Full-stack", short: "Alternative portfolio implementation (static + dynamic variations)." },
-  { name: "portfolio-website", url: "https://github.com/Shivrajjjjj/portfolio-website", category: "Full-stack", short: "Main portfolio website (this repo) — HTML/CSS/Tailwind + scripts." },
-  { name: "E-Commerce-Chatbot-Web-Application", url: "https://github.com/Shivrajjjjj/E-Commerce-Chatbot-Web-Application", category: "Full-stack", short: "E-commerce chatbot using ASP.NET Core + SignalR for product assistance." },
-  { name: "ChatbotAssistance", url: "https://github.com/Shivrajjjjj/ChatbotAssistance", category: "Full-stack", short: "Support chatbot examples and integration patterns." },
-  { name: "chatbot", url: "https://github.com/Shivrajjjjj/chatbot", category: "Full-stack", short: "Chatbot experiments and sample connectors." },
-  { name: "Image-Upload-AI-Analysis-Web-App-with-Vite", url: "https://github.com/Shivrajjjjj/Image-Upload-AI-Analysis-Web-App-with-Vite", category: "Full-stack", short: "Frontend + backend flow for image analysis with AI models." },
-  { name: "ProductReviewSentiment", url: "https://github.com/Shivrajjjjj/ProductReviewSentiment", category: "Full-stack", short: "End-to-end sentiment pipeline with demo UI." },
-  { name: "PaymentApp", url: "https://github.com/Shivrajjjjj/PaymentApp", category: "Full-stack", short: "Payment app prototype with scanner and history pages." },
-  { name: "ProductApp", url: "https://github.com/Shivrajjjjj/ProductApp", category: "Full-stack", short: "Product CRUD + simple UI demo." },
-  { name: "ProductManager", url: "https://github.com/Shivrajjjjj/ProductManager", category: "Full-stack", short: "Admin product management interface (backend + UI)." },
-
-  /* --- Utilities / Tools / ML demos --- */
-  { name: "SalesForecastingDashboard", url: "https://github.com/Shivrajjjjj/SalesForecastingDashboard", category: "Utilities", short: "Sales forecasting POC with visuals and model output." },
-  { name: "Goal-tracker", url: "https://github.com/Shivrajjjjj/Goal-tracker", category: "Utilities", short: "Flutter mobile app for goal tracking and analytics." },
-  { name: "ProductCatalog", url: "https://github.com/Shivrajjjjj/ProductCatalog", category: "Utilities", short: "Small catalog microservice or sample dataset." },
-  { name: "Snapstatic", url: "https://github.com/Shivrajjjjj/snapstatic", category: "Utilities", short: "Static site tools & helpers (snapshots, static assets)." },
-
-  /* --- Older / UI / Misc projects --- */
+  { name: "AI-Powered-Email-Classifier", url: "https://github.com/Shivrajjjjj/AI-Powered-Email-Classifier-using-.NET-Core-Azure-OpenAI-Outlook-Integration-Extendable-", category: "AI/ML", short: "Email classification using .NET Core + Azure OpenAI + Outlook integration." },
+  { name: "ProductReviewSentiment", url: "https://github.com/Shivrajjjjj/ProductReviewSentiment", category: "AI/ML", short: "Sentiment analysis for product reviews." },
+  { name: "HousePricePrediction", url: "https://github.com/Shivrajjjjj/HousePricePrediction", category: "AI/ML", short: "Regression model for house price prediction." },
+  { name: "Image-Upload-AI-Analysis-Web-App-with-Vite", url: "https://github.com/Shivrajjjjj/Image-Upload-AI-Analysis-Web-App-with-Vite", category: "AI/ML", short: "Async image upload + AI analysis." },
+  { name: "Net8AwsEcsService", url: "https://github.com/Shivrajjjjj/Net8AwsEcsService", category: ".NET Core", short: ".NET 8 service for AWS ECS deployment." },
+  { name: "Net8Aws-", url: "https://github.com/Shivrajjjjj/Net8Aws-", category: ".NET Core", short: ".NET 8 POC for AWS CI/CD." },
+  { name: "PollyDemoApi-", url: "https://github.com/Shivrajjjjj/PollyDemoApi-", category: ".NET Core", short: "Resiliency demo using Polly." },
+  { name: "Domain-Driven-Design-DDD-", url: "https://github.com/Shivrajjjjj/Domain-Driven-Design-DDD-", category: ".NET Core", short: "Domain-Driven Design patterns in .NET." },
+  { name: "TaskManagerApi", url: "https://github.com/Shivrajjjjj/TaskManagerApi", category: ".NET Core", short: "Task Management REST API." },
+  { name: "ProductManager", url: "https://github.com/Shivrajjjjj/ProductManager", category: ".NET Core", short: "Product management API + admin." },
+  { name: "ProductApp", url: "https://github.com/Shivrajjjjj/ProductApp", category: ".NET Core", short: "Full-stack product app." },
+  { name: "ProductCatalog", url: "https://github.com/Shivrajjjjj/ProductCatalog", category: ".NET Core", short: "Product catalog microservice." },
+  { name: "testCICD", url: "https://github.com/Shivrajjjjj/testCICD", category: ".NET Core", short: "CI/CD pipelines demo." },
+  { name: "monitoringdemo", url: "https://github.com/Shivrajjjjj/monitoringdemo", category: "Cloud/AWS", short: "Monitoring & observability demo." },
+  { name: "Bankflask", url: "https://github.com/Shivrajjjjj/Bankflask", category: "APIs", short: "Flask-based banking system." },
+  { name: "flask-backend", url: "https://github.com/Shivrajjjjj/flask-backend", category: "APIs", short: "Generic Flask backend templates." },
+  { name: "ResumeUploadParser", url: "https://github.com/Shivrajjjjj/ResumeUploadParser", category: "APIs", short: "Resume parsing service." },
+  { name: "IPRegionApp", url: "https://github.com/Shivrajjjjj/IPRegionApp", category: "APIs", short: "IP geolocation & region mapping." },
+  { name: "Blazor-Dashboard-App", url: "https://github.com/Shivrajjjjj/Blazor-Dashboard-App", category: "Blazor", short: "Blazor dashboard with dynamic widgets." },
+  { name: "fortsflask", url: "https://github.com/Shivrajjjjj/fortsflask", category: "Flask/Python", short: "Tourism Forts booking site." },
+  { name: "PortfolioSite", url: "https://github.com/Shivrajjjjj/PortfolioSite", category: "Full-stack", short: "Alternative portfolio implementation." },
+  { name: "portfolio-website", url: "https://github.com/Shivrajjjjj/portfolio-website", category: "Full-stack", short: "Main portfolio website." },
+  { name: "E-Commerce-Chatbot-Web-Application", url: "https://github.com/Shivrajjjjj/E-Commerce-Chatbot-Web-Application", category: "Full-stack", short: "E-commerce chatbot with SignalR." },
+  { name: "ChatbotAssistance", url: "https://github.com/Shivrajjjjj/ChatbotAssistance", category: "Full-stack", short: "Support chatbot examples." },
+  { name: "chatbot", url: "https://github.com/Shivrajjjjj/chatbot", category: "Full-stack", short: "Chatbot experiments." },
+  { name: "PaymentApp", url: "https://github.com/Shivrajjjjj/PaymentApp", category: "Full-stack", short: "Payment app prototype." },
+  { name: "SalesForecastingDashboard", url: "https://github.com/Shivrajjjjj/SalesForecastingDashboard", category: "Utilities", short: "Sales forecasting POC." },
+  { name: "Goal-tracker", url: "https://github.com/Shivrajjjjj/Goal-tracker", category: "Utilities", short: "Flutter mobile goal tracker." },
   { name: "SimpleBlog2-master", url: "https://github.com/Shivrajjjjj/SimpleBlog2-master", category: "UI/Other", short: "Simple blog demo template." },
   { name: "RegistrationLogin", url: "https://github.com/Shivrajjjjj/RegistrationLogin", category: "UI/Other", short: "Auth sample: registration & login forms." },
-  { name: "temple", url: "https://github.com/Shivrajjjjj/temple", category: "UI/Other", short: "Small front-end/content demo for Temple site." },
-  { name: "stationarymanagement", url: "https://github.com/Shivrajjjjj/stationarymanagement", category: "UI/Other", short: "Stationary management app for internal processes." },
-  { name: "Accountformdesign", url: "https://github.com/Shivrajjjjj/Accountformdesign", category: "UI/Other", short: "Form design experiments and UI samples." },
-  { name: "Shwet-Shiva-Printing-Services", url: "https://github.com/Shivrajjjjj/Shwet-Shiva-Printing-Services", category: "UI/Other", short: "Client printing services site (Webforms / ASP.NET)." }
+  { name: "temple", url: "https://github.com/Shivrajjjjj/temple", category: "UI/Other", short: "Front-end demo for Temple site." },
+  { name: "stationarymanagement", url: "https://github.com/Shivrajjjjj/stationarymanagement", category: "UI/Other", short: "Stationary management app." },
+  { name: "Accountformdesign", url: "https://github.com/Shivrajjjjj/Accountformdesign", category: "UI/Other", short: "Form design experiments." },
+  { name: "Shwet-Shiva-Printing-Services", url: "https://github.com/Shivrajjjjj/Shwet-Shiva-Printing-Services", category: "UI/Other", short: "Client printing services site." }
 ];
 
-/* Category priority (higher index => lower priority). We'll give each category a numeric priority */
-const categoryPriority = {
-  "AI/ML": 1,
-  ".NET Core": 2,
-  "Cloud/AWS": 3,
-  "APIs": 4,
-  "Blazor": 5,
-  "Flask/Python": 6,
-  "Full-stack": 7,
-  "Utilities": 8,
-  "UI/Other": 9
-};
+// Category priority
+const categoryPriority = { "AI/ML":1, ".NET Core":2, "Cloud/AWS":3, "APIs":4, "Blazor":5, "Flask/Python":6, "Full-stack":7, "Utilities":8, "UI/Other":9 };
 
-// Normalize duplicates: some repos appear in multiple categories in the raw list (Net8AwsEcsService, etc.)
-// We rely on the category values set above.
-
-/* Sorting function by category priority, then by name */
+// Sort projects
 projects.sort((a,b)=>{
-  const pa = categoryPriority[a.category] || 99;
-  const pb = categoryPriority[b.category] || 99;
-  if(pa !== pb) return pa - pb;
+  const pa = categoryPriority[a.category]||99;
+  const pb = categoryPriority[b.category]||99;
+  if(pa!==pb) return pa-pb;
   return a.name.localeCompare(b.name, undefined, {numeric:true, sensitivity:'base'});
 });
 
-/* Render cards */
-const container = document.getElementById('projects-container');
-function renderAllProjects(){
-  container.innerHTML = ''; // clear placeholder
-  projects.forEach((p, idx) => {
-    const safeName = p.name.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    const short = (p.short || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    const category = p.category || 'Project';
+// Render cards
+function renderProjects(){
+  const container = document.getElementById('projects-container');
+  container.innerHTML = '';
+  projects.forEach((p,i)=>{
     const card = document.createElement('div');
-    card.className = 'glass neon project-card reveal';
-    card.style.minHeight = '110px';
+    card.className = 'project-card reveal';
     card.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
-        <div style="flex:1;min-width:160px">
-          <h3 style="margin:0 0 6px;color:var(--accent)">${safeName}</h3>
-          <p style="margin:0 0 10px;color:rgba(255,255,255,0.78);font-size:13px">${short}</p>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <span class="small" style="padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)">${category}</span>
+        <div style="flex:1;min-width:180px">
+          <h3>${p.name}</h3>
+          <p>${p.short}</p>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <span class="small">${p.category}</span>
             <a class="small muted" href="${p.url}" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Repo</a>
           </div>
         </div>
-        <div style="min-width:160px;text-align:right">
+        <div style="min-width:140px;text-align:right">
           <div class="small muted">Updated: —</div>
-          <div style="margin-top:12px"><a href="${p.url}" class="btn btn-primary small" target="_blank" rel="noopener">Open on GitHub</a></div>
+          <div style="margin-top:8px">
+            <a href="${p.url}" class="btn btn-primary small" target="_blank" rel="noopener">Open on GitHub</a>
+          </div>
         </div>
       </div>
     `;
     container.appendChild(card);
   });
 
-  // hide loader & trigger reveal
-  const loader = document.getElementById('projects-loader');
-  if(loader) loader.style.display = 'none';
-  runReveal(); // make sure reveal animation is triggered
-}
-
-/* Simple reveal (same as other reveal code) */
-function runReveal(){
+  document.getElementById('projects-loader').style.display='none';
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  reveals.forEach((el,i)=>{
-    setTimeout(()=>el.classList.add('show'), 40 * i);
-  });
+  reveals.forEach((el,i)=>setTimeout(()=>el.classList.add('show'), 40*i));
 }
 
-/* Initialize rendering on DOMContentLoaded */
-document.addEventListener('DOMContentLoaded', () => {
-  renderAllProjects();
-});
-
-/* Small CSS for loader spin (if not already in page) */
-(function addLoaderKeyframes(){
-  if(document.getElementById('projects-section-loader-style')) return;
-  const s = document.createElement('style');
-  s.id = 'projects-section-loader-style';
-  s.innerHTML = `@keyframes spin{to{transform:rotate(360deg)}}`;
-  document.head.appendChild(s);
-})();
+document.addEventListener('DOMContentLoaded', renderProjects);
 </script>
 
+         
 
             <!-- CERTIFICATIONS & EDUCATION -->
             <section id="certifications" class="section">
