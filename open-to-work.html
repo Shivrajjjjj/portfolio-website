@@ -10,7 +10,7 @@
   <style>
     /* Corporate Dark Mode Styling */
     body {
-      background-color: #111827; /* Dark Slate Background (Corporate) */
+      background-color: #111827; 
       color: #e5e7eb;
       animation: fadeIn 1.5s ease-in-out;
       font-family: 'Inter', sans-serif;
@@ -21,20 +21,24 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Subtle shadow for the main content card */
     .card-shadow {
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 
-    /* Button Hover Effect - More reserved */
     .btn-animate:hover {
-        transform: translateY(-2px); /* Subtle lift instead of scale */
+        transform: translateY(-2px); 
         box-shadow: 0 8px 15px rgba(79, 70, 229, 0.4);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    /* Scroll to Top (Hidden in this version) */
     #scrollTopBtn { display: none; }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #6366f1;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 
@@ -42,15 +46,15 @@
 
 <section class="py-24 bg-gray-900 min-h-screen">
   <div class="container mx-auto px-4 max-w-4xl">
-    <!-- Heading -->
     <h1 class="text-5xl md:text-6xl font-extrabold text-indigo-500 text-center mb-6 tracking-tight">
       <i class="fas fa-handshake mr-3"></i> Career Opportunities & Engagement
     </h1>
 
-    <!-- Subheading - More formal -->
-    <p class="text-xl text-gray-300 text-center mb-12 font-light">I am actively seeking professional roles where my full-stack expertise can contribute to significant organizational goals and technical leadership.</p>
+    <p class="text-xl text-gray-300 text-center mb-12 font-light">
+      I am actively seeking professional roles where my full-stack expertise can contribute to significant organizational goals and technical leadership.
+    </p>
 
-    <!-- Region & Language - Simplified, corporate badges -->
+    <!-- Badges -->
     <div class="flex flex-wrap justify-center gap-4 mt-4 mb-12">
       <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">🌏 Open to Asia (Remote/Relocation)</span>
       <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">🇺🇸 Remote US</span>
@@ -58,46 +62,43 @@
       <span class="bg-gray-700 text-gray-200 text-base px-5 py-2 rounded-lg font-medium border border-gray-600 shadow-lg">💬 English Communication</span>
     </div>
 
-    <!-- Main Content Box - Switched to light background for professional document feel -->
+    <!-- Main Card -->
     <div class="bg-white text-gray-800 rounded-xl card-shadow p-12 leading-relaxed space-y-8 border border-gray-200">
 
       <p class="text-indigo-700 text-2xl font-bold border-b border-gray-200 pb-4">Dear Recruiters & Visionary Teams,</p>
-      
-      <p class="text-gray-700">I'm <strong>Shivraj Randive</strong>, a dedicated **Senior Full-Stack Software Engineer** poised to drive global digital excellence. My core competencies lie in architecting highly **scalable, cloud-native backend solutions** (specializing in **.NET Core** and **Python**), paired with delivering exceptional, **performance-driven UI/UX**. I am eager to collaborate with organizations focused on achieving significant technical milestones, enhancing operational efficiency, and maximizing measurable real-world impact.</p>
+      <p class="text-gray-700">
+        I'm <strong>Shivraj Randive</strong>, a dedicated <strong> Full-Stack Software Engineer</strong> poised to drive global digital excellence. My core competencies lie in architecting highly <strong>scalable, cloud-native backend solutions</strong> (specializing in <strong>.NET Core</strong> and <strong>Python</strong>), paired with delivering exceptional, <strong>performance-driven UI/UX</strong>. I am eager to collaborate with organizations focused on achieving significant technical milestones, enhancing operational efficiency, and maximizing measurable real-world impact.
+      </p>
 
-      <!-- Tech Toolbox -->
       <h2 class="text-2xl font-bold text-indigo-700 pt-6 border-t border-gray-200"><i class="fas fa-code mr-3"></i> Core Technology Expertise</h2>
       <ul class="list-disc list-inside text-gray-700 space-y-3 ml-4">
-        <li>**Backend & Cloud:** C#, **.NET 8 (Core)**, Python, SQL Server, PostgreSQL, **Azure/AWS (Basic)**, Microservices.</li>
-        <li>**Frameworks & ORMs:** **Entity Framework Core**, ASP.NET Web API/MVC, Flask, Django (Basic).</li>
-        <li>**Frontend & UI:** React (Basic), HTML5, CSS3, **Tailwind CSS**, ensuring responsive and accessible design.</li>
-        <li>**DevOps & Methodology:** Expert in **Clean Architecture**, Test-Driven Development (TDD), performance tuning, and optimizing CI/CD pipelines (e.g., Azure DevOps).</li>
+        <li><strong>Backend & Cloud:</strong> C#, .NET 8 (Core), Python, SQL Server, PostgreSQL, Azure/AWS (Basic), Microservices.</li>
+        <li><strong>Frameworks & ORMs:</strong> Entity Framework Core, ASP.NET Web API/MVC, Flask, Django (Basic).</li>
+        <li><strong>Frontend & UI:</strong> React (Basic), HTML5, CSS3, Tailwind CSS, responsive & accessible design.</li>
+        <li><strong>DevOps & Methodology:</strong> Clean Architecture, TDD, performance tuning, CI/CD pipelines (Azure DevOps).</li>
       </ul>
 
-      <!-- Roles I'm Seeking -->
       <h2 class="text-2xl font-bold text-blue-700 pt-6 border-t border-gray-200"><i class="fas fa-briefcase mr-3"></i> Target Roles & Focus Areas</h2>
       <ul class="list-decimal list-inside text-gray-700 space-y-3 ml-4">
-        <li>**Senior Full-Stack Developer** or **Lead Backend .NET Engineer**: Focus on high-impact projects and technical leadership (Remote/Hybrid preferred).</li>
-        <li>**Python Backend Architect**: Specializing in building and optimizing resilient REST API services.</li>
-        <li>**Data Solutions Developer/Engineer**: Leveraging advanced SQL, data modeling, analysis, and ETL processes for enterprise data systems.</li>
-        <li>**Growth Opportunities**: Actively seeking roles that merge core engineering with emerging domains like Generative AI and ML applications.</li>
+        <li>Senior Full-Stack Developer / Lead Backend .NET Engineer: High-impact projects & leadership (Remote/Hybrid).</li>
+        <li>Python Backend Architect: Building & optimizing resilient REST API services.</li>
+        <li>Data Solutions Developer/Engineer: Advanced SQL, data modeling, ETL for enterprise systems.</li>
+        <li>Growth Opportunities: Roles merging engineering with Generative AI and ML applications.</li>
       </ul>
 
-      <!-- Why Choose Me? -->
       <h2 class="text-2xl font-bold text-green-700 pt-6 border-t border-gray-200"><i class="fas fa-star mr-3"></i> Value Proposition: Driving Business Outcomes</h2>
       <ul class="list-disc list-inside text-gray-700 space-y-3 ml-4">
-        <li>✅ **Architectural Excellence:** Delivering scalable, maintainable systems that reduce technical debt and costs.</li>
-        <li>✅ **Business Impact:** Translating complex technical requirements into high-value, measurable business solutions.</li>
-        <li>✅ **Adaptability:** Agile mindset, remote-ready, and a commitment to continuous knowledge acquisition.</li>
-        <li>✅ **Global Focus:** Seeking international teams and global projects where diverse perspective is valued.</li>
+        <li>✅ Architectural Excellence: Scalable, maintainable systems that reduce technical debt and costs.</li>
+        <li>✅ Business Impact: Translating technical requirements into measurable business solutions.</li>
+        <li>✅ Adaptability: Agile mindset, remote-ready, continuous learning.</li>
+        <li>✅ Global Focus: International teams and projects where diverse perspectives are valued.</li>
       </ul>
 
-      <!-- Connect with Me -->
       <h2 class="text-2xl font-bold text-purple-700 pt-6 border-t border-gray-200"><i class="fas fa-handshake mr-3"></i> Professional Contact</h2>
       <ul class="space-y-3 text-gray-700">
-        <li>📧 **Email:** <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium">shivrajrandive9281@gmail.com</a></li>
-        <li>🔗 **LinkedIn:** <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium" target="_blank">linkedin.com/in/shivraj-randive-6918b2232</a></li>
-        <li>💻 **GitHub:** <a href="https://github.com/Shivrajjjjj" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium" target="_blank">github.com/Shivrajjjjj</a></li>
+        <li>📧 Email: <a href="mailto:shivrajrandive9281@gmail.com" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium">shivrajrandive9281@gmail.com</a></li>
+        <li>🔗 LinkedIn: <a href="https://linkedin.com/in/shivraj-randive-6918b2232" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium" target="_blank">linkedin.com/in/shivraj-randive-6918b2232</a></li>
+        <li>💻 GitHub: <a href="https://github.com/Shivrajjjjj" class="text-indigo-600 hover:text-indigo-500 underline transition font-medium" target="_blank">github.com/Shivrajjjjj</a></li>
       </ul>
 
       <div class="text-center pt-10">
@@ -110,7 +111,6 @@
 </section>
 
 <footer class="bg-gray-800 text-white py-10 relative overflow-hidden">
-  <!-- Floating Shapes - More subdued -->
   <div class="absolute -top-10 left-0 w-64 h-64 bg-gray-600/10 rounded-full blur-3xl opacity-30 animate-pulse"></div>
   <div class="absolute bottom-0 right-0 w-64 h-64 bg-gray-600/10 rounded-full blur-3xl opacity-30 animate-pulse-slow"></div>
 
