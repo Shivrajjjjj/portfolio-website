@@ -8,13 +8,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    /* Dark Theme Base Styling */
     body {
-      background-color: #0f172a; /* Deep Slate Blue */
-      color: #e5e7eb; /* Light Gray Text */
-      animation: fadeIn 1.2s ease-in-out;
-      scroll-behavior: smooth;
+      background-color: #0f172a;
+      color: #e5e7eb;
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -24,7 +23,7 @@
 
     .btn-animate:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(79, 70, 229, 0.4); /* Accent Shadow on Hover */
+      box-shadow: 0 0 12px 2px rgba(79,70,229,0.7);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -37,19 +36,31 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* Fixed elements updated for dark mode */
-    .globe-icon, .scroll-to-top {
-      display: none; /* Removed for this single-page design */
+    .glass-card {
+      backdrop-filter: blur(12px);
+      background: rgba(15,23,42,0.6);
+      border-left: 4px solid #6366f1;
     }
-    
-    /* Custom shadow for cards */
-    .card-shadow {
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+    .btn-neon {
+      border: 1px solid rgba(99,102,241,0.5);
+      background: rgba(99,102,241,0.1);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-neon:hover {
+      background: rgba(99,102,241,0.2);
+      box-shadow: 0 0 12px 2px rgba(99,102,241,0.7);
+      transform: scale(1.05);
     }
   </style>
 </head>
 
-<body class="text-gray-100">
+<body>
 
 <!-- Resume Section -->
 <section class="py-24 bg-gray-900 overflow-hidden min-h-screen flex items-center">
@@ -63,35 +74,27 @@
       Explore my resume and discover how my skills can contribute to your team.
     </p>
 
-    <!-- Resume Actions (High-contrast, rounded buttons) -->
-    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
-      <!-- Primary Action: View Resume -->
-      <a href="Shivraj_Randive.pdf" target="_blank"
-        class="btn-animate inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold px-10 py-4 rounded-full shadow-lg transition duration-300">
+    <!-- Resume Actions -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 flex-wrap">
+      <a href="Shivraj_Randive.pdf" target="_blank" class="btn-neon btn-animate">
         <i class="fas fa-eye mr-2"></i> View Resume
       </a>
 
-      <!-- Secondary Action: Download Resume -->
-      <a href="Shivraj_Randive.pdf" download
-        class="btn-animate inline-block bg-gray-700 border border-gray-600 hover:bg-gray-600 text-gray-200 font-bold px-10 py-4 rounded-full shadow-lg transition duration-300">
+      <a href="Shivraj_Randive.pdf" download class="btn-neon btn-animate">
         <i class="fas fa-download mr-2"></i> Download Resume
       </a>
-      
-      <!-- Tertiary Action: Back to Portfolio -->
-      <a href="index.html"
-           class="px-6 py-3 rounded-full bg-gray-600 text-gray-200 font-semibold shadow hover:bg-gray-700 transition btn-animate">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+
+      <a href="index.html" class="btn-neon btn-animate">
+        <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
       </a>
-      
-      <!-- Blog Action -->
-      <a href="open-to-work.html"
-           class="px-6 py-3 rounded-full border border-indigo-400 bg-transparent text-indigo-400 font-semibold shadow hover:bg-indigo-900 transition btn-animate">
-            <i class="fas fa-rss mr-2"></i> Read Blog
+
+      <a href="open-to-work.html" class="btn-neon btn-animate">
+        <i class="fas fa-rss mr-2"></i> Read Blog
       </a>
     </div>
 
-    <!-- Strategic Vision Card (Sleek dark card with bright border) -->
-    <div class="p-8 rounded-2xl card-shadow bg-gray-800 border-l-4 border-indigo-500 text-left animate-fade-up max-w-xl mx-auto">
+    <!-- Strategic Vision Card -->
+    <div class="p-8 rounded-2xl glass-card text-left animate-fade-up max-w-xl mx-auto">
       <h2 class="text-2xl font-semibold text-indigo-400 mb-4">
         <i class="fas fa-rocket mr-3 text-indigo-500"></i> My Strategic Vision
       </h2>
@@ -99,11 +102,12 @@
         I am passionate about building full-stack, enterprise-grade applications that solve real-world problems. My focus includes robust backend development, clean UI/UX design, cloud-native architectures, and emerging tech such as AI and DevOps to deliver performance, reliability, and innovation.
       </p>
     </div>
+
   </div>
 </section>
 
+<!-- Footer -->
 <footer class="bg-gray-800 text-white py-10 relative overflow-hidden">
-  <!-- Floating Shapes -->
   <div class="absolute -top-10 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl opacity-50 animate-pulse"></div>
   <div class="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl opacity-50 animate-pulse-slow"></div>
 
