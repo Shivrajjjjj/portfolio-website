@@ -1,129 +1,278 @@
-<!-- New Clean Minimal Portfolio Layout Inspired by portfolio-mariia-rudenko.webflow.io -->
+<!-- 🌟 Updated Portfolio UI with Webflow-style Design (Maria Rudenko) -->
+<!-- Complete Responsive UI + Animations + Scroll Reveal + Glassmorphism + Neon Borders -->
+<!-- All sections are now built as components -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shivraj Randive – Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
     <style>
-        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #111; }
-        .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 2rem; }
-        .nav-link { transition: opacity .2s; }
-        .nav-link:hover { opacity: .5; }
-        .hero-title { font-size: 4rem; font-weight: 900; line-height: 1.1; }
+        /* 🎨 Base Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ✨ Reusable Component: Glass Card */
+        .glass-card {
+            padding: 2rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            transition: 0.4s;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* 🔥 Neon Border */
+        .neon-border {
+            border: 2px solid rgba(0, 255, 242, 0.6);
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.6), 0 0 25px rgba(0, 255, 234, 0.3);
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        nav a {
+            color: white;
+            margin-left: 24px;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        nav a:hover {
+            color: #0ff;
+        }
+
+        /* 🔥 Hero Section */
+        #hero {
+            min-height: 100vh;
+            padding: 8rem 5% 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        #hero .left {
+            max-width: 50%;
+        }
+        #hero h1 {
+            font-size: 3.4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        #hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        #hero .profile-img {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            border: 4px solid #0ff;
+            box-shadow: 0 0 30px #0ff;
+            object-fit: cover;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* Project Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 3rem 5%;
+        }
+
+        /* Certifications */
+        .cert-item h3 { margin-bottom: 0.4rem; }
+
+        /* Contact */
+        #contact .form-box {
+            max-width: 600px;
+            margin: auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.6rem 0;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        button {
+            padding: 0.8rem 2rem;
+            background: #00ffee;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.6;
+        }
+
+        /* 🎬 Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.7s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            #hero { flex-direction: column; text-align: center; }
+            #hero .left { max-width: 100%; }
+        }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <!-- NAVBAR -->
-    <nav class="w-full flex justify-between items-center px-10 py-6 border-b border-gray-200 bg-white sticky top-0 z-50">
-        <h1 class="text-2xl font-bold tracking-tight">Shivraj Randive</h1>
-        <div class="space-x-8 text-lg font-medium">
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#experience">Experience</a>
-            <a class="nav-link" href="#skills">Skills</a>
-            <a class="nav-link" href="#projects">Projects</a>
-            <a class="nav-link" href="#contact">Contact</a>
+    <!-- 🔷 NAVBAR COMPONENT -->
+    <nav>
+        <h2>SR Portfolio</h2>
+        <div>
+            <a href="#hero">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="px-10 py-28 max-w-6xl mx-auto">
-        <h2 class="hero-title">Full-Stack Engineer<br>Building Fast, Modern & Scalable Systems</h2>
-        <p class="text-xl text-gray-600 mt-6 leading-relaxed max-w-3xl">
-            I design and develop highly scalable backend systems, intuitive front-end interfaces,
-            and cloud-native solutions using .NET, SQL Server, React, Azure, and AWS.
-        </p>
-        <div class="mt-10 flex space-x-6">
-            <a href="#projects" class="px-6 py-3 bg-black text-white text-lg font-semibold rounded-full">View Work</a>
-            <a href="#contact" class="px-6 py-3 border border-black text-lg font-semibold rounded-full">Get in Touch</a>
+    <!-- ⚡ HERO SECTION -->
+    <section id="hero">
+        <div class="left reveal">
+            <h1>Hello, I'm <span style="color:#0ff;">Shivraj Randive</span></h1>
+            <p>Full‑Stack .NET | React | SQL Developer with 4+ years of experience delivering secure, scalable, and clean solutions.</p>
+        </div>
+        <img src="https://i.ibb.co/yVZSZyv/Whats-App-Image.jpg" class="profile-img reveal" />
+    </section>
+
+    <!-- 🧩 PROJECT COMPONENT GRID -->
+    <h2 class="section-title">Projects</h2>
+    <section id="projects" class="grid">
+
+        <div class="glass-card neon-border reveal">
+            <h3>Tourism Website for Forts</h3>
+            <p>Flask + MySQL with realtime booking, performance‑optimized queries.</p>
+        </div>
+
+        <div class="glass-card neon-border reveal">
+            <h3>Bank Management System</h3>
+            <p>.NET MVC + SQL | Reduced transaction time by 30%, RBAC security.</p>
+        </div>
+
+        <div class="glass-card neon-border reveal">
+            <h3>Payment App Prototype</h3>
+            <p>GPay‑style UI with scanner, history, chat, and mock transactions.</p>
+        </div>
+
+        <div class="glass-card neon-border reveal">
+            <h3>KPI Dashboard</h3>
+            <p>.NET 8 API + React, API versioning, dynamic configuration.</p>
+        </div>
+
+    </section>
+
+    <!-- 🎓 Certifications -->
+    <h2 class="section-title" id="certifications">Certifications</h2>
+    <section class="grid">
+        <div class="glass-card reveal cert-item">
+            <h3>Full Stack Web Development</h3>
+            <p>Three Star Infotech</p>
+        </div>
+        <div class="glass-card reveal cert-item">
+            <h3>SQL & Database Design</h3>
+            <p>Microsoft Certified Training</p>
+        </div>
+        <div class="glass-card reveal cert-item">
+            <h3>.NET Professional Training</h3>
+            <p>Advanced Backend Development</p>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="px-10 py-28 max-w-6xl mx-auto">
-        <h2 class="section-title">About Me</h2>
-        <p class="text-xl leading-relaxed text-gray-700 max-w-4xl">
-            I specialize in designing enterprise applications, modern APIs, cloud-ready architectures,
-            and real-time systems. I enjoy working on mission-critical systems, optimizing performance,
-            and creating meaningful digital solutions. My mindset revolves around clean code, strong
-            architecture, and scalable engineering.
-        </p>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="px-10 py-28 max-w-6xl mx-auto">
-        <h2 class="section-title">Experience</h2>
-        <div class="space-y-10">
-            <div>
-                <h3 class="text-2xl font-bold">.NET Developer – Novadule Technologies</h3>
-                <p class="text-gray-600">Dec 2024 – Present · Remote</p>
-                <ul class="list-disc pl-6 mt-3 text-gray-700 leading-relaxed">
-                    <li>Developing high-traffic .NET 8 APIs with optimized EF Core pipelines.</li>
-                    <li>Reduced API latency by 150ms through architecture restructuring.</li>
-                    <li>Improved CI/CD quality via automated test pipelines.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-2xl font-bold">Webform Developer – Freelance (Shwet Shiva Printing Services)</h3>
-                <p class="text-gray-600">Jul 2024 – Nov 2024 · Remote</p>
-                <ul class="list-disc pl-6 mt-3 text-gray-700 leading-relaxed">
-                    <li>Developed full-stack printing service management system.</li>
-                    <li>Integrated payment gateways & SQL Server architecture.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-2xl font-bold">Software Developer – Three Star Infotech</h3>
-                <p class="text-gray-600">Aug 2023 – Jun 2024 · On-site</p>
-                <ul class="list-disc pl-6 mt-3 text-gray-700 leading-relaxed">
-                    <li>Optimized SQL queries, achieving 30% performance increase.</li>
-                    <li>Implemented RBAC and modernized legacy MVC systems.</li>
-                </ul>
-            </div>
+    <!-- ✉️ Contact Section -->
+    <h2 class="section-title" id="contact">Contact</h2>
+    <section class="reveal">
+        <div class="glass-card form-box">
+            <form>
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Email Address" required />
+                <textarea rows="4" placeholder="Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="px-10 py-28 max-w-6xl mx-auto">
-        <h2 class="section-title">Skills</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg font-semibold text-gray-800">
-            <p>.NET 7 / .NET 8</p>
-            <p>ASP.NET Core</p>
-            <p>Entity Framework Core</p>
-            <p>SQL Server</p>
-            <p>React</p>
-            <p>Azure</p>
-            <p>AWS</p>
-            <p>REST APIs</p>
-        </div>
-    </section>
+    <!-- 🖤 Footer -->
+    <footer>
+        © 2025 Shivraj Randive. All rights reserved.
+    </footer>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="px-10 py-28 max-w-6xl mx-auto">
-        <h2 class="section-title">Projects</h2>
-        <div class="grid md:grid-cols-2 gap-10">
-            <div class="border p-6 rounded-xl hover:shadow-xl transition bg-white">
-                <h3 class="text-2xl font-bold">Tourism Fort Explorer</h3>
-                <p class="text-gray-600 mt-2">Python · Flask · MySQL</p>
-                <p class="mt-4 text-gray-700 leading-relaxed">Online booking + optimized DB system.</p>
-            </div>
-            <div class="border p-6 rounded-xl hover:shadow-xl transition bg-white">
-                <h3 class="text-2xl font-bold">Vehicle Management (Privahaan)</h3>
-                <p class="text-gray-600 mt-2">ASP.NET MVC · SQL Server</p>
-                <p class="mt-4 text-gray-700 leading-relaxed">Admin + Client panel with RTO API integration.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="px-10 py-28 max-w-6xl mx-auto">
-        <h2 class="section-title">Contact</h2>
-        <p class="text-xl text-gray-600 mb-6">Let’s build something meaningful together.</p>
-        <a href="mailto:shivrajjkr@gmail.com" class="px-10 py-4 bg-black text-white text-xl rounded-full font-bold inline-block">Send Email</a>
-    </section>
+    <!-- 🎬 Scroll Reveal Script -->
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach((el) => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
 
-    <footer class="text-center py-10 text-gray-500 text-sm border-t">© 2025 Shivraj Randive</footer>
 </body>
 </html>
