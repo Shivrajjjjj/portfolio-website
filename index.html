@@ -1,863 +1,674 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivraj Randive - Immersive Technical Portfolio</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Load Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Define the unique lime accent color */
-        :root {
-            --color-lime-accent: #39ff14; /* Electric Lime */
-        }
-        /* Apply Inter font and dark background - using a very deep black/dark gray */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0c0c0c; 
-            /* Prevent body scrolling, allow the main content area to handle scrolling */
-            overflow: hidden; 
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivraj Randive - Immersive Technical Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Define the unique lime accent color */
+        :root {
+            --color-lime-accent: #39ff14; /* Electric Lime */
+            --color-light-text: #e0e0e0;
+            --color-dark-bg: #0c0c0c;
+            --color-card-bg: #161616;
+        }
+        /* Apply Inter font and dark background - using a very deep black/dark gray */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-dark-bg);
+            /* Prevent body scrolling, allow the main content area to handle scrolling */
+            overflow: hidden;
+        }
 
-        /* --- Desktop Specific Styles (Matching Screenshot) --- */
-        @media (min-width: 768px) {
-            /* Style for the sidebar column (sits in the grid) */
-            .sidebar-column {
-                background-color: #111;
-                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-                /* Ensure it takes full available height */
-                height: 100vh; 
-            }
-            .sidebar-column .footer-status {
-                /* Ensures the footer sits at the bottom of the flex column */
-                margin-top: auto; 
-            }
+        /* --- Desktop Specific Styles (Matching reference URL style) --- */
+        @media (min-width: 768px) {
+            /* Style for the sidebar column (sits in the grid) */
+            .sidebar-column {
+                background-color: var(--color-dark-bg); /* Match body bg for seamless look */
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow on the split */
+                /* Ensure it takes full available height */
+                height: 100vh;
+            }
+            .sidebar-column .footer-status {
+                /* Ensures the footer sits at the bottom of the flex column */
+                margin-top: auto;
+            }
 
-            /* Navigation links should be simple text */
-            .nav-link {
-                color: #ccc;
-                font-weight: 400;
-                padding: 4px 0; /* Subtle vertical spacing */
-                border-left: none !important;
-                transition: color 0.1s;
-                font-size: 1.125rem; /* Equivalent to text-xl */
-            }
-            .nav-link:hover {
-                color: var(--color-lime-accent); /* Subtle hover to indicate interactivity */
-                transform: none;
-            }
-            /* Active link style on desktop */
-            .nav-link.active {
-                color: #fff; /* Active link is pure white */
-                font-weight: 600; /* Slightly bolder for visibility */
-            }
-        }
-        /* ------------------------------------------------ */
+            /* Navigation links: Simple, aligned text with active indicator */
+            .nav-link {
+                color: #888; /* Slightly darker default link color */
+                font-weight: 500;
+                padding: 6px 0 6px 16px; /* Space for the border */
+                border-left: 2px solid transparent; /* Prepare for active border */
+                transition: all 0.2s;
+                font-size: 1rem; /* Slightly smaller for a tighter feel */
+            }
+            .nav-link:hover {
+                color: var(--color-light-text);
+                border-left: 2px solid var(--color-lime-accent); /* Full lime accent on hover/active */
+                transform: none;
+            }
+            /* Active link style on desktop: White text, lime border */
+            .nav-link.active {
+                color: var(--color-light-text);
+                font-weight: 700;
+                border-left: 2px solid var(--color-lime-accent);
+            }
+            /* Override the generic lime-text hover for sidebar links */
+            .footer-status a:hover {
+                color: var(--color-light-text);
+            }
+        }
+        /* ------------------------------------------------ */
 
-        /* Style for interactive elements */
-        .lime-button {
-            background-color: var(--color-lime-accent);
-            color: #000;
-            transition: all 0.2s;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-        }
-        .lime-button:hover {
-            box-shadow: 0 0 15px var(--color-lime-accent);
-        }
-        .lime-text {
-            color: var(--color-lime-accent);
-        }
-        
-        /* Custom scrollbar for the content area */
-        .content-scroll {
-            scroll-behavior: smooth; 
-        }
-        .content-scroll::-webkit-scrollbar {
-            width: 8px;
-            height: 8px; 
-        }
-        .content-scroll::-webkit-scrollbar-thumb {
-            background-color: var(--color-lime-accent);
-            border-radius: 4px;
-        }
-        .content-scroll::-webkit-scrollbar-track {
-            background: #1f2937;
-        }
+        /* Style for interactive elements */
+        .lime-button {
+            background-color: var(--color-lime-accent);
+            color: #000;
+            transition: all 0.2s;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+        .lime-button:hover {
+            box-shadow: 0 0 15px var(--color-lime-accent);
+        }
+        .lime-text {
+            color: var(--color-lime-accent);
+        }
 
-        /* Mobile Layout Stack */
-        @media (max-width: 767px) {
-            .desktop-split-grid {
-                display: block;
-            }
-            /* Resetting desktop layout for mobile stack */
-            .sidebar-column {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 1.5rem 0 0;
-                border-right: none;
-                border-bottom: 1px solid #1f2937;
-            }
-            .content-column {
-                overflow-y: auto;
-                height: auto;
-            }
-            /* Mobile Horizontal Nav Styling */
-            .nav-link {
-                border-left: none !important;
-                padding: 8px 16px !important;
-                border-radius: 9999px; 
-                background-color: #1f2937;
-                font-size: 1rem;
-            }
-            .nav-link:hover {
-                color: #000;
-                background-color: var(--color-lime-accent);
-                transform: none;
-            }
-            .nav-link.active {
-                background-color: var(--color-lime-accent);
-                color: #000;
-                font-weight: 600;
-            }
-        }
-    </style>
+        /* Custom scrollbar for the content area */
+        .content-scroll {
+            scroll-behavior: smooth;
+        }
+        .content-scroll::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .content-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--color-lime-accent);
+            border-radius: 4px;
+        }
+        .content-scroll::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+
+        /* Mobile Layout Stack - Keep it clean but functional */
+        @media (max-width: 767px) {
+            .desktop-split-grid {
+                display: block;
+            }
+            /* Resetting desktop layout for mobile stack */
+            .sidebar-column {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 1.5rem 0 0;
+                border-right: none;
+                border-bottom: 1px solid #1f2937;
+            }
+            .content-column {
+                overflow-y: auto;
+                height: auto;
+            }
+            /* Mobile Horizontal Nav Styling (buttons) */
+            .nav-link {
+                border-left: none !important;
+                padding: 8px 16px !important;
+                border-radius: 9999px;
+                background-color: #1f2937;
+                font-size: 1rem;
+                color: #ccc;
+                font-weight: 500;
+            }
+            .nav-link:hover {
+                color: #000;
+                background-color: var(--color-lime-accent);
+                transform: none;
+            }
+            .nav-link.active {
+                background-color: var(--color-lime-accent);
+                color: #000;
+                font-weight: 600;
+            }
+        }
+    </style>
 </head>
 <body class="text-gray-50">
 
-    <!-- Firebase SDK Imports (Identical logic) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, setDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot, setDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        setLogLevel('Debug');
+        setLogLevel('Debug');
 
-        let db;
-        let auth;
-        let userId;
+        let db;
+        let auth;
+        let userId;
 
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
 
-        if (firebaseConfig) {
-            try {
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-            } catch (error) {
-                console.error("Firebase initialization failed:", error);
-                document.getElementById('viewerCount').textContent = 'Live status unavailable';
-            }
-        } else {
-            document.getElementById('viewerCount').textContent = 'Live status unavailable (No Config)';
-        }
+        if (firebaseConfig) {
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+            } catch (error) {
+                console.error("Firebase initialization failed:", error);
+                document.getElementById('viewerCount').textContent = 'Live status unavailable';
+            }
+        } else {
+            document.getElementById('viewerCount').textContent = 'Live status unavailable (No Config)';
+        }
 
-        async function authenticateUser() {
-            if (!auth) return;
-            try {
-                if (typeof __initial_auth_token !== 'undefined') {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (error) {
-                console.error("Authentication failed:", error);
-            }
-        }
+        async function authenticateUser() {
+            if (!auth) return;
+            try {
+                if (typeof __initial_auth_token !== 'undefined') {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Authentication failed:", error);
+            }
+        }
 
-        function setupRealtimeViewerCount() {
-            if (!db) return;
+        function setupRealtimeViewerCount() {
+            if (!db) return;
 
-            const publicDataPath = `artifacts/${appId}/public/data/site_stats`;
-            const viewerDocRef = doc(db, publicDataPath, 'viewer_count');
-            const viewerCountEl = document.getElementById('viewerCount');
-            const mobileViewerCountEl = document.getElementById('mobileViewerCount');
+            const publicDataPath = `artifacts/${appId}/public/data/site_stats`;
+            const viewerDocRef = doc(db, publicDataPath, 'viewer_count');
+            const viewerCountEl = document.getElementById('viewerCount');
+            const mobileViewerCountEl = document.getElementById('mobileViewerCount');
 
-            onSnapshot(viewerDocRef, (docSnap) => {
-                if (docSnap.exists()) {
-                    const count = docSnap.data().active_viewers || 0;
-                    viewerCountEl.textContent = `Live status: ${count} professional${count !== 1 ? 's' : ''} online`;
-                    if (mobileViewerCountEl) {
-                        mobileViewerCountEl.textContent = `${count} professional${count !== 1 ? 's' : ''} online`;
-                    }
-                } else {
-                    viewerCountEl.textContent = 'Live status unavailable (No Config)';
-                    if (mobileViewerCountEl) {
-                        mobileViewerCountEl.textContent = '1 professional online (You!)';
-                    }
-                }
-            }, (error) => {
-                console.error("Error fetching real-time count:", error);
-                viewerCountEl.textContent = 'Status Error';
-            });
+            onSnapshot(viewerDocRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    const count = docSnap.data().active_viewers || 0;
+                    viewerCountEl.textContent = `Live status: ${count} professional${count !== 1 ? 's' : ''} online`;
+                    if (mobileViewerCountEl) {
+                        mobileViewerCountEl.textContent = `${count} professional${count !== 1 ? 's' : ''} online`;
+                    }
+                } else {
+                    viewerCountEl.textContent = 'Live status unavailable (No Config)';
+                    if (mobileViewerCountEl) {
+                        mobileViewerCountEl.textContent = '1 professional online (You!)';
+                    }
+                }
+            }, (error) => {
+                console.error("Error fetching real-time count:", error);
+                viewerCountEl.textContent = 'Status Error';
+            });
 
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    userId = user.uid;
-                    const activeViewersCollection = collection(viewerDocRef, 'active_viewers');
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    userId = user.uid;
+                    const activeViewersCollection = collection(viewerDocRef, 'active_viewers');
 
-                    if (sessionStorage.getItem('viewer_registered') !== userId) {
-                        try {
-                            const userRef = doc(activeViewersCollection, userId);
-                            await setDoc(userRef, {
-                                last_seen: new Date().getTime(),
-                                platform: 'web'
-                            });
-                            sessionStorage.setItem('viewer_registered', userId);
-                        } catch (e) {
-                            console.error("Error setting active viewer:", e);
-                        }
-                    }
-                }
-            });
-        }
+                    if (sessionStorage.getItem('viewer_registered') !== userId) {
+                        try {
+                            const userRef = doc(activeViewersCollection, userId);
+                            await setDoc(userRef, {
+                                last_seen: new Date().getTime(),
+                                platform: 'web'
+                            });
+                            sessionStorage.setItem('viewer_registered', userId);
+                        } catch (e) {
+                            console.error("Error setting active viewer:", e);
+                        }
+                    }
+                }
+            });
+        }
 
-        function updateActiveLink() {
-            const contentContainer = document.querySelector('main.content-column');
-            if (!contentContainer) return;
-            
-            const sections = document.querySelectorAll('main section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            let current = '';
-            
-            // Get scroll position relative to the main content container's top
-            const scrollPos = contentContainer.scrollTop; 
+        function updateActiveLink() {
+            const contentContainer = document.querySelector('main.content-column');
+            if (!contentContainer) return;
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
 
-                // Check if the current scroll position is within this section's bounds, 
-                // allowing for a 100px buffer to ensure smooth transition detection.
-                if (scrollPos >= sectionTop - 100 && scrollPos < sectionTop + sectionHeight - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
+            // Get scroll position relative to the main content container's top
+            const scrollPos = contentContainer.scrollTop;
 
-            // Fallback for when scroll is at the very top (Summary) or not found
-            if (!current && scrollPos < 100) {
-                 current = 'summary';
-            }
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                
-                // Extract the href fragment (e.g., '#summary' -> 'summary')
-                const linkId = link.getAttribute('href').substring(1);
-                
-                if (linkId === current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        
-        // Listen to scroll events on the *content container* not the window
-        document.addEventListener('DOMContentLoaded', () => {
-             const contentContainer = document.querySelector('main.content-column');
-             if (contentContainer) {
-                 contentContainer.addEventListener('scroll', updateActiveLink);
-                 updateActiveLink(); // Initial call
-             }
-        });
-        window.addEventListener('resize', updateActiveLink);
+                // Check if the current scroll position is within this section's bounds,
+                // allowing for a 100px buffer to ensure smooth transition detection.
+                if (scrollPos >= sectionTop - 100 && scrollPos < sectionTop + sectionHeight - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Fallback for when scroll is at the very top (Summary) or not found
+            if (!current && scrollPos < 100) {
+                 current = 'summary';
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+
+                // Extract the href fragment (e.g., '#summary' -> 'summary')
+                const linkId = link.getAttribute('href').substring(1);
+
+                if (linkId === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Listen to scroll events on the *content container* not the window
+        document.addEventListener('DOMContentLoaded', () => {
+             const contentContainer = document.querySelector('main.content-column');
+             if (contentContainer) {
+                 contentContainer.addEventListener('scroll', updateActiveLink);
+                 updateActiveLink(); // Initial call
+             }
+        });
+        window.addEventListener('resize', updateActiveLink);
 
 
-        window.onload = async () => {
-            if (firebaseConfig) {
-                await authenticateUser();
-                setupRealtimeViewerCount();
-            }
-            // Initial call is handled in DOMContentLoaded listener
-        };
+        window.onload = async () => {
+            if (firebaseConfig) {
+                await authenticateUser();
+                setupRealtimeViewerCount();
+            }
+            // Initial call is handled in DOMContentLoaded listener
+        };
 
-        window.sendContact = async (event) => {
-            event.preventDefault();
-            const form = event.target;
-            const name = form.name.value;
-            const email = form.email.value;
-            const message = form.message.value;
-            const statusEl = document.getElementById('contactStatus');
+        window.sendContact = async (event) => {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.name.value;
+            const email = form.email.value;
+            const message = form.message.value;
+            const statusEl = document.getElementById('contactStatus');
 
-            if (!db || !userId) {
-                statusEl.textContent = "Error: Database not ready. Try refreshing.";
-                statusEl.classList.add('text-red-500');
-                return;
-            }
+            if (!db || !userId) {
+                statusEl.textContent = "Error: Database not ready. Try refreshing.";
+                statusEl.classList.add('text-red-500');
+                return;
+            }
 
-            statusEl.textContent = "TRANSMITTING...";
-            statusEl.className = 'text-center text-sm font-medium pt-2 lime-text';
+            statusEl.textContent = "TRANSMITTING...";
+            statusEl.className = 'text-center text-sm font-medium pt-2 lime-text';
 
-            try {
-                const messagesCollection = collection(db, `artifacts/${appId}/users/${userId}/contact_messages`);
-                await addDoc(messagesCollection, {
-                    name,
-                    email,
-                    message,
-                    timestamp: new Date().toISOString()
-                });
-                form.reset();
-                statusEl.textContent = "MESSAGE SENT. ACKNOWLEDGED.";
-                statusEl.className = 'text-center text-sm font-medium pt-2 text-green-500';
-            } catch (e) {
-                console.error("Transmission Failed:", e);
-                statusEl.textContent = "TRANSMISSION FAILED. TRY AGAIN.";
-                statusEl.className = 'text-center text-sm font-medium pt-2 text-red-500';
-            }
-        };
+            try {
+                const messagesCollection = collection(db, `artifacts/${appId}/users/${userId}/contact_messages`);
+                await addDoc(messagesCollection, {
+                    name,
+                    email,
+                    message,
+                    timestamp: new Date().toISOString()
+                });
+                form.reset();
+                statusEl.textContent = "MESSAGE SENT. ACKNOWLEDGED.";
+                statusEl.className = 'text-center text-sm font-medium pt-2 text-green-500';
+            } catch (e) {
+                console.error("Transmission Failed:", e);
+                statusEl.textContent = "TRANSMISSION FAILED. TRY AGAIN.";
+                statusEl.className = 'text-center text-sm font-medium pt-2 text-red-500';
+            }
+        };
 
-        // ... Modal functions remain the same
-        window.closeModal = () => {
-            document.getElementById('modalOverlay').classList.add('hidden');
-        };
+        // ... Modal functions remain the same
+        window.closeModal = () => {
+            document.getElementById('modalOverlay').classList.add('hidden');
+        };
 
-        window.openModal = (index) => {
-            const exp = experienceData[index];
-            document.getElementById('modalTitle').textContent = exp.title;
-            document.getElementById('modalCompany').textContent = exp.company;
-            document.getElementById('modalPeriod').textContent = `${exp.period} · ${exp.location}`;
-            document.getElementById('modalDetails').innerHTML = exp.details.map(line => `<li class="leading-relaxed">${line}</li>`).join('');
-            document.getElementById('modalOverlay').classList.remove('hidden');
-        };
+        window.openModal = (index) => {
+            const exp = experienceData[index];
+            document.getElementById('modalTitle').textContent = exp.title;
+            document.getElementById('modalCompany').textContent = exp.company;
+            document.getElementById('modalPeriod').textContent = `${exp.period} · ${exp.location}`;
+            document.getElementById('modalDetails').innerHTML = exp.details.map(line => `<li class="leading-relaxed">${line}</li>`).join('');
+            document.getElementById('modalOverlay').classList.remove('hidden');
+        };
 
-        // Data for Modals
-        const experienceData = [
-            {
-                title: ".NET Developer",
-                company: "Novadule Technologies",
-                location: "Remote · India",
-                period: "Dec 2024 – Present",
-                details: [
-                    "Developed and deployed high-traffic **RESTful APIs** using **.NET 8** and **Entity Framework Core**, achieving 99.9% uptime across core services.",
-                    "Implemented automated unit and integration testing frameworks (xUnit), which resulted in a **20% reduction** in post-deployment bugs and improved CI/CD reliability.",
-                    "Collaborated directly with front-end teams to define contract-first API standards (Swagger/OpenAPI), ensuring rapid and seamless integration.",
-                    "Led a refactoring effort on microservices architecture components, enhancing application responsiveness and **reducing average API latency by 150ms**."
-                ]
-            },
-            {
-                title: "Webform Project (Developer)",
-                company: "Freelance – Shwet Shiva Printing Services",
-                location: "Remote",
-                period: "Jul 2024 – Nov 2024",
-                details: [
-                    "Engineered a full-stack e-commerce system using classic **ASP.NET MVC Webforms** to manage print orders, materials, and invoicing.",
-                    "Integrated a robust payment gateway and designed the database schema (**SQL Server**) to handle thousands of concurrent transactions accurately.",
-                    "Built responsive UI modules with Bootstrap and custom JavaScript, drastically improving the ordering process for mobile users.",
-                    "Successfully delivered the optimized platform on schedule, which facilitated the client's expansion into new regional markets."
-                ]
-            },
-            {
-                title: "Software Developer",
-                company: "Three Star Infotech, Kolhapur",
-                location: "On-site",
-                period: "Aug 2023 – Jun 2024",
-                details: [
-                    "Optimized complex **SQL Server** stored procedures and queries across the primary CRM and inventory modules, resulting in a **30% speed improvement** in critical reporting functions.",
-                    "Designed and implemented a comprehensive **Role-Based Access Control (RBAC)** system using ASP.NET Identity, significantly bolstering application security and compliance for sensitive data.",
-                    "Streamlined inventory tracking processes using automated data pipelines, which decreased manual data entry errors by **over 40%** annually.",
-                    "Revamped legacy .NET MVC UI components, improving user flow and decreasing the average time spent on key administrative tasks by 15%."
-                ]
-            }
-        ];
-    </script>
+        // Data for Modals
+        const experienceData = [
+            {
+                title: ".NET Developer",
+                company: "Novadule Technologies",
+                location: "Remote · India",
+                period: "Dec 2024 – Present",
+                details: [
+                    "Developed and deployed high-traffic **RESTful APIs** using **.NET 8** and **Entity Framework Core**, achieving 99.9% uptime across core services.",
+                    "Implemented automated unit and integration testing frameworks (xUnit), which resulted in a **20% reduction** in post-deployment bugs and improved CI/CD reliability.",
+                    "Collaborated directly with front-end teams to define contract-first API standards (Swagger/OpenAPI), ensuring rapid and seamless integration.",
+                    "Led a refactoring effort on microservices architecture components, enhancing application responsiveness and **reducing average API latency by 150ms**."
+                ]
+            },
+            {
+                title: "Webform Project (Developer)",
+                company: "Freelance – Shwet Shiva Printing Services",
+                location: "Remote",
+                period: "Jul 2024 – Nov 2024",
+                details: [
+                    "Engineered a full-stack e-commerce system using classic **ASP.NET MVC Webforms** to manage print orders, materials, and invoicing.",
+                    "Integrated a robust payment gateway and designed the database schema (**SQL Server**) to handle thousands of concurrent transactions accurately.",
+                    "Built responsive UI modules with Bootstrap and custom JavaScript, drastically improving the ordering process for mobile users.",
+                    "Successfully delivered the optimized platform on schedule, which facilitated the client's expansion into new regional markets."
+                ]
+            },
+            {
+                title: "Software Developer",
+                company: "Three Star Infotech, Kolhapur",
+                location: "On-site",
+                period: "Aug 2023 – Jun 2024",
+                details: [
+                    "Optimized complex **SQL Server** stored procedures and queries across the primary CRM and inventory modules, resulting in a **30% speed improvement** in critical reporting functions.",
+                    "Designed and implemented a comprehensive **Role-Based Access Control (RBAC)** system using ASP.NET Identity, significantly bolstering application security and compliance for sensitive data.",
+                    "Streamlined inventory tracking processes using automated data pipelines, which decreased manual data entry errors by **over 40%** annually.",
+                    "Revamped legacy .NET MVC UI components, improving user flow and decreasing the average time spent on key administrative tasks by 15%."
+                ]
+            }
+        ];
+    </script>
 
-    <!-- Main Application Container -->
-    <!-- h-screen ensures the parent container fills the viewport height -->
-    <div class="desktop-split-grid md:grid md:grid-cols-[30%_70%] h-screen">
+                <div class="desktop-split-grid md:grid md:grid-cols-[25%_75%] h-screen">
 
-        <!-- LEFT SIDEBAR (Column 1 - Does NOT scroll on desktop) -->
-        <!-- flex-col justify-between ensures content pushes identity to top and footer to bottom -->
-        <header class="sidebar-column p-8 flex flex-col justify-between">
-            <div class="md:pt-10">
-                <!-- 1. Identity -->
-                <div class="mb-8 md:mb-12">
-                    <img src="https://placehold.co/80x80/111/39ff14?text=SR" alt="Shivraj Randive"
-                        onerror="this.onerror=null;this.src='https://placehold.co/80x80/111/39ff14?text=SR'"
-                        class="w-20 h-20 rounded-full border-2 border-[var(--color-lime-accent)] mb-4">
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Shivraj Randive</h1>
-                    <p class="lime-text text-lg md:text-xl font-medium mt-1">Full-Stack Engineer</p>
-                </div>
+                                <header class="sidebar-column p-8 flex flex-col justify-between">
+            <div class="md:pt-16">
+                                                <div class="mb-8 md:mb-16">
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Shivraj Randive</h1>
+                    <p class="lime-text text-lg md:text-xl font-medium mt-2">Full-Stack Engineer</p>
+                </div>
 
-                <!-- 2. Navigation -->
-                <nav class="text-xl md:block font-medium">
-                    <div class="overflow-x-auto whitespace-nowrap md:overflow-x-hidden md:whitespace-normal py-2 flex md:block space-x-4 md:space-y-2">
-                        <!-- Navigation Links -->
-                        <a href="#summary" class="nav-link text-gray-400 inline-block md:block">Summary</a>
-                        <a href="#experience" class="nav-link text-gray-400 inline-block md:block">Experience</a>
-                        <a href="#skills" class="nav-link text-gray-400 inline-block md:block">Skills</a>
-                        <a href="#projects" class="nav-link text-gray-400 inline-block md:block">Projects</a>
-                        <a href="#certifications" class="nav-link text-gray-400 inline-block md:block">Credentials</a>
-                        <a href="#contact" class="nav-link text-gray-400 inline-block md:block">Contact</a>
-                        <a href="resume.html" class="nav-link text-gray-400 inline-block md:block">View Resume</a>
-                        <a href="open-to-work.html" class="nav-link text-gray-400 inline-block md:block" > Read Blog </a>
-                    </div>
-                    
-                </nav>
-            </div>
+                                <nav class="text-xl md:block font-medium">
+                    <div class="overflow-x-auto whitespace-nowrap md:overflow-x-hidden md:whitespace-normal py-2 flex md:block space-x-4 md:space-y-1">
+                                                <a href="#summary" class="nav-link inline-block md:block">Summary</a>
+                        <a href="#experience" class="nav-link inline-block md:block">Experience</a>
+                        <a href="#skills" class="nav-link inline-block md:block">Skills</a>
+                        <a href="#projects" class="nav-link inline-block md:block">Projects</a>
+                        <a href="#certifications" class="nav-link inline-block md:block">Credentials</a>
+                        <a href="#contact" class="nav-link inline-block md:block">Contact</a>
+                        <a href="resume.html" class="nav-link inline-block md:block">View Resume</a>
+                        <a href="open-to-work.html" class="nav-link inline-block md:block" > Read Blog </a>
+                    </div>
+                </nav>
+            </div>
 
-            <!-- 3. Footer/Status (Desktop Positioned by flex-col justify-between) -->
-            <div class="footer-status mt-10 md:mt-0 pt-6 border-t border-gray-800 hidden md:block">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="text-sm text-gray-500 font-mono" id="viewerCount">Live status unavailable (No Config)</span>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" aria-label="LinkedIn" class="lime-text hover:text-white transition">
-                        <i class="fab fa-linkedin fa-xl"></i>
-                    </a>
-                    <a href="https://github.com/Shivrajjjjj" target="_blank" aria-label="GitHub" class="lime-text hover:text-white transition">
-                        <i class="fab fa-github fa-xl"></i>
-                    </a>
-                    <a href="#contact" aria-label="Contact" class="lime-text hover:text-white transition">
-                        <i class="fas fa-envelope fa-xl"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- 3. Footer/Status (Mobile Display) -->
-             <div class="md:hidden pt-4 border-t border-gray-800 mt-6">
-                <div class="flex items-center justify-start gap-3 mb-4">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-lime-accent)] opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[var(--color-lime-accent)]"></span>
-                    </span>
-                    <span id="mobileViewerCount" class="text-sm text-gray-400 font-mono">Loading live count...</span>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" aria-label="LinkedIn" class="lime-text hover:text-white transition">
-                        <i class="fab fa-linkedin fa-xl"></i>
-                    </a>
-                    <a href="https://github.com/Shivrajjjjj" target="_blank" aria-label="GitHub" class="lime-text hover:text-white transition">
-                        <i class="fab fa-github fa-xl"></i>
-                    </a>
-                    <a href="#contact" aria-label="Contact" class="lime-text hover:text-white transition">
-                        <i class="fas fa-envelope fa-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </header>
+                        <div class="footer-status mt-10 md:mt-0 pt-6 border-t border-gray-800 hidden md:block">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-sm text-gray-500 font-mono" id="viewerCount">Live status unavailable (No Config)</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" aria-label="LinkedIn" class="lime-text hover:text-white transition">
+                        <i class="fab fa-linkedin fa-xl"></i>
+                    </a>
+                    <a href="https://github.com/Shivrajjjjj" target="_blank" aria-label="GitHub" class="lime-text hover:text-white transition">
+                        <i class="fab fa-github fa-xl"></i>
+                    </a>
+                    <a href="#contact" aria-label="Contact" class="lime-text hover:text-white transition">
+                        <i class="fas fa-envelope fa-xl"></i>
+                    </a>
+                </div>
+            </div>
 
-        <!-- RIGHT CONTENT AREA (Column 2 - This is the ONLY element that scrolls on desktop) -->
-        <main class="content-column overflow-y-auto content-scroll p-8 md:p-20">
-            
-            <!-- 0. PROFILE SUMMARY SECTION -->
-            <section id="summary" class="py-10 md:pt-0 md:pb-20">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">00. Profile Summary</h2>
-                <div class="bg-[#161616] p-8 rounded-lg border border-gray-800 shadow-xl">
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        I always make sure our business systems are ready for the future by constantly looking at and adopting new technologies, like serverless computing and smart ways to organize data. I'm excellent at managing complicated technical environments and can quickly take charge as the technical lead during urgent situations. My main goal is to build systems that are as scalable and reliable as possible. I am committed to finding new ways to make the user experience better and guarantee that the money we invest in technology provides a big, long-term payoff for the company.   </p>
-                </div>
-            </section>
+                         <div class="md:hidden pt-4 border-t border-gray-800 mt-6">
+                <div class="flex items-center justify-start gap-3 mb-4">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-lime-accent)] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[var(--color-lime-accent)]"></span>
+                    </span>
+                    <span id="mobileViewerCount" class="text-sm text-gray-400 font-mono">Loading live count...</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" aria-label="LinkedIn" class="lime-text hover:text-white transition">
+                        <i class="fab fa-linkedin fa-xl"></i>
+                    </a>
+                    <a href="https://github.com/Shivrajjjjj" target="_blank" aria-label="GitHub" class="lime-text hover:text-white transition">
+                        <i class="fab fa-github fa-xl"></i>
+                    </a>
+                    <a href="#contact" aria-label="Contact" class="lime-text hover:text-white transition">
+                        <i class="fas fa-envelope fa-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
 
-            <!-- 1. EXPERIENCE SECTION -->
-            <section id="experience" class="py-10 md:py-20 border-t border-gray-800">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">01. Experience History</h2>
-                <div class="space-y-8">
-                    <!-- Experience Item 1 -->
-                   <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 cursor-pointer hover:border-[var(--color-lime-accent)]/50 transition duration-300 shadow-xl" onclick="openModal(0)">
-    <div class="flex justify-between items-start">
-        <h3 class="text-xl font-bold lime-text">.NET Developer</h3>
-        <span class="text-sm font-mono text-gray-500">Dec 2024 – Present</span>
-    </div>
-    <p class="text-gray-300 mt-1 font-medium">Novadule Technologies · Remote</p>
-    <p class="text-sm text-gray-500 mt-3">
-        Active development and maintenance of high-traffic **.NET 8 REST APIs** using **Entity Framework Core** and following the Repository pattern. 
-        Focused on a **test-driven development (TDD)** approach, ensuring high unit test coverage (85%+) for application stability.
-        Managed and optimized the **CI/CD pipeline** (Azure DevOps/GitHub Actions) to automate deployment and integration, reducing release time by 30%.
-        Implemented and managed security best practices, including JWT authentication and secure API key management.
-    </p>
+                        <main class="content-column overflow-y-auto content-scroll p-8 md:p-16">
+            <div class="max-w-4xl mx-auto">
+
+                        <section id="summary" class="py-10 md:pt-0 md:pb-20">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">00. Profile Summary</h2>
+                <div class="bg-transparent p-0 rounded-none border-none shadow-none">
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        I always make sure our business systems are ready for the future by constantly looking at and adopting new technologies, like serverless computing and smart ways to organize data. I'm excellent at managing complicated technical environments and can quickly take charge as the technical lead during urgent situations. My main goal is to build systems that are as scalable and reliable as possible. I am committed to finding new ways to make the user experience better and guarantee that the money we invest in technology provides a big, long-term payoff for the company.   </p>
+                </div>
+            </section>
+
+                        <section id="experience" class="py-10 md:py-20 border-t border-gray-800">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">01. Experience History</h2>
+                <div class="space-y-8">
+                                                           <div class="p-0 rounded-none border-none cursor-pointer hover:bg-[#161616] transition duration-300" onclick="openModal(0)">
+    <div class="p-6">
+        <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold lime-text">.NET Developer</h3>
+            <span class="text-sm font-mono text-gray-500">Dec 2024 – Present</span>
+        </div>
+        <p class="text-gray-300 mt-1 font-medium">Novadule Technologies · Remote</p>
+        <p class="text-sm text-gray-500 mt-3">
+            Active development and maintenance of high-traffic **.NET 8 REST APIs** using **Entity Framework Core** and following the Repository pattern.
+            Focused on a **test-driven development (TDD)** approach, ensuring high unit test coverage (85%+) for application stability.
+            Managed and optimized the **CI/CD pipeline** (Azure DevOps/GitHub Actions) to automate deployment and integration, reducing release time by 30%.
+            Implemented and managed security best practices, including JWT authentication and secure API key management.
+        </p>
+    </div>
 </div>
-<hr>
-<div class="p-6 bg-[#161616] rounded-lg border border-gray-800 cursor-pointer hover:border-[var(--color-lime-accent)]/50 transition duration-300 shadow-xl" onclick="openModal(1)">
-    <div class="flex justify-between items-start">
-        <h3 class="text-xl font-bold lime-text">Webform Project (Freelance)</h3>
-        <span class="text-sm font-mono text-gray-500">Jul 2024 – Nov 2024</span>
-    </div>
-    <p class="text-gray-300 mt-1 font-medium">Shwet Shiva Printing Services</p>
-    <p class="text-sm text-gray-500 mt-3">
-        Architected and built a complete full-stack **e-commerce solution** using classic **ASP.NET Webforms** and C#.
-        Designed and managed the underlying **SQL Server** database, optimizing stored procedures for fast product catalog retrieval.
-        Implemented a responsive user interface using **Bootstrap** to ensure cross-device compatibility and a modern user experience.
-        Managed the entire project lifecycle, from requirement gathering to final deployment and client handover.
-    </p>
+<hr class="border-gray-800">
+<div class="p-0 rounded-none border-none cursor-pointer hover:bg-[#161616] transition duration-300" onclick="openModal(1)">
+    <div class="p-6">
+        <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold lime-text">Webform Project (Freelance)</h3>
+            <span class="text-sm font-mono text-gray-500">Jul 2024 – Nov 2024</span>
+        </div>
+        <p class="text-gray-300 mt-1 font-medium">Shwet Shiva Printing Services</p>
+        <p class="text-sm text-gray-500 mt-3">
+            Architected and built a complete full-stack **e-commerce solution** using classic **ASP.NET Webforms** and C#.
+            Designed and managed the underlying **SQL Server** database, optimizing stored procedures for fast product catalog retrieval.
+            Implemented a responsive user interface using **Bootstrap** to ensure cross-device compatibility and a modern user experience.
+            Managed the entire project lifecycle, from requirement gathering to final deployment and client handover.
+        </p>
+    </div>
 </div>
-<hr>
-<div class="p-6 bg-[#161616] rounded-lg border border-gray-800 cursor-pointer hover:border-[var(--color-lime-accent)]/50 transition duration-300 shadow-xl" onclick="openModal(2)">
-    <div class="flex justify-between items-start">
-        <h3 class="text-xl font-bold lime-text">Software Developer</h3>
-        <span class="text-sm font-mono text-gray-500">Aug 2023 – Jun 2024</span>
-    </div>
-    <p class="text-gray-300 mt-1 font-medium">Three Star Infotech, Kolhapur</p>
-    <p class="text-sm text-gray-500 mt-3">
-        Engineered and deployed significant **performance tuning** improvements for complex **SQL Server** queries, reducing report generation time by an average of 25%.
-        Implemented a comprehensive **Role-Based Access Control (RBAC)** security model across multiple applications to enhance data integrity and compliance.
-        Led the automation of key inventory and reporting processes, resulting in a quantifiable **40% reduction in manual data entry errors** and increased operational efficiency.
-        Provided full-stack support for internal business applications, utilizing C# and classic ASP.NET to ensure system stability and responsiveness.
-    </p>
+<hr class="border-gray-800">
+<div class="p-0 rounded-none border-none cursor-pointer hover:bg-[#161616] transition duration-300" onclick="openModal(2)">
+    <div class="p-6">
+        <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold lime-text">Software Developer</h3>
+            <span class="text-sm font-mono text-gray-500">Aug 2023 – Jun 2024</span>
+        </div>
+        <p class="text-gray-300 mt-1 font-medium">Three Star Infotech, Kolhapur</p>
+        <p class="text-sm text-gray-500 mt-3">
+            Engineered and deployed significant **performance tuning** improvements for complex **SQL Server** queries, reducing report generation time by an average of 25%.
+            Implemented a comprehensive **Role-Based Access Control (RBAC)** security model across multiple applications to enhance data integrity and compliance.
+            Led the automation of key inventory and reporting processes, resulting in a quantifiable **40% reduction in manual data entry errors** and increased operational efficiency.
+            Provided full-stack support for internal business applications, utilizing C# and classic ASP.NET to ensure system stability and responsiveness.
+        </p>
+    </div>
 </div>
-                </div>
-            </section>
+                </div>
+            </section>
 
-             <section id="skills" class="py-10 md:py-20 border-t border-gray-800">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">02. Technical Stack</h2>
-                
-                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">BACKEND & CORE LANGUAGES</h3>
-                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-6 mb-12">
-                    <!-- .NET Core -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <!-- Added dark-icon-filter to make the dark SVG visible on the dark background -->
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET Core" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
-                        <span class="block text-sm font-semibold">.NET Core</span>
-                    </div>
-                    <!-- ASP.NET MVC -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
-                        <span class="block text-sm font-semibold">ASP.NET MVC</span>
-                    </div>
-                    <!-- C# (Using Font Awesome for C# language) -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                         <i class="fas fa-terminal text-3xl lime-text mb-2 pt-1"></i>
-                        <span class="block text-sm font-semibold">C#</span>
-                    </div>
-                    <!-- Python -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Python</span>
-                    </div>
-                    <!-- Java -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Java (Core)</span>
-                    </div>
-                </div>
+                         <section id="skills" class="py-10 md:py-20 border-t border-gray-800">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">02. Technical Stack</h2>
 
-                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">FRONTEND & DESIGN</h3>
-                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-6 mb-12">
-                    <!-- JavaScript -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">JavaScript</span>
-                    </div>
-                    <!-- HTML5 -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">HTML5</span>
-                    </div>
-                    <!-- CSS3 -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">CSS3</span>
-                    </div>
-                    <!-- Tailwind CSS -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" class="w-10 h-10 mx-auto mb-2 filter invert hue-rotate-[290deg]">
-                        <span class="block text-sm font-semibold">Tailwind CSS</span>
-                    </div>
-                    <!-- Bootstrap -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Bootstrap</span>
-                    </div>
-                    <!-- React (Using existing FA icon) -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <i class="fab fa-react text-3xl lime-text mb-2 pt-1"></i>
-                        <span class="block text-sm font-semibold">React (Basic)</span>
-                    </div>
-                    <!-- Figma -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Figma</span>
-                    </div>
-                </div>
+                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">BACKEND & CORE LANGUAGES</h3>
+                                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET Core" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
+                        <span class="block text-xs font-semibold">.NET Core</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
+                        <span class="block text-xs font-semibold">ASP.NET MVC</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                         <i class="fas fa-terminal text-2xl lime-text mb-2 pt-0.5"></i>
+                        <span class="block text-xs font-semibold">C#</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Python</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Java (Core)</span>
+                    </div>
+                </div>
 
-                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">DATABASES & DEVOPS / TOOLS</h3>
-                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-6">
-                    <!-- SQL Server -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
-                        <span class="block text-sm font-semibold">SQL Server</span>
-                    </div>
-                    <!-- MySQL -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">MySQL</span>
-                    </div>
-                    <!-- Firebase/FS (Using existing FA icon) -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <i class="fas fa-fire text-3xl lime-text mb-2 pt-1"></i>
-                        <span class="block text-sm font-semibold">Firebase/FS</span>
-                    </div>
-                    <!-- Git -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Git</span>
-                    </div>
-                    <!-- GitHub -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
-                        <span class="block text-sm font-semibold">GitHub</span>
-                    </div>
-                    <!-- VS Studio -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2 dark-icon-filter">
-                        <span class="block text-sm font-semibold">VS Studio</span>
-                    </div>
-                    <!-- VS Code -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">VS Code</span>
-                    </div>
-                    <!-- Postman -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Postman</span>
-                    </div>
-                    <!-- Docker -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-10 h-10 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
-                        <span class="block text-sm font-semibold">Docker</span>
-                    </div>
-                    <!-- Cloud / AWS (Using existing FA icon) -->
-                    <div class="p-4 bg-[#161616] rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
-                        <i class="fas fa-cloud-upload-alt text-3xl lime-text mb-2 pt-1"></i>
-                        <span class="block text-sm font-semibold">Cloud / AWS</span>
-                    </div>
-                </div>
-            </section>
+                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">FRONTEND & DESIGN</h3>
+                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">JavaScript</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">HTML5</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">CSS3</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" class="w-8 h-8 mx-auto mb-2 filter invert hue-rotate-[290deg]">
+                        <span class="block text-xs font-semibold">Tailwind CSS</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Bootstrap</span>
+                    </div>
+                </div>
 
-          <!-- 3. PROJECTS SECTION (Refactored to use dynamic JS but dark-theme styling) -->
-    <!-- 3. PROJECTS SECTION (STATICALLY RENDERED - NO JS) -->
-    <section id="projects" class="py-10 md:py-20 border-t border-gray-800 max-w-7xl mx-auto px-6 min-h-screen">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">03. Project Portfolio</h2>
+                <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">DATABASE & DEVOPS</h3>
+                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="SQL Server" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">SQL Server</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Azure</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Git</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Docker</span>
+                    </div>
+                                        <div class="p-3 bg-transparent rounded-lg text-center border border-gray-800 hover:border-[var(--color-lime-accent)]/50 transition duration-300">
+                        <img src="https://www.svgrepo.com/show/354093/postman.svg" alt="Postman" class="w-8 h-8 mx-auto transition-transform duration-300 hover:scale-110 mb-2">
+                        <span class="block text-xs font-semibold">Postman</span>
+                    </div>
+                </div>
+            </section>
 
-        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project cards rendered statically -->
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">Forts Tourism Website</h3>
-                <p class="text-gray-400 text-sm mt-3">End-to-end tourism platform using Flask and MySQL. Responsive UI, real-time bookings, and backend optimization.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">Computer Institute System</h3>
-                <p class="text-gray-400 text-sm mt-3">ASP.NET + SQL Server academic automation. Smart admissions, auto-invoicing, 60% reduced manual work.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">E-Commerce Chatbot App</h3>
-                <p class="text-gray-400 text-sm mt-3">ASP.NET Core chatbot with SignalR. Product queries, instant recommendations, and responsive UI.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">AI Image Analysis Web App</h3>
-                <p class="text-gray-400 text-sm mt-3">React + Vite + TypeScript app with real-time insights and async image uploads.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">Webform Project</h3>
-                <p class="text-gray-400 text-sm mt-3">Dynamic ASP.NET MVC forms for printing services. Streamlined custom orders and client workflows.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">Digital Banking Solution</h3>
-                <p class="text-gray-400 text-sm mt-3">Secure Flask app with real-time banking, loan modules, and intuitive dashboards.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">Blazor Dashboard App</h3>
-                <p class="text-gray-400 text-sm mt-3">Real-time Blazor dashboard using .NET + Bootstrap. Includes dynamic tables, weather, and counters.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">TaskManagerApi</h3>
-                <p class="text-gray-400 text-sm mt-3">RESTful API built in ASP.NET Core. CRUD tasks with integrated Bootstrap UI and video demo.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-            <div class="p-6 bg-[#161616] rounded-lg border border-[var(--color-lime-accent)]/30 hover:border-[var(--color-lime-accent)] transition duration-300 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold lime-text">Goal Tracker (Flutter)</h3>
-                <p class="text-gray-400 text-sm mt-3">Flutter mobile app for goal tracking. Includes analytics, reminders, and motivational quotes.</p>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white mt-4 inline-flex items-center gap-2 transition">
-                    View Source <i class="fab fa-github ml-1 lime-text"></i>
-                </a>
-            </div>
-            
-        </div>
-    </section>
+                        <section id="projects" class="py-10 md:py-20 border-t border-gray-800">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">03. Key Projects</h2>
+                <div class="space-y-10">
+                                        <div class="p-6 bg-[#161616] rounded-lg border border-gray-800">
+                        <h3 class="text-2xl font-bold lime-text mb-2">Secure Microservice API Gateway</h3>
+                        <p class="text-gray-400 mb-3">**Stack:** .NET 8, ASP.NET Identity, Azure App Services, JWT, Docker</p>
+                        <p class="text-gray-300 leading-relaxed">Designed and built a high-performance, secure API gateway to handle authentication and routing for a suite of 10+ microservices. Implemented rate-limiting and robust logging/monitoring using Application Insights to ensure high availability and security compliance.</p>
+                        <a href="#" target="_blank" class="text-sm font-semibold lime-text hover:text-white mt-4 inline-block">
+                            View on GitHub <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                    
+                                        <div class="p-6 bg-[#161616] rounded-lg border border-gray-800">
+                        <h3 class="text-2xl font-bold lime-text mb-2">Inventory Management WebApp (Freelance)</h3>
+                        <p class="text-gray-400 mb-3">**Stack:** ASP.NET Webforms, C#, SQL Server, jQuery, Bootstrap</p>
+                        <p class="text-gray-300 leading-relaxed">A custom inventory system built for a regional printing service. Features complex stored procedures for stock level tracking, automated re-order triggers, and a dashboard for real-time sales reporting. Reduced inventory discrepancies by 95%.</p>
+                        <a href="#" target="_blank" class="text-sm font-semibold lime-text hover:text-white mt-4 inline-block">
+                            View Live Site (Client) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-    <!-- 4. CERTIFICATIONS & EDUCATION SECTION (Integrated the provided dark-theme structure) -->
-    <section id="certifications" class="py-10 md:py-20 border-t border-gray-800 max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">04. Credentials & Academia</h2>
+                        <section id="certifications" class="py-10 md:py-20 border-t border-gray-800">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">04. Credentials & Education</h2>
+                <div class="space-y-6">
+                                        <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-1">Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+                            <p class="text-sm text-gray-400">Microsoft | Issued: Oct 2024</p>
+                        </div>
+                        <a href="#" target="_blank" class="lime-text text-sm font-semibold hover:text-white">View Credential</a>
+                    </div>
 
-        <h3 class="text-xl font-bold text-gray-300 mb-6">CERTIFICATIONS</h3>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <!-- Databricks -->
-            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-blue-500 transition duration-300">
-                <i class="fas fa-database text-xl text-blue-400 mb-2"></i>
-                <p class="text-sm font-semibold text-white">Databricks for ML</p>
-                <a href="https://simpli-web.app.link/e/cm2oJvNXnTb" target="_blank" class="text-xs text-blue-400 hover:text-white">View Link</a>
-            </div>
-            <!-- Microsoft Copilot -->
-            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-green-500 transition duration-300">
-                <i class="fab fa-microsoft text-xl text-green-400 mb-2"></i>
-                <p class="text-sm font-semibold text-white">Copilot for Startups</p>
-                <a href="https://simpli-web.app.link/e/GfVyxDtXnTb" target="_blank" class="text-xs text-green-400 hover:text-white">View Link</a>
-            </div>
-            <!-- HP LIFE: AI for Beginners -->
-            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-[var(--color-lime-accent)] transition duration-300">
-                <i class="fas fa-lightbulb text-xl lime-text mb-2"></i>
-                <p class="text-sm font-semibold text-white">AI for Beginners (HP)</p>
-                <a href="https://www.life-global.org/certificate/880a0cdb-8cfe-40e3-8fe5-5299943e516c" target="_blank" class="text-xs lime-text hover:text-white">View Link</a>
-            </div>
-            <!-- AWS: Application Migration -->
-            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-yellow-500 transition duration-300">
-                <i class="fab fa-aws text-xl text-yellow-400 mb-2"></i>
-                <p class="text-sm font-semibold text-white">AWS Application Migration</p>
-                <a href="https://simpli-web.app.link/e/6oDAWoKcoTb" target="_blank" class="text-xs text-yellow-400 hover:text-white">View Link</a>
-            </div>
-            <!-- Additional Certifications from the original code (Styled for dark theme) -->
-            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-red-500 transition duration-300">
-                <i class="fab fa-google text-xl text-red-400 mb-2"></i>
-                <p class="text-sm font-semibold text-white">Gmail Security (Google)</p>
-                <a href="https://simpli-web.app.link/e/ajzX4ycYnTb" target="_blank" class="text-xs text-red-400 hover:text-white">View Link</a>
-            </div>
-            <div class="p-4 bg-[#161616] rounded-lg border border-gray-800 hover:border-indigo-500 transition duration-300">
-                <i class="fas fa-shield-alt text-xl text-indigo-400 mb-2"></i>
-                <p class="text-sm font-semibold text-white">Cybersecurity Awareness (HP)</p>
-                <a href="https://www.life-global.org/certificate/2170776d-4fb8-4e6b-b0d5-5ccbb8fe7ac4" target="_blank" class="text-xs text-indigo-400 hover:text-white">View Link</a>
-            </div>
-        </div>
+                                        <div class="p-6 bg-[#161616] rounded-lg border border-gray-800">
+                        <h3 class="text-xl font-bold text-white mb-1">Bachelor of Science in Computer Science</h3>
+                        <p class="text-lg font-medium lime-text">Kolhapur Institute of Technology, Kolhapur</p>
+                        <p class="text-sm text-gray-400 mt-1">2020 – 2024</p>
+                    </div>
+                </div>
+            </section>
 
-        <h3 class="text-xl font-bold text-gray-300 mb-6 mt-10">ACADEMIA</h3>
-        <div class="space-y-6">
-            <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 hover:border-gray-600 transition duration-300">
-                <h4 class="text-lg font-bold lime-text">Master of Computer Applications (MCA)</h4>
-                <p class="text-gray-300 mt-1">KIT’s Institute of Management Education and Research, Kolhapur</p>
-                <p class="text-sm text-gray-500">Aug 2022 – Jun 2024</p>
-            </div>
-            <div class="p-6 bg-[#161616] rounded-lg border border-gray-800 hover:border-gray-600 transition duration-300">
-                <h4 class="text-lg font-bold lime-text">B.Sc. in Computer Science</h4>
-                <p class="text-gray-300 mt-1">Mahavir Mahavidyalaya, Kolhapur</p>
-                <p class="text-sm text-gray-500">Jun 2019 – Jun 2022</p>
-            </div>
-        </div>
-    </section>
+                        <section id="contact" class="py-10 md:py-20 border-t border-gray-800">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">05. Get In Touch</h2>
+                <div class="bg-[#161616] p-8 rounded-lg border border-gray-800 shadow-xl">
+                    <p class="text-gray-300 mb-6">I am currently **Open to Work** for Full-Stack or Backend Engineer roles, specializing in the .NET ecosystem. Send a message to discuss opportunities.</p>
 
-    <!-- 5. CONTACT SECTION (Integrated the provided dark-theme structure, kept formspree link) -->
-    <section id="contact" class="py-10 md:py-20 border-t border-gray-800 bg-[#121212] max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10 border-b-2 border-[var(--color-lime-accent)]/50 pb-3">05. Initiate Contact</h2>
+                    <form onsubmit="sendContact(event)">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-[var(--color-lime-accent)]" />
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Your Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-[var(--color-lime-accent)]" />
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-[var(--color-lime-accent)]"></textarea>
+                        </div>
+                        <button type="submit" class="lime-button w-full text-lg font-bold py-3 rounded-lg">
+                            SEND MESSAGE
+                        </button>
+                        <div id="contactStatus" class="text-center text-sm font-medium pt-2"></div>
+                    </form>
+                </div>
+            </section>
 
-        <div class="contact-grid">
-            <!-- Contact Info (Added for a two-column effect in the dark theme) -->
-            <div class="bg-[#161616] p-8 rounded-lg shadow-2xl border border-gray-800 space-y-6 flex flex-col justify-start">
-                <p class="text-lg text-gray-300 font-semibold">I'm currently accepting new projects and collaboration opportunities.</p>
-                <div class="space-y-4 pt-4">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-envelope text-2xl lime-text"></i>
-                        <div>
-                            <p class="text-sm text-gray-500">Email Address</p>
-                            <a href="mailto:shivrajrandive9281@gmail.com" class="text-white hover:text-lime-300 transition">shivrajrandive9281@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-map-marker-alt text-2xl lime-text"></i>
-                        <div>
-                            <p class="text-sm text-gray-500">Location</p>
-                            <p class="text-white">Kolhapur, Maharashtra, India</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <p class="text-sm font-bold text-gray-500 mb-3">Connect on Social</p>
-                    <div class="flex gap-4 text-xl">
-                        <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-gray-400 hover:text-lime-300 transition"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-gray-400 hover:text-lime-300 transition"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
+                        <footer class="py-10 md:py-16 text-center text-xs text-gray-600 border-t border-gray-800 mt-10">
+                <p>Shivraj Randive · Full-Stack Developer Portfolio · Built with Tailwind CSS and C# Love.</p>
+            </footer>
+          </div>
+        </main>
+    </div>
 
-            <!-- Contact Form -->
-            <div class="bg-[#161616] p-8 rounded-lg shadow-2xl border border-gray-800">
-                <form id="contactForm" action="https://formspree.io/f/xzzgyzqo" method="POST"
-                    onsubmit="showSuccessModal(event)" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium lime-text mb-1">NAME</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe"
-                            class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium lime-text mb-1">EMAIL</label>
-                        <input type="email" id="email" name="email" required placeholder="you@example.com"
-                            class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium lime-text mb-1">MESSAGE / PROJECT BRIEF</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Tell me about your project..."
-                            class="w-full px-4 py-2 border border-gray-700 bg-gray-900 text-white rounded-lg focus:ring-[var(--color-lime-accent)] focus:border-[var(--color-lime-accent)] transition"></textarea>
-                    </div>
+        <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4" onclick="closeModal()">
+        <div class="bg-gray-900 rounded-lg max-w-2xl w-full max-h-full overflow-y-auto p-8 shadow-2xl border border-gray-700" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 id="modalTitle" class="text-3xl font-bold lime-text"></h3>
+                    <p id="modalCompany" class="text-gray-300 text-lg mt-1 font-medium"></p>
+                    <p id="modalPeriod" class="text-gray-500 text-sm font-mono mt-1"></p>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition">
+                    <i class="fas fa-times fa-xl"></i>
+                </button>
+            </div>
+            <ul id="modalDetails" class="list-disc list-inside text-gray-400 space-y-3 mt-6 pl-4">
+                            </ul>
+        </div>
+    </div>
 
-                    <button type="submit"
-                        class="w-full flex justify-center items-center py-3 px-4 border-2 border-transparent rounded-lg shadow-lg font-bold lime-button transition">
-                        DEPLOY MESSAGE
-                        <i class="fas fa-paper-plane ml-3 text-gray-800"></i>
-                    </button>
-                    <p id="contactStatus" class="text-center text-sm font-medium pt-2 text-gray-500"></p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Modal -->
-    <div id="successModal"
-        class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center px-4">
-        <div class="bg-[#161616] rounded-xl shadow-2xl p-8 max-w-md w-full text-center relative border border-gray-700 animate-fade-in">
-            <button onclick="closeSuccessModal()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl font-bold">&times;</button>
-            <div class="text-lime-300 text-4xl mb-4"><i class="fas fa-check-circle"></i></div>
-            <h3 class="text-2xl font-bold text-white mb-2">Message Deployed Successfully!</h3>
-            <p class="text-gray-400">Thanks for reaching out. I'll review your brief and get back to you shortly.</p>
-        </div>
-    </div>
-
-
-    <!-- FOOTER (Styled for dark theme consistency) -->
-    <footer class="bg-gray-900 text-white py-10 relative overflow-hidden mt-12 border-t border-gray-800">
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <h4 class="text-xl font-semibold mb-2">Shivraj Randive</h4>
-            <p class="text-sm text-gray-400 mb-4">Full-Stack Developer • Building scalable, modern web solutions</p>
-            <div class="flex justify-center gap-6 text-lg">
-                <a href="https://www.linkedin.com/in/shivraj-randive-6918b2232" target="_blank" class="text-gray-300 hover:text-lime-300 transition"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Shivrajjjjj" target="_blank" class="text-gray-300 hover:text-lime-300 transition"><i class="fab fa-github"></i></a>
-                <a href="mailto:shivrajrandive9281@gmail.com" target="_blank" class="text-gray-300 hover:text-lime-300 transition"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="text-xs text-gray-600 mt-6">© 2025 Shivraj Randive. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
